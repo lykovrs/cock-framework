@@ -1,0 +1,199 @@
+// миксина цветов состояний кнопки
+// (default, hover, active, disable)
+@import "../../environments/variables";
+@import "../../environments/flexiblegs-scss";
+$grid: 32px;
+
+@mixin hover-animation {
+	transition: background 0.3s ease 0s,
+				border 0.3s ease 0s;
+}
+
+@mixin button(
+	$text-color, $background, $border-color,
+	$text-color-hover, $background-hover, $border-color-hover,
+	$text-color-active, $background-active, $border-color-active,
+	$text-color-disable, $background-disable, $border-color-disable
+) {
+	&, &:focus {
+		background-color: $background;
+		border-color: $border-color;
+		color: $text-color;
+	}
+	&:hover {
+		background-color: $background-hover;
+		border-color: $border-color-hover;
+		color: $text-color-hover;
+	}
+	&:active,
+	&.button_state_active {
+		background-color: $background-active;
+		border-color: $border-color-active;
+		color: $text-color-active;
+	}
+	&[disabled],
+	fieldset[disabled] &,
+	&.button_state_disabled {
+		background-color: $background-disable;
+		border-color: $border-color-disable;
+		color: $text-color-disable;
+	}
+}
+
+/* Базовый стиль (start) */
+.button {
+	@include button(
+					$gray-fa, $color-basic-75-60, $color-basic-75-60,
+					$gray-fa, $color-basic-75-70, $color-basic-75-70,
+					$gray-fa, $color-basic-75-50, $color-basic-75-50,
+					rgba($gray-fa, .5), rgba($color-basic-75-60, .5), rgba($color-basic-75-60, .0)
+	);
+
+	@include wrap;
+	@include wrap('normal');
+	@include wrap('middle');
+        @include wrap('center');
+	border-style: solid;
+	border-width: 1px;
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 0;
+	min-height: $grid;
+	min-width: $grid;
+	padding: 0;
+	position: relative;
+	width: auto;
+	&,
+	&:focus {
+		@include hover-animation();
+		background-image: none;
+		text-decoration: none;
+		touch-action: manipulation;
+	}
+	&:hover {
+		cursor: pointer !important;
+		text-decoration: none;
+	}
+
+	&:active,
+	&.button_state_active {
+		cursor: pointer !important;
+		outline: 0;
+	}
+
+	&.button_state_disabled,
+	&[disabled],
+	&[disabled]:hover,
+	fieldset[disabled] & {
+		cursor: default;
+		pointer-events: none;
+	}
+
+  & span {
+    font-size: 13px;
+    line-height: 13px;
+    padding: 0 $grid;
+  }
+
+  & span, & .icon {
+    cursor: pointer !important;
+  }
+
+	.icon {
+		width: $grid;
+
+		&:first-child {
+			margin-left: -1px;
+		}
+
+		&:first-child {
+			margin-right: -1px;
+		}
+	}
+
+	span + .icon {
+		margin-left: -$grid;
+		margin-right: -1px;
+	}
+
+	.icon + span {
+		padding-left: 0;
+	}
+
+}
+
+/* Базовый стиль (end) */
+
+/* Модификаторы (start) */
+
+.button_type_dark {
+	@include button(
+					$gray-fa, $color-basic-75-40, $color-basic-75-40,
+					$gray-fa, $color-basic-50-50, $color-basic-50-50,
+					$gray-fa, $color-basic-50-20, $color-basic-50-20,
+					rgba($gray-fa, .5), rgba($color-basic-75-40, .5), rgba($color-basic-75-40, .0)
+	);
+}
+
+.button_type_red {
+	@include button(
+					$gray-fa, $color-danger-60-90, $color-danger-60-90,
+					$gray-fa, $color-danger-60-100, $color-danger-60-100,
+					$gray-fa, $color-danger-60-75, $color-danger-60-75,
+					rgba($gray-fa, .5), rgba($color-danger-60-90, .5), rgba($color-danger-60-90, .0)
+	);
+}
+
+.button_type_bright {
+	@include button(
+					$gray-6, $gray-f4, $gray-c,
+					$gray-5, $gray-e, $gray-b,
+					$gray-4, $gray-e, $gray-b,
+					rgba($gray-6, .5), rgba($gray-f4, .5), rgba($gray-c, .5)
+	);
+}
+
+.button_type_dark-bright {
+	@include button(
+					$gray-6, $gray-d, $gray-8,
+					$gray-4, $gray-e, $gray-8,
+					$gray-3, $gray-b, $gray-8,
+					rgba($gray-6, .5), rgba($gray-d, .5), rgba($gray-8, .5)
+	);
+}
+
+.button_type_contur-bright {
+	@include button(
+					$gray-8, transparent, $gray-c,
+					$gray-6, transparent, $gray-a,
+					$gray-4, transparent, $gray-8,
+					rgba($gray-b, .5), transparent, rgba($gray-c, .5)
+	);
+}
+
+.button_type_contur-dark {
+	@include button(
+					$gray-6, transparent, $gray-8,
+					$gray-4, transparent, $gray-6,
+					$gray-3, transparent, $gray-4,
+					rgba($gray-6, .5), transparent, rgba($gray-8, .5)
+	);
+}
+
+.button_type_transparent {
+	@include button(
+					$gray-6, transparent, transparent,
+					$gray-4, transparent, transparent,
+					$gray-3, transparent, transparent,
+					rgba($gray-6, .5), transparent, transparent
+	);
+}
+
+// кнопка подстраивается под ширину родительского контейнера
+.button_width_max {
+	&, &:focus {
+		width: 100%;
+	}
+}
+
+/* Модификаторы (end) */
