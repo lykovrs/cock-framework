@@ -1,15 +1,38 @@
-<div class="">
-  <h1>
+<h1>
     {{title}}
-  </h1>
+</h1>
 
-  <p>
-    <app-button>
-      Кнопка
-    </app-button>
+<p>
+  <span ngbTooltip="Tooltip on bottom"  cock-button>
+    text
+  </span>
+</p>
 
-    <!-- <kpi-button ng-disabled="true">
-            Кнопка
-        </kpi-button> -->
-  </p>
-</div>
+<p>
+  <span cock-button>
+      <i cock-icon left-icons name="delete"></i>
+       text
+      <i cock-icon right-icons name="indicator"></i>
+  </span>
+</p>
+
+<p>
+  <span cock-button mod="contur-bright">
+      <i cock-icon left-icons name="delete"></i>
+      <i cock-icon left-icons name="delete"></i>
+      text
+      <i cock-icon right-icons name="indicator"></i>
+  </span>
+
+
+</p>
+
+  <ngb-datepicker>  </ngb-datepicker>
+
+  <!-- <ngb-datepicker>  </ngb-datepicker> -->
+  <!-- <ngb-input-datepicker><ngb-input-datepicker> -->
+
+<button type="button" class="btn btn-secondary" placement="bottom" >
+  Tooltip on bottom
+</button>
+<!-- <input type="text" name="" value="" > -->

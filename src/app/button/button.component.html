@@ -1,5 +1,11 @@
-<button class="button" type="button" name="button">
-  <span>
-    <ng-content></ng-content>
-  </span>
+<button [class] = "mod">
+    <div class="left-icons">
+        <ng-content select="[left-icons]"></ng-content>
+    </div>
+    <div class="text">
+      <ng-content></ng-content>
+    </div>
+    <div class="right-icons">
+      <ng-content select="[right-icons]"></ng-content>
+    </div>
 </button>
