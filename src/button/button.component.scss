@@ -1,7 +1,7 @@
 // миксина цветов состояний кнопки
 // (default, hover, active, disable)
-@import "../../environments/variables";
-@import "../../environments/flexiblegs-scss";
+@import "../environments/variables";
+@import "../environments/flexiblegs-scss";
 
 $grid: 32px;
 @mixin hover-animation {

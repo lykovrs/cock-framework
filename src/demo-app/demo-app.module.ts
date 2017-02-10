@@ -4,18 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
-import { buttonComponent } from './button/button.component';
-import { IconComponent } from './icon/icon.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
+import { DemoAppComponent } from './demo-app.component';
+import { buttonComponent } from '../button/button.component';
+import { IconComponent } from '../icon/icon.component';
+import { DatepickerComponent } from '../datepicker/datepicker.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    DemoAppComponent,
     buttonComponent,
     IconComponent,
     DatepickerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,6 +25,6 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     NgbModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [DemoAppComponent]
 })
-export class AppModule { }
+export class DemoAppModule { }
