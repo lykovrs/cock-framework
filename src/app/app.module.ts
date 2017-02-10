@@ -15,12 +15,12 @@ import { DemoIconComponent } from './demo-icon/demo-icon.component';
 import { ComponentListComponent } from './component-list/component-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/demo-app/component-list', pathMatch: 'full' },
-  { path: 'demo-app',  component: DemoAppComponent },
-  { path: 'demo-app/component-list',  component: ComponentListComponent },
-  { path: 'demo-app/button',  component: DemoButtonComponent },
-  { path: 'demo-app/datepicker',  component: DemoDatepickerComponent },
-  { path: 'demo-app/icon',  component: DemoIconComponent },
+
+  { path: 'component-list',  component: ComponentListComponent },
+  { path: 'button',  component: DemoButtonComponent },
+  { path: 'datepicker',  component: DemoDatepickerComponent },
+  { path: 'icon',  component: DemoIconComponent },
+  { path: '', redirectTo: 'component-list', pathMatch: 'full' },
 ];
 
 @NgModule({

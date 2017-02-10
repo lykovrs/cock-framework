@@ -3,11 +3,29 @@
 @import "../environments/variables";
 @import "../environments/flexiblegs-scss";
 
-$grid: 32px;
 @mixin hover-animation {
 	transition: background 0.3s ease 0s, border 0.3s ease 0s;
 }
-@mixin button( $text-color, $background, $border-color, $text-color-hover, $background-hover, $border-color-hover, $text-color-active, $background-active, $border-color-active, $text-color-disable, $background-disable, $border-color-disable ) {
+
+$button-height: 40px; // Высота кнопки
+$button-min-width: 40px; // Минимальная ширина кнопки
+
+// Дефолтное состояние
+$default-text-color: #fff;
+$default-background: #269999;
+$default-border-color: #269999;
+// При наведении
+$default-text-color-hover: #fff;
+$default-background-hover: #2DB3B3;
+$default-border-color-hover: #2DB3B3;
+// Активное состояние
+$default-text-color-active: #fff;
+$default-background-active: #196666;
+$default-border-color-active: #196666;
+
+
+
+@mixin button( $text-color, $background, $border-color, $text-color-hover, $background-hover, $border-color-hover, $text-color-active, $background-active, $border-color-active) {
 	&,
 	&:focus {
 		background-color: $background;
@@ -31,24 +49,23 @@ $grid: 32px;
 	&.button_state_disabled,
 	&[disabled],
 	fieldset[disabled] & {
-		background-color: $background-disable;
-		border-color: $border-color-disable;
-		color: $text-color-disable;
+		background-color: rgba($background, .5);
+		border-color: rgba($border-color, .5);
+		color: rgba($text-color, .5);
 	}
 }
 /* Базовый стиль (start) */
 button {
-	@include button( $gray-fa, $color-basic-75-60, $color-basic-75-60, $gray-fa, $color-basic-75-70, $color-basic-75-70, $gray-fa, $color-basic-75-50, $color-basic-75-50, rgba($gray-fa, .5), rgba($color-basic-75-60, .5), rgba($color-basic-75-60, .0) );
+	@include button($default-text-color, $default-background, $default-border-color, $default-text-color-hover, $default-background-hover, $default-border-color-hover, $default-text-color-active, $default-background-active, $default-border-color-active);
 	@include wrap;
 	@include wrap( 'table');
 	@include wrap( 'middle');
 	@include wrap( 'center');
 	border-style: solid;
 	box-sizing: border-box;
-	min-height: $grid;
-	min-width: $grid;
+	height: $button-height;
+	min-width: $button-min-width;
 	padding: 0;
-
 	position: relative;
 	width: auto;
 
@@ -58,6 +75,11 @@ button {
 			min-width: 32px;
 	}
 
+	.text {
+		@include col;
+			padding: 0 8px;
+			min-width: 40px;
+	}
 
 	&,
 	&:focus {
@@ -72,12 +94,6 @@ button {
 		text-decoration: none;
 	}
 
-	&.button_state_active,
-	&:active {
-		cursor: pointer !important;
-		outline: 0;
-	}
-
 	&.button_state_disabled,
 	&[disabled],
 	&[disabled]:hover,
@@ -87,71 +103,45 @@ button {
 	}
 
 	& .text {
-		font-size: 13px;
-		line-height: 13px;
-		// padding: 0 $grid;
+		font-size: 14px;
+		line-height: 14px;
+		font-weight: 600;
 	}
-
-	// & .icon,
-	// & span {
-	// 	cursor: pointer !important;
-	// }
-	//
-	// .icon {
-	// 	width: $grid;
-	//
-	// 	&:first-child {
-	// 		margin-left: -1px;
-	// 	}
-	//
-	// 	&:first-child {
-	// 		margin-right: -1px;
-	// 	}
-	// }
-	//
-	// span + .icon {
-	// 	margin-left: -$grid;
-	// 	margin-right: -1px;
-	// }
-	//
-	// .icon + span {
-	// 	padding-left: 0;
-	// }
 }
 /* Базовый стиль (end) */
 /* Модификаторы (start) */
-.dark {
-	@include button( $gray-fa, $color-basic-75-40, $color-basic-75-40, $gray-fa, $color-basic-50-50, $color-basic-50-50, $gray-fa, $color-basic-50-20, $color-basic-50-20, rgba($gray-fa, .5), rgba($color-basic-75-40, .5), rgba($color-basic-75-40, .0) );
+
+// Контурная кнопка
+$contour-text-color: #269999;
+$contour-background: #fff;
+$contour-border-color: #269999;
+// При наведении
+$contour-text-color-hover: #2DB3B3;
+$contour-background-hover: #fff;
+$contour-border-color-hover: #2DB3B3;
+// Активное состояние
+$contour-text-color-active: #196666;
+$contour-background-active: #fff;
+$contour-border-color-active: #196666;
+
+.contour {
+	@include button($contour-text-color, $contour-background, $contour-border-color, $contour-text-color-hover, $contour-background-hover, $contour-border-color-hover, $contour-text-color-active, $contour-background-active, $contour-border-color-active);
 }
 
-.red {
-	@include button( $gray-fa, $color-danger-60-90, $color-danger-60-90, $gray-fa, $color-danger-60-100, $color-danger-60-100, $gray-fa, $color-danger-60-75, $color-danger-60-75, rgba($gray-fa, .5), rgba($color-danger-60-90, .5), rgba($color-danger-60-90, .0) );
-}
+// Предупреждающая кнопка
+$warning-text-color: #E65C5C;
+$warning-background: #fff;
+$warning-border-color: #E65C5C;
+// При наведении
+$warning-text-color-hover: #FF6666;
+$warning-background-hover: #fff;
+$warning-border-color-hover: #FF6666;
+// Активное состояние
+$warning-text-color-active: #BF4D4D;
+$warning-background-active: #fff;
+$warning-border-color-active: #BF4D4D;
 
-.bright {
-	@include button( $gray-6, $gray-f4, $gray-c, $gray-5, $gray-e, $gray-b, $gray-4, $gray-e, $gray-b, rgba($gray-6, .5), rgba($gray-f4, .5), rgba($gray-c, .5) );
-}
-
-.dark-bright {
-	@include button( $gray-6, $gray-d, $gray-8, $gray-4, $gray-e, $gray-8, $gray-3, $gray-b, $gray-8, rgba($gray-6, .5), rgba($gray-d, .5), rgba($gray-8, .5) );
-}
-
-.contur-bright {
-	@include button( $gray-8, transparent, $gray-c, $gray-6, transparent, $gray-a, $gray-4, transparent, $gray-8, rgba($gray-b, .5), transparent, rgba($gray-c, .5) );
-}
-
-.contur-dark {
-	@include button( $gray-6, transparent, $gray-8, $gray-4, transparent, $gray-6, $gray-3, transparent, $gray-4, rgba($gray-6, .5), transparent, rgba($gray-8, .5) );
-}
-
-.transparent {
-	@include button( $gray-6, transparent, transparent, $gray-4, transparent, transparent, $gray-3, transparent, transparent, rgba($gray-6, .5), transparent, transparent );
-}
-// кнопка подстраивается под ширину родительского контейнера
-.max {
-	&,
-	&:focus {
-		width: 100%;
-	}
+.warning {
+	@include button($warning-text-color, $warning-background, $warning-border-color, $warning-text-color-hover, $warning-background-hover, $warning-border-color-hover, $warning-text-color-active, $warning-background-active, $warning-border-color-active);
 }
 /* Модификаторы (end) */
