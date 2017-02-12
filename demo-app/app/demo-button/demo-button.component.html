@@ -3,19 +3,19 @@
   demo-button works!
 </p>
 <p>
-  <cock-button [disabled]="true" (click)="clickMe($event)">
+  <cock-button [disabled]="true" (clickButton) = "clickMe($event)">
     Кнопка
   </cock-button>
 </p>
 
 <p>
-  <cock-button (click)="clickMe($event)">
+  <cock-button (clickButton) = "clickMe($event)">
        Кнопка
   </cock-button>
 </p>
 
 <p>
-  <cock-button mod="contour" (click)="clickMe($event)">
+  <cock-button mod="contour" (clickButton) = "clickMe($event)">
     <svg-icon before
               src="svg/delete.svg"
               style="fill:blue;"></svg-icon>
@@ -29,7 +29,7 @@
 </p>
 
 <p>
-  <cock-button mod="warning" (click)="clickMe($event)">
+  <cock-button mod="warning" (clickButton) = "clickMe($event)">
     <svg-icon
               src="svg/delete.svg"
               style="fill:blue;"></svg-icon>
