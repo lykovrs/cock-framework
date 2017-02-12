@@ -107,6 +107,10 @@ button {
 		line-height: 22px;
 		font-weight: 600;
 	}
+
+	& .left-icons, & .right-icons {
+		font-size: 0;
+	}
 }
 /* Базовый стиль (end) */
 /* Модификаторы (start) */
