@@ -9,19 +9,20 @@
 
 $button-height: 40px; // Высота кнопки
 $button-min-width: 40px; // Минимальная ширина кнопки
+$button-grid: 8px;
 
 // Дефолтное состояние
-$default-text-color: #fff;
-$default-background: #269999;
-$default-border-color: #269999;
+$default-text-color: #fff !default;
+$default-background: #269999 !default;
+$default-border-color: #269999 !default;
 // При наведении
-$default-text-color-hover: #fff;
-$default-background-hover: #2DB3B3;
-$default-border-color-hover: #2DB3B3;
+$default-text-color-hover: #fff !default;
+$default-background-hover: #2DB3B3 !default;
+$default-border-color-hover: #2DB3B3 !default;
 // Активное состояние
-$default-text-color-active: #fff;
-$default-background-active: #196666;
-$default-border-color-active: #196666;
+$default-text-color-active: #fff !default;
+$default-background-active: #196666 !default;
+$default-border-color-active: #196666 !default;
 
 
 
@@ -68,17 +69,16 @@ button {
 	padding: 0;
 	position: relative;
 	width: auto;
-
-
+	
 	& > * {
 			@include col;
-			min-width: 32px;
+			min-width: $button-grid * 4;
 	}
 
 	.text {
 		@include col;
-			padding: 0 8px;
-			min-width: 40px;
+			padding: 0 $button-grid;
+			min-width: $button-min-width;
 	}
 
 	&,
@@ -112,34 +112,34 @@ button {
 /* Модификаторы (start) */
 
 // Контурная кнопка
-$contour-text-color: #269999;
-$contour-background: #fff;
-$contour-border-color: #269999;
+$contour-text-color: #269999 !default;
+$contour-background: #fff !default;
+$contour-border-color: #269999 !default;
 // При наведении
-$contour-text-color-hover: #2DB3B3;
+$contour-text-color-hover: #2DB3B3 !default;
 $contour-background-hover: #fff;
-$contour-border-color-hover: #2DB3B3;
+$contour-border-color-hover: #2DB3B3 !default;
 // Активное состояние
-$contour-text-color-active: #196666;
-$contour-background-active: #fff;
-$contour-border-color-active: #196666;
+$contour-text-color-active: #196666 !default;
+$contour-background-active: #fff !default;
+$contour-border-color-active: #196666 !default;
 
 .contour {
 	@include button($contour-text-color, $contour-background, $contour-border-color, $contour-text-color-hover, $contour-background-hover, $contour-border-color-hover, $contour-text-color-active, $contour-background-active, $contour-border-color-active);
 }
 
 // Предупреждающая кнопка
-$warning-text-color: #E65C5C;
-$warning-background: #fff;
-$warning-border-color: #E65C5C;
+$warning-text-color: #E65C5C !default;
+$warning-background: #fff !default;
+$warning-border-color: #E65C5C !default;
 // При наведении
-$warning-text-color-hover: #FF6666;
-$warning-background-hover: #fff;
-$warning-border-color-hover: #FF6666;
+$warning-text-color-hover: #FF6666 !default;
+$warning-background-hover: #fff !default;
+$warning-border-color-hover: #FF6666 !default;
 // Активное состояние
-$warning-text-color-active: #BF4D4D;
-$warning-background-active: #fff;
-$warning-border-color-active: #BF4D4D;
+$warning-text-color-active: #BF4D4D !default;
+$warning-background-active: #fff !default;
+$warning-border-color-active: #BF4D4D !default;
 
 .warning {
 	@include button($warning-text-color, $warning-background, $warning-border-color, $warning-text-color-hover, $warning-background-hover, $warning-border-color-hover, $warning-text-color-active, $warning-background-active, $warning-border-color-active);

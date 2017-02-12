@@ -1,11 +1,11 @@
-<button [class] = "mod">
+<button (click)="onClickMe()" [disabled]="disabled" [class] = "mod">
     <div class="left-icons">
-        <ng-content select="[left-icons]"></ng-content>
+        <ng-content select="[before]"></ng-content>
     </div>
     <div class="text">
       <ng-content></ng-content>
     </div>
-    <div class="right-icons">
-      <ng-content select="[right-icons]"></ng-content>
+    <div class="right-icons" >
+      <ng-content select="[after]"></ng-content>
     </div>
 </button>

@@ -1,0 +1,45 @@
+<p>Click count: {{clickCounter}}, target: {{target}}</p>
+<p>
+  demo-button works!
+</p>
+<p>
+  <cock-button [disabled]="true" (click)="clickMe($event)">
+    Кнопка
+  </cock-button>
+</p>
+
+<p>
+  <cock-button (click)="clickMe($event)">
+       Кнопка
+  </cock-button>
+</p>
+
+<p>
+  <cock-button mod="contour" (click)="clickMe($event)">
+    <svg-icon before
+              src="svg/delete.svg"
+              style="fill:blue;"></svg-icon>
+
+    Кнопка
+
+    <svg-icon after
+              src="svg/top.svg"
+              style="fill:blue;"></svg-icon>
+  </cock-button>
+</p>
+
+<p>
+  <cock-button mod="warning" (click)="clickMe($event)">
+    <svg-icon
+              src="svg/delete.svg"
+              style="fill:blue;"></svg-icon>
+    </cock-button>
+</p>
+<!--
+<p>
+  <span cock-button mod="warning">
+    <i cock-icon left-icons name="delete"></i>
+    Кнопка
+    <i cock-icon right-icons name="indicator"></i>
+</span>-->
+<!-- </p>  -->
