@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
-import { CockComponentsModule } from '../../src/cock-components.module';
+import { CockComponentsModule } from '../../ui-kit/cock-components.module';
 
 import { AppComponent } from './app.component';
 import { ComponentListComponent } from './component-list/component-list.component';
@@ -19,7 +19,7 @@ import { DemoDatepickerComponent } from './demo-datepicker/demo-datepicker.compo
     DemoButtonComponent,
     DemoIconComponent,
     DemoDatepickerComponent,
-  
+
   ],
   imports: [
     BrowserModule,
