@@ -11,6 +11,7 @@ import { DemoButtonComponent } from './demo-button/demo-button.component';
 import { DemoIconComponent } from './demo-icon/demo-icon.component';
 import { DemoDatepickerComponent } from './demo-datepicker/demo-datepicker.component';
 import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
+import { DemoInputComponent } from './demo-input/demo-input.component';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
     DemoIconComponent,
     DemoDatepickerComponent,
     DemoCheckboxComponent,
+    DemoInputComponent,
+    DemoInputComponent,
 
   ],
   imports: [

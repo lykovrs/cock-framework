@@ -5,6 +5,7 @@ import { DemoButtonComponent } from './demo-button/demo-button.component';
 import { DemoIconComponent } from './demo-icon/demo-icon.component';
 import { DemoDatepickerComponent } from './demo-datepicker/demo-datepicker.component';
 import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
+import { DemoInputComponent } from './demo-input/demo-input.component';
 
 const routes: Routes = [
   { path: 'component-list',  component: ComponentListComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'datepicker',  component: DemoDatepickerComponent },
   { path: 'icon',  component: DemoIconComponent },
   { path: 'checkbox', component: DemoCheckboxComponent },
+  { path: 'input', component: DemoInputComponent },
   { path: '', redirectTo: 'component-list', pathMatch: 'full' },
 ];
 
