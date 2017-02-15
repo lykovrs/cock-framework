@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cock-datepicker',
-  templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.scss']
+  selector: 'sc-datepicker',
+  templateUrl: './sc-datepicker.component.html',
+  styleUrls: ['./sc-datepicker.component.scss']
 })
 export class DatepickerComponent implements OnInit {
 

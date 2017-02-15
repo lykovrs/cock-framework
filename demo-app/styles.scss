@@ -1,1 +1,317 @@
-/* You can add global styles to this file, and also import other style files */
+.wrap {
+    display: block;
+    width: 100%;
+    font-size: 0;
+    letter-spacing: 0;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.wrap > * {
+    display: inline-block;
+}
+
+.wrap__col {
+    min-height: 1px;
+    font-size: 1rem;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.wrap-auto > * {
+    width: auto;
+}
+
+@for $x from 1 through 50 {
+    .wrap-#{$x} > * {
+        width: #{100 / $x * 1%};
+    }
+}
+
+.wrap-table {
+    display: table;
+    table-layout: fixed;
+    flex-direction: initial;
+    flex-wrap: initial;
+    justify-content: initial;
+    align-content: initial;
+    align-items: initial;
+    column-count: auto;
+}
+
+.wrap-table > * {
+    display: table-cell;
+}
+
+.wrap-flexbox {
+    display: flex;
+    table-layout: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    column-count: auto;
+}
+
+.wrap-flexbox > * {
+    display: inline-block;
+}
+
+.wrap-normal {
+    display: block;
+    table-layout: auto;
+    flex-direction: initial;
+    flex-wrap: initial;
+    justify-content: initial;
+    align-content: initial;
+    align-items: initial;
+    column-count: auto;
+}
+
+.wrap-normal > * {
+    display: inline-block;
+}
+
+.wrap-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.wrap-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.wrap-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.wrap-top {
+    align-items: flex-start;
+}
+
+.wrap-top > * {
+    vertical-align: top;
+}
+
+.wrap-middle {
+    align-items: center;
+}
+
+.wrap-middle > * {
+    vertical-align: middle;
+}
+
+.wrap-bottom {
+    align-items: flex-end;
+}
+
+.wrap-bottom > * {
+    vertical-align: bottom;
+}
+
+.wrap-between {
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.wrap-around {
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.wrap-baseline {
+    align-items: baseline;
+}
+
+.wrap-reverse {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+}
+
+.wrap-not-reverse {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@for $i from 1 through 50 {
+    @for $j from 1 through 50 {
+        @if $i <= $j {
+        .wrap__col-#{$i}-#{$j} {
+            width: #{$i/$j * 100%};
+            }
+        }
+    }
+}
+
+.wrap__col-hidden {
+    display: none;
+}
+
+.wrap__col-not-hidden {
+    display: inline-block;
+}
+
+.wrap__col-first {
+    order: -1;
+}
+
+.wrap__col-not-first {
+    order: 0;
+}
+
+.wrap__col-last {
+    order: 1;
+}
+
+.wrap__col-not-last {
+    order: 0;
+}
+
+.wrap-gutter-0 {
+    width: calc(100% + 0);
+    margin-left: -0px;
+    margin-right: -0px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-0 > * {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-8 {
+    width: calc(100% + 8px);
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-8 > * {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.wrap-gutter-16 {
+    width: calc(100% + 16px);
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-16 > * {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.wrap-gutter-24 {
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-24 > * {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.wrap-gutter-32 {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-32 > * {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.wrap-gutter-40 {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-gutter-40 > * {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.wrap-outside-0 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrap-outside-8 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.wrap-outside-16 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.wrap-outside-24 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.wrap-outside-32 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.wrap-outside-40 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.wrap-masonry-2 {
+    column-count: 2;
+}
+
+.wrap-masonry-3 {
+    column-count: 3;
+}
+
+.wrap-masonry-4 {
+    column-count: 4;
+}
+
+.wrap-masonry-5 {
+    column-count: 5;
+}
+
+.wrap-masonry-6 {
+    column-count: 6;
+}

@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, OnInit, Renderer } from '@angular/core';
 
-import { SvgIconRegistryService } from './svg-icon-registry.service';
+import { SvgIconRegistryService } from './sc-svg-icon-registry.service';
 
 
 @Component({
-	selector: 'svg-icon',
+	selector: 'sc-svg-icon',
 	styles: [ ':host { display:inline-block; }' ],
 	template: '<ng-content></ng-content>'
 })
@@ -33,4 +33,3 @@ export class SvgIconComponent implements OnInit {
 		this.renderer.projectNodes(elem, [icon]);
 	}
 }
-

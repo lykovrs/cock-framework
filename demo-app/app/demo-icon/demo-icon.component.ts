@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cock-demo-icon',
+  selector: 'sc-demo-icon',
   templateUrl: './demo-icon.component.html',
   styleUrls: ['./demo-icon.component.scss']
 })

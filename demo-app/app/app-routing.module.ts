@@ -4,12 +4,14 @@ import { ComponentListComponent } from './component-list/component-list.componen
 import { DemoButtonComponent } from './demo-button/demo-button.component';
 import { DemoIconComponent } from './demo-icon/demo-icon.component';
 import { DemoDatepickerComponent } from './demo-datepicker/demo-datepicker.component';
+import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
 
 const routes: Routes = [
   { path: 'component-list',  component: ComponentListComponent },
   { path: 'button',  component: DemoButtonComponent },
   { path: 'datepicker',  component: DemoDatepickerComponent },
   { path: 'icon',  component: DemoIconComponent },
+  { path: 'checkbox', component: DemoCheckboxComponent },
   { path: '', redirectTo: 'component-list', pathMatch: 'full' },
 ];
 
