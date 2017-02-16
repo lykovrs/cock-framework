@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, Input, Output, Inject} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, Input, Output, HostBinding, Inject} from '@angular/core';
 
 /**
  * Компонент стандартного текстового поля
@@ -8,12 +8,14 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, Input, Output, Inject}
   templateUrl: './sc-text-field.component.html',
   styleUrls: ['./sc-text-field.component.scss'],
   encapsulation: ViewEncapsulation.None,
-
+  host: {
+    // "class": "adf"
+  }
 })
 
 export class TextField implements OnInit {
   private focusElement:boolean = false;
-
+  private _mask:any[] ;
   // Получаем поле из вью
   @ViewChild('myInput') myInput;
 
@@ -23,7 +25,8 @@ export class TextField implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log('mask', this.mask);
+    console.log('_mask', this._mask);
   }
   /**
    * Маска ввода для поля
@@ -37,6 +40,10 @@ export class TextField implements OnInit {
    * Стандартная блокировка
    */
   @Input() disabled?:boolean;
+  /**
+   * Стандартная подсказка
+   */
+  @Input() placeholder?:string;
 
   /**
    * Меняем состояние при потере фокуса полем
