@@ -8,7 +8,8 @@ import { SvgIconComponent } from './svg-icon/sc-svg-icon.component';
 import { SvgIconRegistryService } from './svg-icon/sc-svg-icon-registry.service';
 import { DatepickerComponent } from './datepicker/sc-datepicker.component';
 import { CheckboxComponent } from './checkbox/sc-checkbox.component';
-import { InputComponent } from './input/sc-input.component';
+import { TextField } from './text-field/sc-text-field.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -16,20 +17,22 @@ import { InputComponent } from './input/sc-input.component';
     SvgIconComponent,
     DatepickerComponent,
     CheckboxComponent,
-    InputComponent,
+    TextField,
   ],
   imports: [
     // NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextMaskModule
   ],
   exports: [
     ButtonComponent,
     SvgIconComponent,
     DatepickerComponent,
     CheckboxComponent,
-    InputComponent,
+    TextField,
+    TextMaskModule
   ],
   providers: [SvgIconRegistryService],
 })

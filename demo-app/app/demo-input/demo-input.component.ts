@@ -5,11 +5,13 @@ import { FormControl }            from '@angular/forms';
   templateUrl: './demo-input.component.html',
   styleUrls: ['./demo-input.component.scss']
 })
-export class DemoInputComponent implements OnInit {
+export class DemoTextField implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-  public inputModel = 'Example text'
+  public myModel = 'Example text';
+  public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+  public disabledInput = true;
 }

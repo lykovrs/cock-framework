@@ -24,16 +24,40 @@
     default
   </div>
   <div class="wrap__col">
-    <sc-input [disabled]="true"></sc-input>
+      <!-- <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/> -->
+
+      <sc-text-field [mod]="warning">
+          <!-- Иконка слева -->
+          <!-- <sc-svg-icon before -->
+            <!-- src="svg/top.svg"></sc-svg-icon> -->
+
+          <!-- Поле с маской   -->
+          <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/>
+
+          <!-- Иконка справа   -->
+          <!-- <sc-svg-icon after
+            src="svg/doctor-bag-solid.svg"></sc-svg-icon> -->
+      </sc-text-field>
+
+
+    <!-- <sc-input [disabled]="true">
+      <input placeholder="Введите значение"
+                class="sc-input__"
+                type="text"
+                [disabled]="disabled"
+
+                [name]="name"
+                >
+    </sc-input> -->
   </div>
   <div class="wrap__col">
-    <sc-input name="testName"></sc-input>
+
   </div>
   <div class="wrap__col">
-    <sc-input></sc-input>
+
   </div>
   <div class="wrap__col">
-    <sc-input></sc-input>
+
   </div>
 </div>
 

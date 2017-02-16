@@ -1,11 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FormControl }            from '@angular/forms';
 @Component({
-  selector: 'sc-input',
-  templateUrl: './sc-input.component.html',
-  styleUrls: ['./sc-input.component.scss']
+  selector: 'sc-text-field',
+  templateUrl: './sc-text-field.component.html',
+  styleUrls: ['./sc-text-field.component.scss']
 })
-export class InputComponent implements OnInit {
+export class TextField implements OnInit {
   private myModel:any
   constructor() { }
 
@@ -13,7 +13,8 @@ export class InputComponent implements OnInit {
 
   }
 
+  @Input() mod?:string;
   @Input() disabled?:boolean;
-  @Input() name?:string;
-  // @Input() ngModel: any;
+
+
 }
