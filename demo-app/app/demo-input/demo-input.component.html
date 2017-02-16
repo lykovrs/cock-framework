@@ -25,19 +25,21 @@
   </div>
   <div class="wrap__col">
       <!-- <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/> -->
+      <sc-text-field [mask] = "{mask: mask}" >
 
-      <sc-text-field [mod]="warning">
+      </sc-text-field>
+      <!-- <sc-text-field [mod]="warning">
           <!-- Иконка слева -->
           <!-- <sc-svg-icon before -->
             <!-- src="svg/top.svg"></sc-svg-icon> -->
 
           <!-- Поле с маской   -->
-          <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/>
+          <!-- <input [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text"/> -->
 
           <!-- Иконка справа   -->
           <!-- <sc-svg-icon after
             src="svg/doctor-bag-solid.svg"></sc-svg-icon> -->
-      </sc-text-field>
+      <!-- </sc-text-field> -->
 
 
     <!-- <sc-input [disabled]="true">

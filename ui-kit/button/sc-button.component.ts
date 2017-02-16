@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, HostBinding, AfterViewInit} from '@angular/core';
 
+
 @Component({
   selector: '[sc-button]',
   templateUrl: './sc-button.component.html',
@@ -27,7 +28,7 @@ export class ButtonComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // Определяем, есть ли дети в трансклюде
-    this.isLeft = this.leftView.nativeElement.children.length;  
+    this.isLeft = this.leftView.nativeElement.children.length;
     this.isRight = this.rightView.nativeElement.children.length;
   }
 
