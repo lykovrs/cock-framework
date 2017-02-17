@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Renderer } from '@angular/core';
 
-import { SvgIconRegistryService } from './sc-svg-icon-registry.service';
+import { ScSvgIconRegistryService } from './sc-svg-icon-registry.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class ScSvgIconComponent implements OnInit {
 	@Input() src:string;
 
 	constructor(private element:ElementRef, private renderer:Renderer,
-		private iconReg:SvgIconRegistryService) {
+		private iconReg:ScSvgIconRegistryService) {
 	}
 
 	ngOnInit() {

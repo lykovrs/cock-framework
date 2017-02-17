@@ -2,8 +2,8 @@
   class="radio"
   [ngClass]="{
     'radio_disabled': disabled,
-    'radio_warning': mod === 'warning',
-    'radio_attention': mod === 'attention'
+    'radio_warning': mod === Mod.warning,
+    'radio_attention': mod === Mod.attention
   }">
   <input
     type="radio"
@@ -18,16 +18,16 @@
     class="check"
     [ngClass]="{
       'check_checked': value === model,
-      'check_attention': mod === 'attention',
-      'check_warning': mod === 'warning'
+      'check_attention': mod === Mod.attention,
+      'check_warning': mod ===  Mod.warning
     }">
     </span>
   <div
     *ngIf="label"
     class="radio__label"
     [ngClass]="{
-      'radio__label_warning': mod === 'warning',
-      'radio__label_attention': mod === 'attention'
+      'radio__label_warning': mod ===  Mod.warning,
+      'radio__label_attention': mod === Mod.attention
     }">
     {{label}}
   </div>

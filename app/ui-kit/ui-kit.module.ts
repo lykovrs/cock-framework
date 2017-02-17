@@ -5,13 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Модуль с компонентами фреймворка
 import { ScButtonComponent } from './sc-button/sc-button.component';
 import { ScSvgIconComponent } from './sc-svg-icon/sc-svg-icon.component';
-import { ScSvgIconRegistryService } from './sc-svg-icon/sc-svg-icon-registry.service';
 import { ScDatepickerComponent } from './sc-datepicker/sc-datepicker.component';
 import { ScCheckboxComponent } from './sc-checkbox/sc-checkbox.component';
 import { ScTextField } from './sc-text-field/sc-text-field.component';
 import { ScRadioComponent } from './sc-radio/sc-radio.component';
 import { ScPaginationComponent } from './sc-pagination/sc-pagination.component';
+import { ScPanelComponent } from './sc-panel/sc-panel.component';
+
+// Сервисы
 import { ScRadioService } from './sc-radio/sc-radio.service';
+import { ScSvgIconRegistryService } from './sc-svg-icon/sc-svg-icon-registry.service';
 
 // Сторонние модули
 import { TextMaskModule } from 'angular2-text-mask';
@@ -24,7 +27,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     ScCheckboxComponent,
     ScTextField,
     ScRadioComponent,
-    ScPaginationComponent
+    ScPaginationComponent,
+    ScPanelComponent
   ],
   imports: [
     // NgbModule.forRoot(),
@@ -41,8 +45,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     ScTextField,
     TextMaskModule,
     ScRadioComponent,
-    ScPaginationComponent
-
+    ScPaginationComponent,
+    ScPanelComponent
   ],
   providers: [
     ScSvgIconRegistryService,

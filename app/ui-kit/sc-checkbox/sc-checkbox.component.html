@@ -2,8 +2,8 @@
   class="checkbox"
   [ngClass]="{
     'checkbox_disabled': disabled,
-    'checkbox_warning': mod === 'warning',
-    'checkbox_attention': mod === 'attention'
+    'checkbox_warning': mod == Mod.warning,
+    'checkbox_attention': mod == Mod.attention
   }">
   <input
     type="checkbox"
@@ -14,9 +14,9 @@
   <span
     class="check"
     [ngClass]="{
-      'check_checked': model || indeterminate,
-      'check_attention': mod === 'attention',
-      'check_warning': mod === 'warning'
+      'check_checked': model,
+      'check_attention': mod == Mod.attention,
+      'check_warning': mod ==  Mod.warning
     }">
       <sc-svg-icon before
                 src="svg/icon_check.svg"
@@ -27,11 +27,11 @@
                 }">
       </sc-svg-icon>
       <div
-        *ngIf="indeterminate && model !== false && model !== true"
+        *ngIf="indeterminate && model != false && model != true"
         class="indeterminate"
         [ngClass]="{
-            'indeterminate_warning': mod === 'warning',
-            'indeterminate_attention': mod === 'attention'
+            'indeterminate_warning': mod == Mod.warning,
+            'indeterminate_attention': mod == Mod.attention
         }">
       </div>
     </span>
@@ -39,8 +39,8 @@
     *ngIf="label"
     class="checkbox__label"
     [ngClass]="{
-      'checkbox__label_warning': mod === 'warning',
-      'checkbox__label_attention': mod === 'attention'
+      'checkbox__label_warning': mod == Mod.warning,
+      'checkbox__label_attention': mod == Mod.attention
     }">
     {{label}}
   </div>

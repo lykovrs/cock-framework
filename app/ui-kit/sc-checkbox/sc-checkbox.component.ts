@@ -9,6 +9,12 @@ import {
   OnInit
 } from '@angular/core';
 
+enum Mod {
+  def=<any>'def',
+  attention=<any>'attention',
+  warning=<any>'warning'
+}
+
 @Component({
   selector: 'sc-checkbox',
   templateUrl: 'sc-checkbox.component.html',
@@ -17,20 +23,51 @@ import {
 
 export class ScCheckboxComponent implements OnInit {
 
-  constructor() {
-
-  }
+  Mod = Mod;
 
   @Input() model: boolean; //Модель
   @Input() label?: string; //Заголовок
   @Input() disabled?: boolean; //Disable
   @Input() name?: boolean; //Имя
   @Input() indeterminate?: boolean; //Установка смешанного значения
-  @Input() mod?: string; //Мод: attention, warning, либо вообще не указывается
+  @Input() mod?: Mod; //Мод: attention, warning, либо вообще не указывается (def)
 
   @Output() scChange = new EventEmitter(); //Получаем переданную функциию scChange
 
-  ngOnInit() {}
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.initMod();
+  }
+
+  /**
+   * Инициализируем mod
+   */
+  private initMod() {
+    console.log(this.getMod());
+    console.log(Mod.attention)
+    !this.getMod() && this.setMod(Mod.def);
+  }
+
+  /**
+   * Получаем mod
+   * @returns {Mod}
+   */
+  private getMod(): Mod {
+    return this.mod;
+  }
+
+  /**
+   * Задаем mod
+   * @param mod
+   * @returns {ScRadioComponent}
+   */
+  private setMod(mod: Mod): ScCheckboxComponent {
+    this.mod = mod;
+    return this;
+  }
 
   /**
    * Событие изменения checked

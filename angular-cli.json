@@ -2,11 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "version": "1.0.0-beta.31",
-    "name": "test-project"
+    "name": "sc"
   },
   "apps": [
     {
-      "root": "demo-app",
+      "root": "app",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -17,7 +17,7 @@
       "polyfills": "polyfills.ts",
 
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
+      "prefix": "",
       "styles": [
         "styles.scss"
       ],
@@ -32,8 +32,8 @@
 
   "lint": [
     {
-      "files": "demo-app/**/*.ts",
-      "project": "demo-app/tsconfig.json"
+      "files": "app/**/*.ts",
+      "project": "app/tsconfig.json"
     }
   ],
 

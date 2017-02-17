@@ -23,99 +23,49 @@
   &, &.focus {
       box-shadow: inset 0 0 0 2px rgba($border-color, 1);
       border-color: $border-color;
+      color: $text-color;
+      fill:  $text-color;
 
-      .input {
+      .sc-text-field__input {
           color: $text-color;
-          &::-webkit-input-placeholder {
-              color: $placeholder-color !important;
-          }
-          &::-moz-placeholder {
-              color: $placeholder-color !important;
-          }
+          ::-webkit-input-placeholder {color:$placeholder-color;}
+          ::-moz-placeholder          {color:$placeholder-color;}/* Firefox 19+ */
+          :-ms-input-placeholder      {color:$placeholder-color;}
       }
-
-      .icon {
-          color: $icon-color;
-      }
-
-      // .icon-core-delete {
-      //     cursor: pointer !important;
-      //     color: $gray-c;
-      //     line-height: 40px - 2;
-      //
-      //     &:hover {
-      //         color: $color-danger-60-90;
-      //     }
-      //     &:active {
-      //         color: $color-danger-60-75;
-      //     }
-      // }
   }
 
   &:hover {
       box-shadow: inset 0 0 0 2px rgba($border-color-hover, 1);
-
-      .input {
+      fill:  $text-color-hover;
+      .sc-text-field__input {
           color: $text-color-hover;
-          &::-webkit-input-placeholder {
-              color: $placeholder-color-hover !important;
-          }
-          &::-moz-placeholder {
-              color: $placeholder-color-hover !important;
-          }
+          ::-webkit-input-placeholder {color:$placeholder-color-hover;}
+          ::-moz-placeholder          {color:$placeholder-color-hover;}/* Firefox 19+ */
+          :-ms-input-placeholder      {color:$placeholder-color-hover;}
       }
-
-      // .icon-core-delete {
-      //     color: $gray-c;
-      //     line-height: 40px - 2;
-      //
-      //     &:hover {
-      //         color: $color-danger-60-90;
-      //     }
-      //     &:active {
-      //         color: $color-danger-60-75;
-      //     }
-      // }
   }
 
   &.focus {
       box-shadow: inset 0 0 0 2px rgba($border-color-focus, 1);
+      fill: $text-color-focus;
 
-      .input {
+      .sc-text-field__input {
           color: $text-color-focus;
-          &::-webkit-input-placeholder {
-              color: $placeholder-color-focus !important;
-          }
-          &::-moz-placeholder {
-              color: $placeholder-color-focus !important;
-          }
+          ::-webkit-input-placeholder {color:$placeholder-color-focus;}
+          ::-moz-placeholder          {color:$placeholder-color-focus;}/* Firefox 19+ */
+          :-ms-input-placeholder      {color:$placeholder-color-focus;}             
       }
-
-      .icon {
-          color: $icon-color-focus;
-      }
-
-      // .icon-core-delete {
-      //     color: $gray-c;
-      //     line-height: 40px - 2;
-      //     &:hover {
-      //         color: $color-danger-60-90;
-      //     }
-      //     &:active {
-      //         color: $color-danger-60-75;
-      //     }
-      // }
   }
 
-  & > input:only-child {
+  & > .sc-text-field__input:only-child {
       padding: 16px;
   }
 
-  & > input:first-child {
+  & > .sc-text-field__input:first-child {
       padding-left: 16px;
   }
 
-  & > input:last-child {
+  & > .sc-text-field__input:last-child {
       padding-right: 16px;
   }
 }
@@ -171,33 +121,30 @@
        width: 100%;
        background-color: #fff;
 
+
        & > * {
            @include col;
        }
-
-
-
    }
 
-   input {
+    .sc-text-field__icon {
+      text-align: center;
+      font-size: 0;
+      width: 40px;
+    }
+
+   .sc-text-field__input {
        @include dots;
        box-sizing: border-box;
        background: transparent;
        border: 0;
        box-shadow: none;
-       font-size: 13px;
+       font-size: 14px;
        font-weight: 600;
        height: 40px;
        padding: 0;
        width: 100%;
        outline: none;
-
-       &::-webkit-input-placeholder {
-           font-weight: normal;
-       }
-       &::-moz-placeholder {
-           font-weight: normal;
-       }
    }
 
    & > .icon {
@@ -209,31 +156,17 @@
     &[disabled]  {
         .sc-text-field__inner,
         .sc-text-field__inner:hover {
+            fill: #aaa;
             box-shadow: inset 0 0 0 2px rgba(#aaa, 1);
             background-color: #e5e5e5;
 
-            .input[disabled] {
-                // color: $gray-8;
-                &::-webkit-input-placeholder {
-                    color: #aaa !important;
-                }
-                &::-moz-placeholder {
-                    color: #aaa !important;
-                }
+            .sc-text-field__input {
+              color: #aaa;
             }
-
-            .icon {
-                // color: $gray-c;
-            }
-
-            // .icon-core-delete {
-            //     display: none;
-            // }
         }
     }
 
     .sc-text-field__clear {
-
       width: 40px;
       font-size: 0;
       line-height: 0;
@@ -258,60 +191,78 @@
 }
 
 /* Базовый стиль (end) */
-//
-// /* Модификаторы (start) */
-//
-// .sc-text-field_type_warning {
-//     .sc-text-field__inner {
-//         @include text-field(
-//                         $gray-4, $color-danger-60-90, $color-danger-60-90, $color-danger-60-90, //$text-color, $icon-color, $border-color, $placeholder-color
-//                         $gray-4, $color-danger-60-90, $color-danger-60-90, $color-danger-60-90, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
-//                         $gray-4, $color-danger-60-90, $color-danger-60-90, $color-danger-60-90 // $text-color-focus, $icon-color-focus, $border-color-focus,
-//                         );
-//     }
-// }
-//
-// .sc-text-field_type_attention {
-//     .sc-text-field__inner {
-//         @include text-field(
-//                         $gray-4, $color-warning-90-100, $color-warning-90-100, $color-warning-90-100, //$text-color, $icon-color, $border-color, $placeholder-color
-//                         $gray-4, $color-warning-90-100, $color-warning-90-100, $color-warning-90-100, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
-//                         $gray-4, $color-warning-90-100, $color-warning-90-100, $color-warning-90-100 // $text-color-focus, $icon-color-focus, $border-color-focus,
-//                         );
-//     }
-// }
-//
-// .sc-text-field_border_big_default {
-//     .sc-text-field__inner {
-//         @include text-field(
-//                         $gray-4, $gray-a, $gray-c, $gray-a, //$text-color, $icon-color, $border-color, $placeholder-color
-//                         $gray-4, $gray-a, $gray-c, $gray-a, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
-//                         $gray-4, $gray-6, $color-basic-75-60, $gray-8, 2px // $text-color-focus, $icon-color-focus, $border-color-focus,
-//                         );
-//     }
-// }
-//
-// .sc-text-field_theme_big {
-//     .sc-text-field__inner input {
-//         height: 16px * 5;
-//         font-size: 14px;
-//         font-weight: 600;
-//
-//         &::placeholer {
-//           font-weight: 600;
-//
-//         }
-//     }
-//
-//     .sc-text-field__inner>input:last-child  {
-//         padding-right: 16px * 2;
-//     }
-//     .sc-text-field__inner>input:first-child  {
-//         padding-left: 16px * 2;
-//     }
-//     .sc-text-field__inner>input:only-child  {
-//         padding: 16px 16px * 2;
-//     }
-//
-// }
+
+/* Модификаторы (start) */
+
+  // warning
+  $warning-text-field-text-color: #E65C5C;
+  $warning-text-field-icon-color: #E65C5C;
+  $warning-text-field-border-color: #E65C5C;
+  $warning-text-field-placeholder-color: #777;
+
+  $warning-text-field-text-color-hover: #E65C5C;
+  $warning-text-field-icon-color-hover: #E65C5C;
+  $warning-text-field-border-color-hover: #E65C5C;
+  $warning-text-field-placeholder-color-hover: #E65C5C;
+
+  $warning-text-field-text-color-focus: #E65C5C;
+  $warning-text-field-icon-color-focus: #E65C5C;
+  $warning-text-field-border-color-focus: #E65C5C;
+  $warning-text-field-placeholder-color-focus: #E65C5C;
+
+.sc-text-field_type_warning {
+    .sc-text-field__inner {
+        @include text-field(
+                      $warning-text-field-text-color,
+                      $warning-text-field-icon-color,
+                      $warning-text-field-border-color,
+                      $warning-text-field-placeholder-color,
+
+                      $warning-text-field-text-color-hover,
+                      $warning-text-field-icon-color-hover,
+                      $warning-text-field-border-color-hover,
+                      $warning-text-field-placeholder-color-hover,
+
+                      $warning-text-field-text-color-focus,
+                      $warning-text-field-icon-color-focus,
+                      $warning-text-field-border-color-focus,
+                      $warning-text-field-placeholder-color-focus
+    )}
+}
+
+  // attention
+  $attantion-text-field-text-color: #FF9830;
+  $attantion-text-field-icon-color: #FF9830;
+  $attantion-text-field-border-color: #FF9830;
+  $attantion-text-field-placeholder-color: #FF9830;
+
+  $attantion-text-field-text-color-hover: #FF9830;
+  $attantion-text-field-icon-color-hover: #FF9830;
+  $attantion-text-field-border-color-hover: #FF9830;
+  $attantion-text-field-placeholder-color-hover: #FF9830;
+
+  $attantion-text-field-text-color-focus: #FF9830;
+  $attantion-text-field-icon-color-focus: #FF9830;
+  $attantion-text-field-border-color-focus: #FF9830;
+  $attantion-text-field-placeholder-color-focus: #FF9830;
+
+.sc-text-field_type_attention {
+    .sc-text-field__inner {
+        @include text-field(
+                      $attantion-text-field-text-color,
+                      $attantion-text-field-icon-color,
+                      $attantion-text-field-border-color,
+                      $attantion-text-field-placeholder-color,
+
+                      $attantion-text-field-text-color-hover,
+                      $attantion-text-field-icon-color-hover,
+                      $attantion-text-field-border-color-hover,
+                      $attantion-text-field-placeholder-color-hover,
+
+                      $attantion-text-field-text-color-focus,
+                      $attantion-text-field-icon-color-focus,
+                      $attantion-text-field-border-color-focus,
+                      $attantion-text-field-placeholder-color-focus
+    )}
+}
 /* Модификаторы (end) */

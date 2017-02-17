@@ -51,8 +51,8 @@ export class ScPaginationComponent implements OnChanges {
    * @returns {ScPaginationComponent}
    */
   protected initializeValues(): ScPaginationComponent {
-    this.setStartItemIndex(this.getPageSize() * this.getCurrentPageIndex());
-    this.setEndItemIndex((this.getStartItemIndex() + this.getPageSize()) > this.getTotal() ? this.getTotal() : this.getStartItemIndex() + this.getPageSize());
+    this.setStartItemIndex(this.getPageSize() * this.getCurrentPageIndex())
+        .setEndItemIndex((this.getStartItemIndex() + this.getPageSize()) > this.getTotal() ? this.getTotal() : this.getStartItemIndex() + this.getPageSize());
     return this;
   }
 
@@ -171,8 +171,8 @@ export class ScPaginationComponent implements OnChanges {
    */
   public setPageByIndex(index: number): ScPaginationComponent {
     if (index > 0 && index <= this.getTotalPages()) {
-      this.setCurrentPageIndex(index);
-      this.initializeValues();
+      this.setCurrentPageIndex(index)
+          .initializeValues();
     }
     return this;
   }
@@ -184,8 +184,8 @@ export class ScPaginationComponent implements OnChanges {
   public prevPage(): ScPaginationComponent {
     this.onScClick();
     if (this.hasPrevPage()) {
-      this.setCurrentPageIndex(this.getCurrentPageIndex() - 1);
-      this.setPageByIndex(this.getCurrentPageIndex());
+      this.setCurrentPageIndex(this.getCurrentPageIndex() - 1)
+          .setPageByIndex(this.getCurrentPageIndex());
     }
     return this;
   }
@@ -197,8 +197,8 @@ export class ScPaginationComponent implements OnChanges {
   public nextPage(): ScPaginationComponent {
     this.onScClick();
     if (this.hasNextPage()) {
-      this.setCurrentPageIndex(this.getCurrentPageIndex() + 1);
-      this.setPageByIndex(this.getCurrentPageIndex());
+      this.setCurrentPageIndex(this.getCurrentPageIndex() + 1)
+          .setPageByIndex(this.getCurrentPageIndex());
     }
     return this;
   }
@@ -270,14 +270,14 @@ export class ScPaginationComponent implements OnChanges {
         this.setCurrentPageIndex(0);
     } else {
         if (!this.getStartPage()) {
-          this.setStartPage(1);
-          this.setCurrentPageIndex(this.getStartPage());
+          this.setStartPage(1)
+              .setCurrentPageIndex(this.getStartPage());
         } else {
             if (this.getTotalPages() >= this.getStartPage()) {
                 this.setCurrentPageIndex(this.getStartPage());
             } else {
-              this.setStartPage(1);
-              this.setCurrentPageIndex(this.getStartPage());
+              this.setStartPage(1)
+                  .setCurrentPageIndex(this.getStartPage());
             }
         }
     }

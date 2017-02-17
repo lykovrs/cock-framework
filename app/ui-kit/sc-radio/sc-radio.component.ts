@@ -3,9 +3,16 @@ import {
   Input,
   Output,
   EventEmitter,
+  OnInit,
   AfterViewInit
 } from '@angular/core';
 import {ScRadioService} from './sc-radio.service';
+
+enum Mod {
+  def,
+  attention,
+  warning
+}
 
 @Component({
   selector: 'sc-radio',
@@ -13,13 +20,15 @@ import {ScRadioService} from './sc-radio.service';
   styleUrls: ['sc-radio.component.scss']
 })
 
-export class ScRadioComponent implements AfterViewInit  {
+export class ScRadioComponent implements AfterViewInit, OnInit  {
+
+  Mod = Mod;
 
   @Input() label?: string; //Заголовок
   @Input() disabled?: boolean; //Disable
   @Input() name: string; //Имя
   @Input() value: any; //Значение radio button
-  @Input() mod?: string; //Мод: attention, warning, либо вообще не указывается
+  @Input() mod?: Mod; //Мод: attention, warning, либо вообще не указывается
   @Input() model: string; //Выбранное значение
 
   @Output() scChange = new EventEmitter(); //Получаем переданную функциию scChange
@@ -27,8 +36,37 @@ export class ScRadioComponent implements AfterViewInit  {
   constructor() {
   }
 
+  ngOnInit() {
+    this.initMod();
+  }
+
   ngAfterViewInit() {
     this.subscribeChangeValue();
+  }
+
+  /**
+   * Инициализируем mod
+   */
+  private initMod() {
+    !this.getMod() && this.setMod(Mod.def);
+  }
+
+  /**
+   * Получаем mod
+   * @returns {Mod}
+   */
+  private getMod(): Mod {
+    return this.mod;
+  }
+
+  /**
+   * Задаем mod
+   * @param mod
+   * @returns {ScRadioComponent}
+   */
+  private setMod(mod: Mod): ScRadioComponent {
+    this.mod = mod;
+    return this;
   }
 
   /**

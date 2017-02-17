@@ -8,6 +8,7 @@ import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
 import { DemoTextFieldComponent } from './demo-text-field/demo-text-field.component';
 import { DemoRadioComponent } from './demo-radio/demo-radio.component';
 import { DemoPaginationComponent } from './demo-pagination/demo-pagination.component';
+import { DemoPanelComponent } from './demo-panel/demo-panel.component';
 
 const routes: Routes = [
   { path: 'component-list',  component: ComponentListComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'text-field', component: DemoTextFieldComponent },
   { path: 'radio', component: DemoRadioComponent },
   { path: 'pagination', component: DemoPaginationComponent },
+  { path: 'panel', component: DemoPanelComponent },
   { path: '', redirectTo: 'component-list', pathMatch: 'full' },
 ];
 

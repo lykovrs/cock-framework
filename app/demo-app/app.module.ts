@@ -13,7 +13,8 @@ import { DemoDatepickerComponent } from './demo-datepicker/demo-datepicker.compo
 import { DemoCheckboxComponent } from './demo-checkbox/demo-checkbox.component';
 import { DemoTextFieldComponent } from './demo-text-field/demo-text-field.component';
 import { DemoRadioComponent } from './demo-radio/demo-radio.component';
-import {DemoPaginationComponent} from './demo-pagination/demo-pagination.component'
+import { DemoPaginationComponent } from './demo-pagination/demo-pagination.component'
+import { DemoPanelComponent } from './demo-panel/demo-panel.component';
 
 
 @NgModule({
@@ -26,8 +27,8 @@ import {DemoPaginationComponent} from './demo-pagination/demo-pagination.compone
     DemoCheckboxComponent,
     DemoTextFieldComponent,
     DemoRadioComponent,
-    DemoPaginationComponent
-
+    DemoPaginationComponent,
+    DemoPanelComponent
   ],
   imports: [
     BrowserModule,
