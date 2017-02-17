@@ -1,0 +1,47 @@
+<label
+  class="checkbox"
+  [ngClass]="{
+    'checkbox_disabled': disabled,
+    'checkbox_warning': mod === 'warning',
+    'checkbox_attention': mod === 'attention'
+  }">
+  <input
+    type="checkbox"
+    [checked]="model"
+    [disabled]="disabled"
+    (change)="changeModel()"
+    [name]="name"/>
+  <span
+    class="check"
+    [ngClass]="{
+      'check_checked': model || indeterminate,
+      'check_attention': mod === 'attention',
+      'check_warning': mod === 'warning'
+    }">
+      <sc-svg-icon before
+                src="svg/icon_check.svg"
+                class="sc-svg-icon"
+                [ngClass]="{
+                  'sc-svg-icon_indeterminate': indeterminate,
+                  'sc-svg-icon_check' : model
+                }">
+      </sc-svg-icon>
+      <div
+        *ngIf="indeterminate && model !== false && model !== true"
+        class="indeterminate"
+        [ngClass]="{
+            'indeterminate_warning': mod === 'warning',
+            'indeterminate_attention': mod === 'attention'
+        }">
+      </div>
+    </span>
+  <div
+    *ngIf="label"
+    class="checkbox__label"
+    [ngClass]="{
+      'checkbox__label_warning': mod === 'warning',
+      'checkbox__label_attention': mod === 'attention'
+    }">
+    {{label}}
+  </div>
+</label>

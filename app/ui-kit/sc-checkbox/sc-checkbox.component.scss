@@ -1,0 +1,111 @@
+// default
+$default-text-color: #333333 !default;
+$default-background: #ffffff !default;
+$default-border-color: #777777 !default;
+$default-indeterminate-background: #269999 !default;
+// default active
+$default-active-border-color: #269999 !default;
+$default-active-text-color: #269999 !default;
+
+// warning
+$warning-text-color: #E65C5C !default;
+$warning-background: #ffffff !default;
+$warning-border-color: #E65C5C !default;
+$warning-indeterminate-background: #E65C5C !default;
+// attention
+$attention-text-color: #FF9830 !default;
+$attention-background: #ffffff !default;
+$attention-border-color: #FF9830 !default;
+$attention-indeterminate-background: #FF9830 !default;
+
+.checkbox {
+  color: #666;
+  float: left;
+  margin: 0 16px 0 0;
+  min-height: inherit;
+  position: relative;
+
+  input[type=checkbox] {
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &__label {
+    color: $default-text-color;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    overflow: hidden;
+    text-align: left;
+    transition: color .3s;
+    -moz-user-select: none;
+    user-select: none;
+    &_attention {
+      color: $attention-text-color;
+    }
+    &_warning {
+      color: $warning-text-color;
+    }
+  }
+
+  &_disabled {
+    opacity: 0.5;
+  }
+}
+
+.check {
+  background-color: $default-background;
+  border: 2px solid $default-border-color;
+  float: left;
+  height: 16px;
+  margin: 0 8px 0 0;
+  position: relative;
+  text-align: center;
+  transition: border .3s;
+  width: 16px;
+  &_checked {
+    border: 2px solid $default-active-border-color;
+    fill: $default-active-text-color;
+  }
+  &_attention {
+    border: 2px solid $attention-border-color;
+    fill: $attention-text-color;
+  }
+  &_warning {
+    border: 2px solid $warning-border-color;
+    fill: $warning-text-color;
+  }
+  &_indeterminate {
+    border: 2px solid $default-active-border-color;
+  }
+}
+
+.sc-svg-icon {
+  display: none;
+  &_check {
+    display: block;
+  }
+}
+
+.indeterminate {
+  display: block;
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  background-color: $default-indeterminate-background;
+  &:before {
+    content: "";
+  }
+  &_attention {
+    background-color: $attention-indeterminate-background;
+  }
+  &_warning {
+    background-color: $warning-indeterminate-background;
+  }
+}

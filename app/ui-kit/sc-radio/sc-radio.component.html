@@ -1,0 +1,34 @@
+<label
+  class="radio"
+  [ngClass]="{
+    'radio_disabled': disabled,
+    'radio_warning': mod === 'warning',
+    'radio_attention': mod === 'attention'
+  }">
+  <input
+    type="radio"
+    [checked]="value === model"
+    [disabled]="disabled"
+    (change)="changeModel($event)"
+    [value]="value"
+    [name]="name"
+    (scChange)="onScChange()"
+  />
+  <span
+    class="check"
+    [ngClass]="{
+      'check_checked': value === model,
+      'check_attention': mod === 'attention',
+      'check_warning': mod === 'warning'
+    }">
+    </span>
+  <div
+    *ngIf="label"
+    class="radio__label"
+    [ngClass]="{
+      'radio__label_warning': mod === 'warning',
+      'radio__label_attention': mod === 'attention'
+    }">
+    {{label}}
+  </div>
+</label>
