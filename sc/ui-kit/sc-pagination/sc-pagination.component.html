@@ -1,0 +1,59 @@
+<div
+  class="sc-pagination"
+  [ngClass]="{
+    'sc-pagination_disabled': disabled
+  }"
+  *ngIf="getTotalPages() > 1">
+  <div
+    class="sc-pagination-link"
+    [ngClass]="{
+      'sc-pagination-link_disabled': !hasPrevPage()
+    }"
+    (click)="firstPage()">
+    <sc-svg-icon before
+                 src="svg/first-step.svg">
+    </sc-svg-icon>
+  </div>
+  <div
+    class="sc-pagination-link"
+    [ngClass]="{
+      'sc-pagination-link_disabled': !hasPrevPage()
+    }"
+    (click)="prevPage()">
+    <sc-svg-icon before
+                 src="svg/caret-left.svg">
+    </sc-svg-icon>
+  </div>
+  <div class="sc-pagination-page">
+    <span class="sc-pagination-page__text">Страница</span>
+    <input
+      type="text"
+      [ngModel]="currentPageIndex"
+      class="sc-pagination-page__input"
+      (change)="validateInput($event)"
+      (keydown)="onlyNumbers($event)"
+    > {{currentPageIndex}}
+    <span> из </span>
+    <span class="sc-pagination-page__total">{{getTotalPages()}}</span>
+  </div>
+  <div
+    class="sc-pagination-link"
+    [ngClass]="{
+      'sc-pagination-link_disabled': !hasNextPage()
+    }"
+    (click)="nextPage()">
+    <sc-svg-icon before
+                 src="svg/caret-right.svg">
+    </sc-svg-icon>
+  </div>
+  <div
+    class="sc-pagination-link"
+    [ngClass]="{
+      'sc-pagination-link_disabled': !hasNextPage()
+    }"
+    (click)="lastPage()">
+    <sc-svg-icon before
+                 src="svg/last-step.svg">
+    </sc-svg-icon>
+  </div>
+</div>

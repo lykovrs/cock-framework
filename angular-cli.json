@@ -6,7 +6,7 @@
   },
   "apps": [
     {
-      "root": "app",
+      "root": "sc",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -32,8 +32,8 @@
 
   "lint": [
     {
-      "files": "app/**/*.ts",
-      "project": "app/tsconfig.json"
+      "files": "sc/**/*.ts",
+      "project": "sc/tsconfig.json"
     }
   ],
 

@@ -1,0 +1,85 @@
+// default
+$default-text-color: #777777 !default;
+$default-background: #FAFAFA !default;
+$default-border-color: #777777 !default;
+// default active
+$default-active-border-color: #333333 !default;
+$default-active-text-color: #000000 !default;
+$default-active-background: #777777 !default;
+// default disabled
+$default-disabled-background: #E3E3E3 !default;
+$default-disabled-border: #AEAEAE !default;
+$default-disabled-text-color: #AEAEAE !default;
+
+.sc-pagination {
+  box-sizing: border-box;
+  background-color: $default-background;
+  border-radius: 0;
+  cursor: pointer!important;
+  color: $default-text-color;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 40px;
+  padding: 0;
+  margin: 0 -1px -1px;
+  width: calc(100% + 6px);
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 40px;
+  &_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    border-color: $default-disabled-border;
+    background-color: $default-disabled-background;
+    color: $default-disabled-text-color;
+  }
+}
+.sc-pagination-link {
+  border: 2px solid $default-border-color;
+  box-sizing: border-box;
+  color: $default-text-color;
+  flex-basis: 40px;
+  font: normal normal normal 16px/1 icons;
+  height: 40px;
+  list-style: none;
+  margin-left: -2px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  transition: background .3s ease 0s,border .3s ease 0s;
+  &_disabled {
+    color: $default-disabled-text-color;
+    pointer-events: none;
+    background-color: $default-disabled-background;
+  }
+  &:active {
+    border-color: $default-active-border-color;
+    color: $default-active-text-color;
+    background-color: $default-active-background;
+  }
+}
+
+.sc-pagination-page {
+  border-bottom: $default-border-color solid 2px;
+  border-top: $default-border-color solid 2px;
+  flex: 1;
+  margin: 0 -1px 0 0;
+  padding: 0;
+  text-align: center;
+  word-spacing: 5px;
+  &__current {
+
+  }
+  &__total {
+
+  }
+  &__input {
+    width: 40px;
+    height: 24px;
+    border: 2px solid $default-border-color;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}

@@ -1,0 +1,57 @@
+<p>
+  demo-input works!
+</p>
+<p>Model: {{myModel}}</p>
+
+<div class="wrap wrap-table wrap-top wrap-gutter-16">
+  <div class="wrap__col">
+    <p>Default</p>
+    <p>
+      <sc-text-field [(ngModel)]="myModel"></sc-text-field>
+    </p>
+    <p>Placeholder</p>
+    <p>
+      <sc-text-field [(ngModel)]="clearModel" [placeholder] = "placeholder"></sc-text-field>
+    </p>
+    <p>Disabled</p>
+    <p>
+      <sc-text-field [(ngModel)]="myModel" [disabled]="disabledInput" [placeholder] = "placeholder"></sc-text-field>
+    </p>
+    <p>Mask</p>
+    <p [textMask]="{mask: mask}">
+      <sc-text-field [(ngModel)]="maskModel" [placeholder] = "placeholder"></sc-text-field>
+      This model: {{maskModel}}
+    </p>
+  </div>
+  <div class="wrap__col">
+    <p>Warning mod</p>
+    <sc-text-field mod="warning" [(ngModel)]="myModel">
+        <!-- Иконка слева -->
+        <sc-svg-icon before
+          src="svg/top.svg"></sc-svg-icon>
+        <!-- Иконка справа   -->
+        <sc-svg-icon after
+          src="svg/top.svg"></sc-svg-icon>
+    </sc-text-field>
+  </div>
+  <div class="wrap__col">
+
+    <p>Attantion mod</p>
+    <sc-text-field [(ngModel)]="myModel" mod="attention">
+        <!-- Иконка слева -->
+        <sc-svg-icon before
+          src="svg/top.svg"></sc-svg-icon>
+        <!-- Иконка справа   -->
+        <sc-svg-icon after
+          src="svg/top.svg"></sc-svg-icon>
+    </sc-text-field>
+  </div>
+  <div class="wrap__col">
+
+  </div>
+  <div class="wrap__col">
+
+  </div>
+</div>
+
+<h3>{{inputModel}}</h3>
