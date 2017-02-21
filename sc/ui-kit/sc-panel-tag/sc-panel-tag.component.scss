@@ -1,14 +1,18 @@
-// @import "../environments/flexiblegs-scss";
-// @import "../environments/mixins";
+@import "../environments/flexiblegs-scss";
+@import "../environments/mixins";
 
 .sc-panel-tag {
+	@include wrap;
+  @include wrap('middle');
+  @include wrap(auto);
+  @include wrap('gutter', 16);
+	@include wrap('outside', 0);
   box-sizing: border-box;
 	background: #fafafa;
 	height: 40px;
 	line-height: 1;
-	// max-height: 8px * 26;
 	overflow: hidden;
-	padding: 6px;
+	padding: 6px 2px;
 	padding-bottom: 0;
 	position: relative;
 	white-space: nowrap;
@@ -17,9 +21,9 @@
 	&:hover {
 		background: #fff;
 		height: auto;
-		white-space: normal;  
-		 max-height: 168px;
-		 overflow-y: auto;
+		white-space: normal;
+		max-height: 168px;
+		overflow-y: auto;
 
 		&:after {
 			display: none;
@@ -34,5 +38,9 @@
 		top: 0px;
     bottom: 0px;
 		width: 16px;
+	}
+
+	> * {
+		margin-bottom: 8px;
 	}
 }

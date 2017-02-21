@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sc-tag',
@@ -6,14 +6,32 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./sc-tag.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ScTagComponent implements OnInit {
+export class ScTagComponent {
 
   constructor() { }
 
-  ngOnInit() {
+  /**
+   * Заголовок тага
+   */
+  @Input() title: string;
+
+  /**
+   * Путь до иконки
+   */
+
+  @Input() icon?: string;
+  /**
+   * Выбрасываем наверх событие клика по кнопке закрытия тага
+   */
+
+  @Output() onRemove = new EventEmitter();
+
+  /**
+   * Метод закрытия тага
+   * @param {MouseEvent} e Событие клика по кнопке закрытия
+   */
+  remove(e):void {
+    this.onRemove.emit(e);
   }
 
-  remove(e) {
-    console.log(e)
-  }
 }

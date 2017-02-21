@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16" version="1.1">
+  <title>
+    icon star-filled
+  </title>
+  <desc>
+    Created with Sketch.
+  </desc>
+  <defs>
+    <polygon id="path-1" points="16 8 18.17 14.11 24 14.11 19.24 17.7 20.94 24 16 20.22 11.06 24 12.76 17.7 8 14.11 13.83 14.11"/>
+  </defs>
+  <g id="eui-2.13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="eui-2.13-icons" transform="translate(-1072.000000, -264.000000)">
+      <g id="eui-item/eui-icons" transform="translate(0.000000, 160.000000)">
+        <g id="icon/icon-star-filled" transform="translate(1064.000000, 96.000000)">
+          <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"/>
+          </mask>
+          <use id="icon-star-filled" fill="currentColor" fill-rule="nonzero" xlink:href="#path-1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

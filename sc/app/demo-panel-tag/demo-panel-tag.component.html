@@ -1,7 +1,4 @@
 <p>
   demo-panel-tag works!
 </p>
-<sc-panel-tag>
-  <sc-tag *ngFor="let item of items; let i = index;">{{item.title + " " + i}}</sc-tag>
-
-</sc-panel-tag>
+<sc-panel-tag [tags]="items" (removeItem)="removeItem($event)"></sc-panel-tag>

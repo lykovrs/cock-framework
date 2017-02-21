@@ -1,7 +1,7 @@
 /**
  * Created by dkovalev on 20.02.2017.
  */
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -23,10 +23,17 @@ export interface ITypeaheadParam {
   searchLoading?: number
 }
 
+enum Mod {
+  def=<any>'def',
+  attention=<any>'attention',
+  warning=<any>'warning'
+}
+
 @Component({
   selector: 'sc-typeahead',
   templateUrl: './sc-typeahead.component.html',
-  styleUrls: ['./sc-typeahead.component.scss']
+  styleUrls: ['./sc-typeahead.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ScTypeaheadComponent implements OnInit {
 
@@ -36,7 +43,7 @@ export class ScTypeaheadComponent implements OnInit {
 
   ngOnInit() {
     //TODO для теста
-    this.states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
+    this.list = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
       'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
       'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
       'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
@@ -44,19 +51,47 @@ export class ScTypeaheadComponent implements OnInit {
       'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
       'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
       'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    this.initMod();
   }
 
+  Mod = Mod;
   private findResults: Array<any> = []; //Найденные совпадения
   private searching: boolean = false; //Процесс поиска (идет - true, нет - false)
-  private param: any = {};
+  private isFocused: boolean = false; //Находится ли input в фокусе
 
   @Input() disabled?: boolean; //Disabled поля ввода
   @Input() placeholder?: string; //Placeholder поля ввода
   @Input() model: any; //Моделька, содержащее значение поиска
+  @Input() mod?: Mod; //Мод: attention, warning, либо вообще не указывается (def)
 
-  @Input() states: Array<any> = []; //Данные для фильтрации
-  @Input() searchMinLength?: any = 1; //Начинаем фильтрацию после данного количества символов
+  @Input() list: Array<any> = []; //Данные для фильтрации
+  @Input() searchMinLength?: any = 3; //Начинаем фильтрацию после данного количества символов
   @Input() searchLoading?: number = 0; //Задержка перед фильтрацией
+
+  /**
+   * Инициализируем mod
+   */
+  private initMod() {
+    !this.getMod() && this.setMod(Mod.def);
+  }
+
+  /**
+   * Получаем mod
+   * @returns {Mod}
+   */
+  private getMod(): Mod {
+    return this.mod;
+  }
+
+  /**
+   * Задаем mod
+   * @param mod
+   * @returns {ScRadioComponent}
+   */
+  private setMod(mod: Mod): ScTypeaheadComponent {
+    this.mod = mod;
+    return this;
+  }
 
   /**
    * Поиск совпадений
@@ -80,7 +115,7 @@ export class ScTypeaheadComponent implements OnInit {
       disabled: this.getDisabled(),
       searching: this.getSearching(),
       searchMinLength: this.getSearchMinLength(),
-      states: this.getStates(),
+      states: this.getList(),
       searchLoading: this.getSearchLoading()
     }
   }
@@ -141,11 +176,11 @@ export class ScTypeaheadComponent implements OnInit {
 
   /**
    * Задаем данные для фильтрации
-   * @param states
+   * @param list
    * @returns {ScTypeaheadComponent}
    */
-  private setStates(states: Array<any>): ScTypeaheadComponent{
-    this.states = states;
+  private setList(list: Array<any>): ScTypeaheadComponent{
+    this.list = list;
     return this;
   }
 
@@ -153,8 +188,8 @@ export class ScTypeaheadComponent implements OnInit {
    * Получаем данные для фильтрации
    * @returns {any[]}
    */
-  private getStates(): Array<any> {
-    return this.states.slice();
+  private getList(): Array<any> {
+    return this.list.slice();
   }
 
   /**
@@ -175,12 +210,53 @@ export class ScTypeaheadComponent implements OnInit {
     return this;
   }
 
+  /**
+   * Задаем searching
+   * @param searching
+   * @returns {ScTypeaheadComponent}
+   */
   private setSearching(searching: boolean): ScTypeaheadComponent{
     this.searching = searching;
     return this;
   }
 
+  /**
+   * Получаем searching
+   * @returns {boolean}
+   */
   private getSearching(): boolean {
     return this.searching;
+  }
+
+  /**
+   * Получаем isFocused
+   * @returns {boolean}
+   */
+  private getIsFocused(): boolean {
+    return this.isFocused;
+  }
+
+  /**
+   * Задаем isFocused
+   * @param isFocused
+   * @returns {ScTypeaheadComponent}
+   */
+  private setIsFocused(isFocused: boolean): ScTypeaheadComponent {
+    this.isFocused = isFocused;
+    return this;
+  }
+
+  /**
+   * Событие фокуса input
+   */
+  private onFocusInput(): void {
+    this.setIsFocused(true);
+  }
+
+  /**
+   * Событие потери фокуса input
+   */
+  private onBlurInput(): void {
+    this.setIsFocused(false);
   }
 }

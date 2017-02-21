@@ -1,3 +1,7 @@
 <div  class="sc-panel-tag">
-  <ng-content></ng-content>
+  <!-- <ng-content></ng-content> -->
+
+  <sc-tag *ngFor="let tag of tags; let i = index;" [title]="tag.title" (onRemove)="remove(tag)" [icon]="'svg/star.svg'">
+  </sc-tag>
+
 </div>

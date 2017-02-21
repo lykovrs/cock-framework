@@ -1,10 +1,23 @@
-<input
-  type="text"
-  [(ngModel)]="model"
-  [ngbTypeahead]="search.bind(this)"
-  [disabled]="disabled"
-  [placeholder]="placeholder"
-/>
-<hr>
+<div
+  class="typeahead">
+  <input
+    type="text"
+    class="typeahead-input"
+    [ngClass]="{
+      'typeahead-input_attention': mod == Mod.attention,
+      'typeahead-input_warning': mod ==  Mod.warning
+    }"
+    [(ngModel)]="model"
+    [ngbTypeahead]="search.bind(this)"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    (focus)="onFocusInput()"
+    (blur)="onBlurInput()"
+  />
+  <div
+    *ngIf="model && !findResults.length && isFocused"
+    class="typeahead-hint">
+      Совпадений не найдено
+  </div>
+</div>
 <pre>Model: {{ model | json }}</pre>
-<div *ngIf="model && !findResults.length">Результатов нет</div>
