@@ -9,7 +9,12 @@ export class DemoPanelTagComponent {
   public items = []
   constructor() {
     for(let i=0; i < 150; i++) {
-      this.items.push({title: `This is ${i} title`})
+      if(i%2){
+        this.items.push({title: `${i} title`, mod:"attention"})
+      } else {
+        this.items.push({title: `Very very long title ${i}`})
+      }
+
     }
 
   }

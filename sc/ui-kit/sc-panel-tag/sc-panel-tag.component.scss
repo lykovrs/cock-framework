@@ -33,11 +33,11 @@
 	&:after {
 		background: linear-gradient(to left, #fff 25%, transparent);
 		content: '';
-		right: 0px;
+		right: 0;
 		position: absolute;
-		top: 0px;
-    bottom: 0px;
-		width: 16px;
+		top: 0;
+    bottom: 0;
+		width: 32px;
 	}
 
 	> * {

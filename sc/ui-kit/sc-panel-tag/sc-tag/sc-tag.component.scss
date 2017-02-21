@@ -3,34 +3,27 @@
 
 .sc-tag {
   @include wrap;
-  @include wrap('middle');
-  @include wrap(auto);
-  @include wrap('gutter', 8);
-
-  width: auto;
+  @include wrap( 'middle');
+  @include wrap('auto');
+  @include wrap( 'gutter', 8);
   background-color: #aaa;
+  white-space: nowrap;
   color: #fff;
-  display: inline-block;
 
-  // &.sc-tag_state_attention {
-  //   background-color: #fff;
-  //   color: #ff8c19;
-  // }
-  //   .sc-panel-tag__icon {
-  //     color: #888;
-  //   }
-  // }
-  //
+
   .sc-tag__title {
-    // margin: 0 8px;
     @include col;
-    @include dots();
     font-weight: 600;
-    // max-width: calc(100%);
     line-height: 24px;
 
+    span {
+      display: block;
+      width: calc(100%);
+      @include dots();
+    }
   }
 }
+
 .sc-tag__icon {
   @include col;
 
@@ -39,41 +32,33 @@
     height: 16px;
     fill: #fff;
   }
-
-
-	// .sc-tag_state_active & {
-	// 	color: #eee;
-	// }
-  //
-	// .sc-tag_state_disabled &,
-	// .sc-tag_state_disabled:hover & {
-	// 	color: #ccc;
-	// }
-  //
-	// .sc-tag_state_attention & {
-	// 	color: #ff8c19;
-	// }
 }
 
 .sc-tag__button,
 .sc-tag__button:focus {
-	border: none;
-	cursor: pointer;
-	display: block;
-	font-size: 0;
+  border: none;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
 
-	&, &:focus {
-		background-color: transparent;
-		fill: #d4d4d4;
-	}
-	&:hover {
-		background-color: transparent;
-		border-color: transparent;
-		fill: #fff;
-	}
-	&:active,
-	&.button_state_active {
-		background-color: transparent;
-		fill: #fff;
-	}
+  &,
+  &:focus {
+    background-color: transparent;
+    fill: rgba(#fff, .5);
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    fill: #fff;
+  }
+
+  &:active {
+    background-color: transparent;
+    fill: #fff;
+  }
+}
+
+.sc-tag.attention {
+  background-color: #FF9830;
 }

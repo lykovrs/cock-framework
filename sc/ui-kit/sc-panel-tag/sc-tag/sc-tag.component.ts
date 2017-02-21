@@ -1,4 +1,7 @@
 import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import '../../interfaces/ITag'
+
+
 
 @Component({
   selector: 'sc-tag',
@@ -8,30 +11,25 @@ import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angu
 })
 export class ScTagComponent {
 
-  constructor() { }
+  constructor() {
+  }
 
   /**
    * Заголовок тага
    */
-  @Input() title: string;
+  @Input() tag: ITag;
 
-  /**
-   * Путь до иконки
-   */
-
-  @Input() icon?: string;
   /**
    * Выбрасываем наверх событие клика по кнопке закрытия тага
    */
-
-  @Output() onRemove = new EventEmitter();
+  @Output() onRemove:EventEmitter<ITag> = new EventEmitter<ITag>();
 
   /**
    * Метод закрытия тага
    * @param {MouseEvent} e Событие клика по кнопке закрытия
    */
   remove(e):void {
-    this.onRemove.emit(e);
+    this.onRemove.emit(this.tag);
   }
 
 }

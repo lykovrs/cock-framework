@@ -1,12 +1,14 @@
-<div [ngClass]="{'sc-tag_state_disabled': disabled}"
+<div [ngClass]="tag.mod"
      class="sc-tag">
-    <div *ngIf="icon" class="sc-tag__icon">
+    <div *ngIf="tag.icon" class="sc-tag__icon">
       <sc-svg-icon
-          [src]="icon"></sc-svg-icon>
+          [src]="tag.icon"></sc-svg-icon>
     </div>
-    <span class="sc-tag__title">
-      {{title}}
-    </span>
+    <div class="sc-tag__title">
+      <span>
+        {{tag.title}}
+      </span>
+    </div>
     <div>
       <button
             (click)="remove($event)"

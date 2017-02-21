@@ -1,10 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
-interface Iitem {
-  title: string;
-  icon?: string;
-  mod?: string;
-}
+import '../interfaces/ITag';
 
 @Component({
   selector: 'sc-panel-tag',
@@ -15,7 +10,7 @@ export class ScPanelTagComponent {
   /**
    * Массив объектов Iitem
    */
-  @Input() tags?:Iitem[];
+  @Input() tags?:ITag[];
 
   /**
    * Генерируем собиытие удаления на которое можно подписаться из вне.
@@ -26,10 +21,10 @@ export class ScPanelTagComponent {
 
   /**
    * Удаление тага из входящего массива
-   * @param  {Iitem} tag Удаляемый таг
-   * @return {Iitem}     Удаленный таг
+   * @param  {ITag} tag Удаляемый таг
+   * @return {ITag}     Удаленный таг
    */
-  remove(tag:Iitem):Iitem {
+  removeTag(tag:ITag):ITag {
     let position = this.tags.indexOf(tag);
     let removedItem = this.tags.splice(position, 1)[0];
     this.removeItem.emit(removedItem);

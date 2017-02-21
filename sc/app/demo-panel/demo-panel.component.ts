@@ -13,12 +13,12 @@ export class DemoPanelComponent implements OnInit {
   titleTest1 = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aspernatur autem distinctio ea esse est exercitationem facilis harum impedit magnam maxime natus necessitatibus, officia quam quos sequi vitae voluptate.';
   sizeTest1= 'normal';
   colorTest1 = 'light';
-  iconUrlTest1 = 'svg/delete.svg';
+  iconUrlTest1 = 'sc/svg/delete.svg';
 
   titleTest2 = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aspernatur autem distinctio ea esse est exercitationem facilis harum impedit magnam maxime natus necessitatibus, officia quam quos sequi vitae voluptate.';
   sizeTest2= 'normal';
   colorTest2 = 'grey';
-  iconUrlTest2 = 'svg/indicator.svg';
+  iconUrlTest2 = 'sc/svg/indicator.svg';
 
   titleTest3 = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aspernatur autem distinctio ea esse est exercitationem facilis harum impedit magnam maxime natus necessitatibus, officia quam quos sequi vitae voluptate.';
   sizeTest3= 'normal';
