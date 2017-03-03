@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icon search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11,14.5019315 C11,10.9110139 13.9101491,8 17.5,8 C21.0898509,8 24,10.9110139 24,14.5019315 C24,18.0928491 21.0898509,21.003863 17.5,21.003863 C16.0646756,21.003863 14.7380102,20.5385003 13.6625689,19.7503823 L9.41421356,24 L8,22.5853662 L12.2490914,18.3350122 C11.4636434,17.2602279 11,15.9352406 11,14.5019315 Z M17.5,19.0032687 C19.9852814,19.0032687 22,16.9879514 22,14.5019315 C22,12.0159116 19.9852814,10.0005943 17.5,10.0005943 C15.0147186,10.0005943 13,12.0159116 13,14.5019315 C13,16.9879514 15.0147186,19.0032687 17.5,19.0032687 L17.5,19.0032687 Z" id="path-1"></path>
+    </defs>
+    <g id="eui-2.13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="eui-2.13-icons" transform="translate(-1312.000000, -456.000000)">
+            <g id="eui-item/eui-icons" transform="translate(0.000000, 160.000000)">
+                <g id="icon/icon-search" transform="translate(1304.000000, 288.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="icon-search" fill="currentColor" transform="translate(16.000000, 16.000000) scale(-1, 1) translate(-16.000000, -16.000000) " xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

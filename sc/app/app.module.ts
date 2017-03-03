@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { UiKitModule } from '../ui-kit/ui-kit.module'; // Подключаем модуль компонентов фреймворка
@@ -18,8 +18,12 @@ import { DemoPaginationComponent } from './demo-pagination/demo-pagination.compo
 import { DemoPanelComponent } from './demo-panel/demo-panel.component';
 import { DemoTypeaheadComponent } from "./demo-typeahead/demo-typeahead.component";
 import { DemoPanelTagComponent } from './demo-panel-tag/demo-panel-tag.component';
+import { DemoPopoverComponent } from './demo-popover/demo-popover.component';
+import { DemoComboboxComponent } from './demo-combobox/demo-combobox.component';
+import { DemoModalComponent } from './demo-modal/demo-modal.component';
+import { DemoTooltipComponent } from './demo-tooltip/demo-tooltip.component';
 
-
+import { NgbdModalContent } from './demo-modal/demo-modal-content.component';
 
 
 @NgModule({
@@ -36,16 +40,21 @@ import { DemoPanelTagComponent } from './demo-panel-tag/demo-panel-tag.component
     DemoPanelComponent,
     DemoTypeaheadComponent,
     DemoPanelTagComponent,
-
+    DemoPopoverComponent,
+    DemoComboboxComponent,
+    DemoModalComponent,
+    DemoTooltipComponent,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    UiKitModule
+    JsonpModule,
+    UiKitModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NgbdModalContent]
 })
 export class AppModule { }

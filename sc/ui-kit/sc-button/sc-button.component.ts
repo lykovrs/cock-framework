@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, HostBinding, AfterViewInit} from '@angular/core';
+import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, HostBinding, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -7,14 +7,19 @@ import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, Hos
   styleUrls: ['./sc-button.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class]': 'classList'
+    '[class]': 'classes'
   }
 })
 export class ScButtonComponent implements OnInit, AfterViewInit {
-  @Input() mod: String; // Модификаторы компонента
 
-  private classList: String = null; // Классы кнопки
+  @Input() mod: String = null; // Модификаторы компонента
+  @Input() size: string = null; // Размер кнопки 
+
+
+  private classList: string[] = []; // Классы кнопки
   // Получаем наблюдаемых детей
+  private classes: string;
+
   @ViewChild('leftView') leftView: ElementRef;
   @ViewChild('rightView') rightView: ElementRef;
 
@@ -33,7 +38,17 @@ export class ScButtonComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // Если нет модификатора оставляем только класс компонента
-    this.classList = this.mod ? `sc-button  + sc-button_${this.mod}` : 'sc-button';
+    // Если нет модификатора или указателья размера кнопки оставляем только класс компонента
+    this.classList[0] = `sc-button`;
+
+    if (this.mod) {
+      this.classList.push(`sc-button_${this.mod}`);
+    }
+    if (this.size) {
+      this.classList.push(`sc-button_${this.size}`);
+    }
+
+    this.classes = this.classList.join(' ');
   };
 };
+

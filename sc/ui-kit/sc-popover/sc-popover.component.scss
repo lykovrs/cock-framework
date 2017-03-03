@@ -1,0 +1,138 @@
+
+// Popovers
+.popover {  
+  max-width: 544px;
+  padding: 16px 24px;
+  color: white;
+  border: none !important;
+  border-radius: 0;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: normal;   
+  background-color: rgba(0,0,0,0.8); 
+
+
+  
+
+  // Popover directions
+
+  &.popover-top,
+  &.bs-tether-element-attached-bottom {
+    margin-top: -$popover-arrow-width;
+
+    &::before,
+    &::after {
+      left: 50%;
+      border-bottom-width: 0;
+      opacity: .6;
+    }
+
+    &::before {
+      // bottom: -$popover-arrow-outer-width;
+      // margin-left: -$popover-arrow-outer-width;
+
+      border-top-color: black;
+    }
+
+    &::after {
+      // bottom: -$popover-arrow-outer-width;
+      // margin-left: -$popover-arrow-width;
+
+      border-top-color: black;
+    }
+  }
+
+  &.popover-right,
+  &.bs-tether-element-attached-left {
+    margin-left: $popover-arrow-width;
+
+    &::before,
+    &::after {
+      top: 50%;
+      border-left-width: 0;
+      opacity: .6;
+    }
+
+    &::before {
+      // left: -$popover-arrow-outer-width;
+      // margin-top: -$popover-arrow-outer-width;
+      border-right-color: black;
+    }
+
+    &::after {
+      // left: -($popover-arrow-outer-width - 1);
+      // margin-top: -($popover-arrow-outer-width - 1);
+      border-right-color: black;
+    }
+  }
+
+  &.popover-bottom,
+  &.bs-tether-element-attached-top {
+    // margin-top: $popover-arrow-width;
+
+    &::before,
+    &::after {
+      left: 50%;
+      border-top-width: 0;
+      opacity: .6;
+    }
+
+    &::before {
+      // top: -$popover-arrow-outer-width;
+      // margin-left: -$popover-arrow-outer-width;
+      border-bottom-color: black;
+    }
+
+    &::after {
+      // top: -($popover-arrow-outer-width);
+      // margin-left: -$popover-arrow-width;
+      border-bottom-color: black;
+    }
+    
+    .popover-title {
+       &::before {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &.popover-left,
+  &.bs-tether-element-attached-right {
+    // margin-left: -$popover-arrow-width;
+
+    &::before,
+    &::after {
+      top: 50%;
+      border-right-width: 0;
+      opacity: .6;
+    }
+
+    &::before {
+      // right: -$popover-arrow-outer-width;
+      // margin-top: -$popover-arrow-outer-width;
+      border-left-color: black;
+    }
+
+    &::after {
+      // right: -($popover-arrow-outer-width - 2);
+      // margin-top: -($popover-arrow-outer-width - 2);
+      border-left-color: black;
+    }
+  }
+}
+
+
+// // Offset the popover to account for the popover arrow
+.popover-title {
+  background: none;
+  border-bottom: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit; 
+  font-weight: 600;  
+}
+
+.popover-content {
+  padding: 0;
+}
+

@@ -1,23 +1,73 @@
 <div
-  class="typeahead">
+  class="sc-typeahead"
+  [ngClass]="{
+      'sc-typeahead_attention': mod == Mod.attention,
+      'sc-typeahead_warning': mod ==  Mod.warning,
+      'focus': isFocused,
+      'disabled': disabled
+    }">
+
+  <template #rt let-result="result" let-term="term">
+    <div *ngIf="!customTemplate && templateKeys.length" class="sc-typahead-element-container">
+      <div class="sc-typeahead-element" *ngFor="let k of templateKeys">
+        <div class="sc-typeahead-element__char"
+          *ngFor="let r of ngbHighlightArray(valuesFormatter(result)[k], term); let odd=odd;">
+          <span *ngIf="odd" class="sc-typeahead-highlight">{{r}}</span>
+          <span *ngIf="!odd">{{r}}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!customTemplate && !templateKeys.length" class="sc-typahead-element-container">
+      <div class="sc-typeahead-element">
+        <div>{{result}}</div>
+      </div>
+    </div>
+    <div *ngIf="customTemplate" [innerHTML]="customTemplate">
+
+    </div>
+  </template>
+
+  <div class="sc-typeahead__icon">
+    <sc-svg-icon before
+                 src="sc/svg/search.svg"></sc-svg-icon>
+  </div>
+
   <input
+    #scInput
     type="text"
-    class="typeahead-input"
-    [ngClass]="{
-      'typeahead-input_attention': mod == Mod.attention,
-      'typeahead-input_warning': mod ==  Mod.warning
-    }"
+    class="sc-typeahead__input"
     [(ngModel)]="model"
     [ngbTypeahead]="search.bind(this)"
     [disabled]="disabled"
     [placeholder]="placeholder"
-    (focus)="onFocusInput()"
-    (blur)="onBlurInput()"
+    (focus)="onFocusInput($event)"
+    (blur)="onBlurInput($event)"
+    [resultTemplate]="rt"
+    [inputFormatter]="inputFormatter"
+    (selectItem)="onSelectItem($event)"
+    (keydown)="onKeyDownInput($event)"
   />
+
+  <div class="sc-typeahead__clear">
+    <button (click)="onClearInput(scInput)" *ngIf="model" [hidden]="disabled">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0" y="0" viewBox="0 0 1024 1024" xml:space="preserve" enable-background="new 0 0 1024 1024">
+            <path d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zM783.5 693L693 783.5l-181-181 -181 181L240.5 693l181-181 -181-181 90.5-90.5 181 181 181-181 90.5 90.5 -181 181L783.5 693z"/>
+          </svg>
+
+    </button>
+  </div>
+
   <div
-    *ngIf="model && !findResults.length && isFocused"
-    class="typeahead-hint">
+    *ngIf="model && !findResults.length && isFocused && model.length >= searchMinLength && !searching"
+    class="sc-typeahead__hint">
       Совпадений не найдено
   </div>
+
+  <div
+    *ngIf="searching"
+    class="sc-typeahead__hint">
+    Поиск...
+  </div>
+
 </div>
-<pre>Model: {{ model | json }}</pre>

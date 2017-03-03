@@ -53,10 +53,7 @@ $default-border-color-active: #196666 !default;
 	&.sc-button_state_disabled,
 	&[disabled],
 	fieldset[disabled] & {
-		background-color: rgba($background, .5);
-		box-shadow: inset 0px 0px 0px $border-width rgba($border-color, .5);
-		color: rgba($text-color, .5);
-		fill: rgba($text-color, .5);
+		opacity: .5;
 	}
 }
 /* Базовый стиль (start) */
@@ -280,5 +277,43 @@ $gray-outline-border-color-active: #474747 !default;
 
 .sc-button_gray-outline {
 	@include button($gray-outline-text-color, $gray-outline-background, $gray-outline-border-color, $gray-outline-text-color-hover, $gray-outline-background-hover, $gray-outline-border-color-hover, $gray-outline-text-color-active, $gray-outline-background-active, $gray-outline-border-color-active);
+}
+
+
+
+// white-outline
+$white-outline-text-color: #fff !default;
+$white-outline-background: transparent !default;
+$white-outline-border-color: #fff !default;
+// При наведении
+$white-outline-text-color-hover: #fff !default;
+$white-outline-background-hover: rgba(0,0,0,0.2) !default;
+$white-outline-border-color-hover: #fff !default;
+// Активное состояние
+$white-outline-text-color-active: #fff !default;
+$white-outline-background-active: rgba(0,0,0,0.4) !default;
+$white-outline-border-color-active: #fff !default;
+
+.sc-button_white-outline {
+	@include button($white-outline-text-color, $white-outline-background, $white-outline-border-color, $white-outline-text-color-hover, $white-outline-background-hover, $white-outline-border-color-hover, $white-outline-text-color-active, $white-outline-background-active, $white-outline-border-color-active);
+}
+
+
+.sc-button_small {
+	height: $button-grid * 4;	
+
+	.sc-button__text {
+		font-size: 14px;
+		padding: 0 $button-grid;
+	}
+}
+
+.sc-button_big {
+	height: $button-grid * 6;
+
+	.sc-button__text {
+		font-size: 20px;
+		padding: 0 $button-grid * 3;
+	}
 }
 /* Модификаторы (end) */

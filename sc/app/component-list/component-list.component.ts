@@ -10,6 +10,5 @@ export class ComponentListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
+  };
 }
