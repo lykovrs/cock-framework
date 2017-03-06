@@ -22,8 +22,8 @@ import { DemoPopoverComponent } from './demo-popover/demo-popover.component';
 import { DemoComboboxComponent } from './demo-combobox/demo-combobox.component';
 import { DemoModalComponent } from './demo-modal/demo-modal.component';
 import { DemoTooltipComponent } from './demo-tooltip/demo-tooltip.component';
-
-import { NgbdModalContent } from './demo-modal/demo-modal-content.component';
+import { DemoPreloaderComponent } from './demo-preloader/demo-preloader.component';
+import { DemoModalContent } from './demo-modal/demo-modal-content.component';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { NgbdModalContent } from './demo-modal/demo-modal-content.component';
     DemoComboboxComponent,
     DemoModalComponent,
     DemoTooltipComponent,
-    NgbdModalContent
+    DemoModalContent,
+    DemoPreloaderComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,6 @@ import { NgbdModalContent } from './demo-modal/demo-modal-content.component';
     UiKitModule,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NgbdModalContent]
+  entryComponents: [DemoModalContent]
 })
 export class AppModule { }

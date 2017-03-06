@@ -1,3 +1,140 @@
+
 :host {
-    background: black;
+  
+}
+
+// .text-muted {
+//     color: red !important;
+// }
+
+
+.tomorrow-btn {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    box-shadow: inset -2px 0 0 0 #777777,inset 0 -2px 0 0 #777777,inset 2px 0 0 0 #777777;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+// .btn-default {
+//     background: blue !important;
+// }
+button {
+    border: 0;
+}
+
+table {
+    border-collapse:collapse;
+    width: 288px;
+    // background: #333;
+     border: 2px solid #777;
+     border-collapse: collapse;
+     color: #333;
+     
+
+    thead tr:first-child {
+        background: #777;
+        // background:  #fff;
+       
+        th {
+            height: 30px;
+            button {
+                background: transparent;
+                height: 30px;
+                box-shadow: none; 
+                color: #fff;
+            }
+        }
+        
+    // font-size: 0;
+    }
+
+    td {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+
+    th {
+    
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        
+    }
+
+    .btn {
+        // line-height: 32px; 
+        box-sizing: border-box;
+        display: block;
+        border: 0;
+        width: 100%;
+        height: 100%;
+        // line-height: 32px;
+        // font-size: 0;
+        color: inherit;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: #fff;
+        box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.75);
+        font-weight: 600;
+        position: relative;
+        
+        span {
+         font-size: 16px;
+         line-height: 40px;
+        }
+       
+       .text-info {
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 4px;
+                left: 50%;
+                margin-left: -3px; 
+                width: 0; 
+                height: 0; 
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent; border-bottom: 4px solid black;
+            }
+        }
+
+        &.active {
+          color : #297CA6;
+           
+           &:before {
+               position: absolute;
+               top: 3px;
+               bottom: 2px;
+               left: 3px;
+               right: 2px;
+               border: 2px solid #297CA6;
+               content: "";
+               display: block;
+               
+           }
+        }
+    }
+
+    tr {
+        td, th {
+             color: #333;
+
+             &:last-child {
+                color: #E65C5C;
+            }
+        }
+    }
+}
+
+.glyphicon-chevron-right {
+    
+}
+
+.glyphicon-chevron-left {
+    
 }

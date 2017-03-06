@@ -15,6 +15,7 @@ import { DemoPopoverComponent } from './demo-popover/demo-popover.component';
 import { DemoTooltipComponent } from './demo-tooltip/demo-tooltip.component';
 import { DemoComboboxComponent } from './demo-combobox/demo-combobox.component';
 import { DemoModalComponent } from './demo-modal/demo-modal.component';
+import { DemoPreloaderComponent } from './demo-preloader/demo-preloader.component';
 
 const routes: Routes = [
   { path: 'component-list', component: ComponentListComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'panel-tag', component: DemoPanelTagComponent },
   { path: 'combobox', component: DemoComboboxComponent },
   { path: 'modal', component: DemoModalComponent },
+  { path: 'preloader', component: DemoPreloaderComponent },
   { path: '', redirectTo: 'component-list', pathMatch: 'full' },
 ];
 

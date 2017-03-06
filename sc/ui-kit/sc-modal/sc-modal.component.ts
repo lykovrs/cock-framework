@@ -4,8 +4,26 @@
 /**
  * Modules
  */
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation,
+  ComponentFactoryResolver,
+  ViewChild,
+  Input,
+  AfterViewInit,
+  ComponentFactory,
+  ViewContainerRef,
+  ComponentRef
+} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+/**
+ * Directives
+ */
+import { ScModalAddDirective } from './sc-modal-add.directive';
+/**
+ * Services
+ */
+import { ScModalAddService } from './sc-modal-add.service';
 
 @Component({
   selector: 'sc-modal',
@@ -13,12 +31,27 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./sc-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ScModalComponent implements OnInit {
+export class ScModalComponent implements AfterViewInit {
 
-  constructor(private activeModal: NgbActiveModal) {
+  private title: string = 'Заголовок модального окна'; //Заголовок модального окна
+  @ViewChild(ScModalAddDirective) ScModalAddDirective: ScModalAddDirective;
+
+  constructor(
+      private activeModal: NgbActiveModal,
+      private componentFactoryResolver: ComponentFactoryResolver,
+      private scModalAddService: ScModalAddService
+  ) {
+
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    //Прописываем в template необходимый компонент
+    let componentFactory: ComponentFactory<any>,
+        viewContainerRef: ViewContainerRef,
+        componentRef: ComponentRef<any>;
+    componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.scModalAddService.getComponent());
+    viewContainerRef = this.ScModalAddDirective.viewContainerRef;
+    viewContainerRef.clear();
+    componentRef = viewContainerRef.createComponent(componentFactory);
   }
-
 }

@@ -1,15 +1,19 @@
+import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 /**
  * Created by dkovalev on 03.03.2017.
  */
 export interface IModalParams {
   title?: string,
-  subtitle?: string,
-  successCallback?: (any) => any,
-  dismissCallback?: (any) => any,
-  closeCallback? :(any) => any
+}
+
+export interface IModalOptions {
+  backdrop?: boolean | 'static';
+  keyboard?: boolean;
+  windowClass?: string;
 }
 
 export interface IModal {
-  component?: any,
-  params?: IModalParams
+  component: any,
+  params?: IModalParams,
+  options?: IModalOptions
 }

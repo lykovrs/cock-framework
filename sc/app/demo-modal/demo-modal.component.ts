@@ -1,6 +1,17 @@
+/**
+ * Modules
+ */
 import { Component } from '@angular/core';
+
+/**
+ * Services
+ */
 import { ScModalService } from '../../ui-kit/sc-modal/sc-modal.service';
-import { NgbdModalContent } from './demo-modal-content.component';
+
+/**
+ * Demo компонент, который отправляем в модальное окно
+ */
+import { DemoModalContent } from './demo-modal-content.component';
 
 @Component({
   selector: 'demo-modal',
@@ -10,30 +21,33 @@ import { NgbdModalContent } from './demo-modal-content.component';
 export class DemoModalComponent {
 
   constructor(private scModalService: ScModalService) { }
-
   /**
    * Тестируем открытие модального окна со своим компонентом
    */
   testCustomOpen() {
-    this.scModalService.open({component: NgbdModalContent});
+
+    this.scModalService.open({component: DemoModalContent}).then((e) => {
+      console.log('ok', e)
+    }, (e) => {
+      console.log('close', e);
+    });
   }
 
   /**
-   * Тестируем открытие модального окна со стандартным компонентом
+   * Тестируем открытие модального окна со своим компонентом, но с передачей параметров
    */
-  testOpenDefault() {
-    this.scModalService.open();
-  }
-
-  /**
-   * Тестируем открытие модального окна со стандартным компонентом, но с передачей параметров
-   */
-  testOpenDefaultWithParam() {
-    this.scModalService.open({params: {
-      title: 'test',
-      dismissCallback: (e) => {console.log(e, 'dismiss')},
-      closeCallback: (e) => {console.log(e, 'close')}
-    }});
+  testCustomOpenParams() {
+    this.scModalService.open({
+      component: DemoModalContent,
+      params: {
+        title: 'test',
+      },
+      options: {windowClass: 'dark-modal'}
+    }).then((e) => {
+      console.log('ok', e)
+    }, (e) => {
+      console.log('close', e);
+    });
   }
 
 }

@@ -17,13 +17,18 @@ import { ScPanelTagComponent } from './sc-panel-tag/sc-panel-tag.component';
 import { ScTagComponent } from './sc-panel-tag/sc-tag/sc-tag.component';
 import { ScComboboxComponent } from './sc-combobox/sc-combobox.component';
 import { ScModalComponent } from './sc-modal/sc-modal.component';
+import { ScPreloaderComponent } from './sc-preloader/sc-preloader.component';
 import { DatepickerModule } from 'ng2-bootstrap';
+
+// Директивы
+import { ScModalAddDirective } from './sc-modal/sc-modal-add.directive';
 
 // Сервисы
 import { ScRadioService } from './sc-radio/sc-radio.service';
 import { ScSvgIconRegistryService } from './sc-svg-icon/sc-svg-icon-registry.service';
 import { ScTypeaheadService } from './sc-typeahead/sc-typeahead.service';
 import { ScModalService } from './sc-modal/sc-modal.service';
+import { ScModalAddService } from './sc-modal/sc-modal-add.service';
 
 // Сторонние модули
 import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей ввода
@@ -42,7 +47,9 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScPanelTagComponent,
     ScTagComponent,
     ScComboboxComponent,
-    ScModalComponent
+    ScModalComponent,
+    ScModalAddDirective,
+    ScPreloaderComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -68,7 +75,9 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScTagComponent,
     ScComboboxComponent,
     ScModalComponent,
-    DatepickerModule
+    ScModalAddDirective,
+    DatepickerModule,
+    ScPreloaderComponent
   ],
   providers: [
     ScSvgIconRegistryService,
@@ -76,7 +85,8 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScTypeaheadService,
     NgbTypeaheadConfig,
     ScModalService,
-    NgbActiveModal
+    NgbActiveModal,
+    ScModalAddService
   ],
   entryComponents: [ScModalComponent]
 })

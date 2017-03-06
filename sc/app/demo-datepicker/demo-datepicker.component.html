@@ -5,6 +5,11 @@
 <p>Simple datepicker</p>
 
 
+ <div style="display:inline-block; min-height:290px;">
+    <sc-datepicker 
+    [model]="dt" 
+    [minDate]="minDate"      
+    [dateDisabled]="dateDisabled"></sc-datepicker>
+  </div>
 
-
-<sc-datepicker [value]="dateValue"> </sc-datepicker>
+Current date: {{dt}}

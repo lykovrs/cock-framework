@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/mixins/reset-text";
+
 // default
 $default-text-color: #333333 !default;
 $default-background: #ffffff !default;
@@ -19,6 +21,8 @@ $attention-border-color: #FF9830 !default;
 $attention-indeterminate-background: #FF9830 !default;
 
 .checkbox {
+  font-size: 0; 
+  line-height: 0;
   color: #666;
   float: left;
   margin: 0 16px 0 0;

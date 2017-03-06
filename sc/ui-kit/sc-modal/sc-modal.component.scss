@@ -1,14 +1,28 @@
-.sc-modal-body {
+// default
+$default-text-color: #ffffff !default;
+$default-background: #204040 !default;
+$default-border-color: #777777 !default;
+
+$default-inner-background: #ffffff !default;
+.sc-modal {
+
+}
+
+.sc-modal-main {
+  background-color: $default-background;
   position: relative;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 15px;
+  padding: 4px;
+  &__inner {
+    background-color: $default-inner-background;
+  }
 }
 
 .sc-modal-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  color: $default-text-color;
+  background-color: $default-background;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -16,13 +30,13 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 15px;
-  border-bottom: 1px solid #eceeef;
+  padding: 16px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .sc-modal-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -76,12 +90,8 @@
 
 .modal-content {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   background-color: #fff;
   background-clip: padding-box;
@@ -94,5 +104,9 @@
   opacity: .5;
 }
 .sc-modal-close {
-
+  background: transparent;
+  border: none;
+  color: $default-text-color;
+  fill: $default-text-color;
 }
+

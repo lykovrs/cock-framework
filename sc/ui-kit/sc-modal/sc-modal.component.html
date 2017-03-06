@@ -1,14 +1,18 @@
-<div>
+<div class="sc-modal">
   <div class="sc-modal-header">
-    <h4 class="modal-title">{{title}}</h4>
-    <button type="button" class="sc-modal-close" aria-label="Close" (click)="activeModal.dismiss($event)">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <div class="modal-title">
+      <span>{{title}}</span>
+    </div>
+    <div class="sc-modal-close">
+      <button class="sc-modal-close" (click)="activeModal.dismiss($event)">
+        <sc-svg-icon before
+                     src="sc/svg/close.svg"></sc-svg-icon>
+      </button>
+    </div>
   </div>
-  <div class="sc-modal-body">
-
-  </div>
-  <div class="sc-modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="activeModal.close($event)">Close</button>
+  <div class="sc-modal-main">
+    <div class="sc-modal-main__inner">
+      <template sc-modal-add></template>
+    </div>
   </div>
 </div>

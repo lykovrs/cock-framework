@@ -15,7 +15,7 @@
           <mask id="mask-2" fill="white">
             <use xlink:href="#path-1"/>
           </mask>
-          <use id="icon-ico-close" fill="#000000" xlink:href="#path-1"/>
+          <use id="icon-ico-close" fill="currentColor" xlink:href="#path-1"/>
         </g>
       </g>
     </g>
