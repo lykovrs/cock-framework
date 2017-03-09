@@ -1,52 +1,53 @@
-import { NgModule, ViewEncapsulation,  Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import * as moment from 'moment';
+import { CustomDayStyle } from './sc-datepicker.customDayStyle';
 
 @Component({
   selector: 'sc-datepicker',
-  providers: [DatePipe],
   templateUrl: './sc-datepicker.component.html',
-  styleUrls: ['./sc-datepicker.component.scss'],
-   encapsulation: ViewEncapsulation.Native,
+  styleUrls: ['sc-datepicker.component.scss'],
+  encapsulation: ViewEncapsulation.Native,
 })
-export class ScDatepickerComponent implements AfterViewInit {
-  public dt: Date = new Date();
-  @Input() model: any;
-  @Input() minDate;
-  @Input() dateDisabled;
+export class ScDatepickerComponent {
+  /**
+   * 
+   * 
+   * 
+   * @memberOf ScDatepickerComponent
+   */
+  @Input() model = new Date();
+  @Input() customClass = [];
+  @Input() dateDisabled: { date: Date, mode: string }[] = [];
+  @Input() minDate:any
 
- 
-  @Output() dateModelChange: EventEmitter<Date> = new EventEmitter(); 
 
-  constructor(private datePipe: DatePipe) { }
+  @Output() changedSelectDate = new EventEmitter();
 
-  private transformDate(date: Date): string {
-    // var d = new DatePipe('pt-PT').transform(date, 'yyyy/MM/dd');
-    // return d;
-    return 'adsf';
+
+  // public dt: Date = 
+
+
+
+
+
+  public format: string = 'DD-MM-YYYY';
+
+
+  private opened: boolean = false;
+
+  public constructor() {
+    moment.locale("ru");
+
+    // this.setCustomClass()
   }
 
-  today(): void {
-    // this.dt = new Date();
-    // this.apply();
-  }
-  clear(): void {
-    // this.dt = this.value = void 0;
+  public sendValue(dt) {
+    this.changedSelectDate.emit(dt);
+    console.log(dt);
+
 
   }
 
-  private apply(): void {
-    // this.value = this.transformDate(this.dt);
-    // this.dateModelChange.emit(this.dt);
-  }
 
-  onSelectionDone(event) {
-    // this.dt = event;
-    // this.apply();
-
-  }
-
-  ngAfterViewInit() {
-    // this.dt = new Date(this.value);
-  }
 }
 

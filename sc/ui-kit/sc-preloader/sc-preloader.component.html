@@ -1,1 +1,10 @@
-<div>test preloader</div>
+<div class="preloader__backdrop" *ngIf="condition">
+  <div class="preloader simple">
+    <div class="preloader__loader">
+
+    </div>
+    <div class="preloader__text">
+      {{title}}
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ import { DemoModalComponent } from './demo-modal/demo-modal.component';
 import { DemoTooltipComponent } from './demo-tooltip/demo-tooltip.component';
 import { DemoPreloaderComponent } from './demo-preloader/demo-preloader.component';
 import { DemoModalContent } from './demo-modal/demo-modal-content.component';
+import { DemoAlertMessageComponent } from './demo-alert-message/demo-alert-message.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DemoModalContent } from './demo-modal/demo-modal-content.component';
     DemoModalComponent,
     DemoTooltipComponent,
     DemoModalContent,
-    DemoPreloaderComponent
+    DemoPreloaderComponent,
+    DemoAlertMessageComponent
   ],
   imports: [
     BrowserModule,

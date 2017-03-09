@@ -18,6 +18,7 @@ import { ScTagComponent } from './sc-panel-tag/sc-tag/sc-tag.component';
 import { ScComboboxComponent } from './sc-combobox/sc-combobox.component';
 import { ScModalComponent } from './sc-modal/sc-modal.component';
 import { ScPreloaderComponent } from './sc-preloader/sc-preloader.component';
+import { ScAlertMessageComponent } from './sc-alert-message/sc-alert-message.component';
 import { DatepickerModule } from 'ng2-bootstrap';
 
 // Директивы
@@ -49,7 +50,8 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScComboboxComponent,
     ScModalComponent,
     ScModalAddDirective,
-    ScPreloaderComponent
+    ScPreloaderComponent,
+    ScAlertMessageComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -77,7 +79,8 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScModalComponent,
     ScModalAddDirective,
     DatepickerModule,
-    ScPreloaderComponent
+    ScPreloaderComponent,
+    ScAlertMessageComponent
   ],
   providers: [
     ScSvgIconRegistryService,
