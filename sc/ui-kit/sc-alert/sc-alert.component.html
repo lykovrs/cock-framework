@@ -1,0 +1,61 @@
+<div class="popup">
+  <div *ngFor="let alert of alerts"
+       class="popup__alert"
+       [ngClass]="{
+          'popup__alert_info': alert.type === 'info',
+          'popup__alert_warning': alert.type === 'warning',
+          'popup__alert_success': alert.type === 'success',
+          'popup__alert_danger': alert.type === 'danger'
+       }">
+
+    <ngb-alert
+      *ngIf="alert && alert.messages && alert.messages.length"
+      type="custom"
+      [dismissible]="false"
+      (close)="onCloseAlert(alert)"
+      (mouseleave)="onMouseLeaveAlert(alert)"
+      (mouseenter)="onMouseEnterAlert(alert)"
+      class="sc-alert">
+
+      <div class="sc-alert-main">
+
+        <div class="sc-alert__icon" *ngIf="alert.type === 'info'">
+          <sc-svg-icon src="sc/svg/icon-info-circle-o.svg"></sc-svg-icon>
+        </div>
+        <div class="sc-alert__icon" *ngIf="alert.type === 'danger'">
+          <sc-svg-icon src="sc/svg/icon-danger.svg"></sc-svg-icon>
+        </div>
+        <div class="sc-alert__icon" *ngIf="alert.type === 'warning'">
+          <sc-svg-icon src="sc/svg/icon-warning-circle.svg"></sc-svg-icon>
+        </div>
+        <div class="sc-alert__icon" *ngIf="alert.type === 'success'">
+          <sc-svg-icon src="sc/svg/icon-success-circle.svg"></sc-svg-icon>
+        </div>
+
+        <div class="sc-alert__content">
+          <span *ngIf="alert.getOptionsTitle()" class="sc-alert__content_title">
+            {{alert.getOptionsTitle()}}&nbsp;
+          </span>
+          <span *ngFor="let message of alert.messages" class="sc-alert__content_messages" [innerHTML]="message"></span>
+        </div>
+
+        <div class="sc-alert__close">
+          <button (click)="onCloseAlert(alert, $event)">
+            <sc-svg-icon src="sc/svg/close.svg"></sc-svg-icon>
+          </button>
+        </div>
+
+      </div>
+
+      <div *ngIf="alert.buttons && alert.buttons.length" class="sc-alert-buttons">
+        <div class="sc-alert-buttons__button" *ngFor="let button of alert.buttons">
+          <button class="sc-alert-buttons__button_inner" (click)="callbackButton(button, alert)">
+            {{button.title}}
+          </button>
+        </div>
+      </div>
+
+    </ngb-alert>
+
+  </div>
+</div>

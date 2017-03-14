@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icon check-circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 C20.418278,8 24,11.581722 24,16 C24,20.418278 20.418278,24 16,24 Z M19.586,12.5900002 L15.001,17.1760002 L12.414,14.5900002 L11,16.0030002 L15.001,20.0040002 L21.001,14.0040002 L19.586,12.5900002 Z" id="path-1"></path>
+    </defs>
+    <g id="eui-2.13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="eui-2.13-icons" transform="translate(-192.000000, -296.000000)">
+            <g id="eui-item/eui-icons" transform="translate(0.000000, 160.000000)">
+                <g id="icon/icon-check-circle" transform="translate(184.000000, 128.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="icon-check-circle" fill="#000000" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
