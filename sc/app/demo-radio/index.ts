@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: 'demo-radio',
-  templateUrl: './demo-radio.component.html',
-  styleUrls: ['./demo-radio.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoRadioComponent implements OnInit {
 

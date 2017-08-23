@@ -11,12 +11,12 @@ import { ScModalService } from '../../ui-kit/sc-modal/sc-modal.service';
 /**
  * Demo компонент, который отправляем в модальное окно
  */
-import { DemoModalContent } from './demo-modal-content.component';
+import { DemoModalContent } from './content';
 
 @Component({
   selector: 'demo-modal',
-  templateUrl: './demo-modal.component.html',
-  styleUrls: ['./demo-modal.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoModalComponent {
 

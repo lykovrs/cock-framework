@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'demo-pagination',
-  templateUrl: './demo-pagination.component.html',
-  styleUrls: ['./demo-pagination.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoPaginationComponent implements OnInit {
 

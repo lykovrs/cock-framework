@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'demo-checkbox',
-  templateUrl: './demo-checkbox.component.html',
-  styleUrls: ['./demo-checkbox.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoCheckboxComponent implements OnInit {
 

@@ -3,8 +3,8 @@ import * as moment from 'moment';
 
 @Component({
   selector: 'demo-datepicker',
-  templateUrl: './demo-datepicker.component.html',
-  styleUrls: ['./demo-datepicker.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 
 

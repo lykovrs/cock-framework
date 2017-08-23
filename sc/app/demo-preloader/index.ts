@@ -5,8 +5,8 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'demo-preloader',
-  templateUrl: './demo-preloader.component.html',
-  styleUrls: ['./demo-preloader.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoPreloaderComponent {
 

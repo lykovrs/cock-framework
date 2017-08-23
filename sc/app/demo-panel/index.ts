@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: 'demo-panel',
-  templateUrl: './demo-panel.component.html',
-  styleUrls: ['./demo-panel.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoPanelComponent implements OnInit {
 

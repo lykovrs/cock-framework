@@ -6,8 +6,8 @@ import { ScAlertService } from '../../ui-kit/sc-alert/sc-alert.service';
 
 @Component({
   selector: 'demo-alert-message',
-  templateUrl: './demo-alert-message.component.html',
-  styleUrls: ['./demo-alert-message.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoAlertMessageComponent implements AfterViewInit {
 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Http, URLSearchParams, Jsonp} from '@angular/http';
 @Component({
   selector: 'demo-typeahead',
-  templateUrl: './demo-typeahead.component.html',
-  styleUrls: ['./demo-typeahead.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoTypeaheadComponent implements OnInit {
 

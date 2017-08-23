@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'demo-panel-tag',
-  templateUrl: './demo-panel-tag.component.html',
-  styleUrls: ['./demo-panel-tag.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoPanelTagComponent {
   public items = []

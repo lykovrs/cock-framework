@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'demo-text-field',
-  templateUrl: './demo-text-field.component.html',
-  styleUrls: ['./demo-text-field.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoTextFieldComponent implements OnInit {
 

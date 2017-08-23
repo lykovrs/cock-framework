@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'demo-tooltip',
-  templateUrl: './demo-tooltip.component.html',
-  styleUrls: ['./demo-tooltip.component.scss']
+  templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 export class DemoTooltipComponent implements OnInit {
 

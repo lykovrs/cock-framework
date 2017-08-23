@@ -7,7 +7,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'demo-modal-content',
-  styleUrls: ['./demo-modal.component.scss'],
+  styleUrls: ['./index.scss'],
   template: `
     <div class="sc-modal-test">
       <sc-typeahead [data]="dataTest" [mod]="testMod"></sc-typeahead>
