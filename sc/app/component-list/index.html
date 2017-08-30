@@ -1,53 +1,7 @@
-<p>
-  component-list works!
-</p>
-<nav>
-  <li>
-    <a routerLink="/button">Button</a>
+<ul class="component-list">
+  <li *ngFor="let route of listRoutes">
+    <a routerLink='/{{route.path}}'>
+      {{route.path}}
+    </a>
   </li>
-  <li>
-    <a routerLink="/datepicker">Datepicker</a>
-  </li>
-  <li>
-    <a routerLink="/icon">Icon</a>
-  </li>
-  <li>
-    <a routerLink="/checkbox">Checkbox</a>
-  </li>
-  <li>
-    <a routerLink="/radio">Radio</a>
-  </li>
-  <li>
-    <a routerLink="/text-field">Text-field</a>
-  </li>
-  <li>
-    <a routerLink="/pagination">Pagination</a>
-  </li>
-  <li>
-    <a routerLink="/panel">Panel</a>
-  </li>
-  <li>
-    <a routerLink="/typeahead">Typeahead</a>
-  </li>
-  <li>
-    <a routerLink="/popover">Popover</a>
-  </li>
-  <li>
-    <a routerLink="/tooltip">tooltip</a>
-  </li>
-  <li>
-    <a routerLink="/panel-tag">Panel-tag</a>
-  </li>
-  <li>
-    <a routerLink="/combobox">Combobox</a>
-  </li>
-  <li>
-    <a routerLink="/modal">Modal</a>
-  </li>
-  <li>
-    <a routerLink="/preloader">preloader</a>
-  </li>
-  <li>
-    <a routerLink="/alert-message">alert-message</a>
-  </li>
-</nav>
+</ul>

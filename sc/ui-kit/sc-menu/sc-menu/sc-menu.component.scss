@@ -1,0 +1,75 @@
+@import "../../environments/mixins";
+@import "../../environments/variables";
+
+$base-color-lighten: #c3e5e5;
+
+.sc-menu {
+	float: left;
+	font-size: 11px;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	z-index: 1501;
+	@include clearfix();
+}
+	.sc-menu__item {
+		display: block;
+		float: left;
+		position: relative;
+	}
+
+    .sc-menu__item_state_disabled {
+        &:hover > .sc-menu-item {
+            display: none;
+        }
+    }
+
+	.sc-menu__link {
+		&, &:focus {
+			background: transparent;
+			color: $base-color-lighten;
+			display: block;
+			font-weight: 800;
+			height: $grid-half * 3;
+			line-height: $grid-half * 3;
+			padding: 0 $grid-small * 3;
+			position: relative;
+			text-transform: uppercase;
+		}
+		&:hover, .sc-menu__item:hover &  {
+			background: $color-basic-50-25;
+			color: $gray-f;
+			text-decoration: none;
+			&:before {
+				content: none;
+			}
+		}
+		&:active,
+		.sc-menu__item:hover &:active {
+			background-color: $color-basic-50-15;
+			color: $gray-f;
+		}
+		.sc-menu__item_state_disabled > &,
+		.sc-menu__item_state_disabled:hover > & {
+			background-color: transparent;
+			color: $color-basic-50-35;
+			font-weight: 400;
+			pointer-events: none;
+		}
+	}
+
+	.sc-menu__teaser {
+		position: relative;
+		display: inline-block;
+		height: $grid-half;
+	}
+
+		.sc-menu__link_state_current {
+			color: $gray-f;
+		}
+		.sc-menu__link_type_text {
+			&, &:hover, &:focus {
+				color: $color-basic-50-50;
+			}
+		}

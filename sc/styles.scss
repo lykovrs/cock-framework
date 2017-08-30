@@ -1,4 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic,cyrillic-ext,latin-ext');
+// https://fonts.google.com/selection?selection.family=Open+Sans:400,600 
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 
 // Flexible Grid System
 @import "flexiblegs-settings";

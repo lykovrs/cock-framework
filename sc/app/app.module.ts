@@ -8,23 +8,31 @@ import { UiKitModule } from '../ui-kit/ui-kit.module'; // Подключаем �
 
 import { AppComponent } from './app.component';
 import { ComponentListComponent } from './component-list/index';
-import { DemoButtonComponent } from './demo-button/index';
-import { DemoIconComponent } from './demo-icon/index';
-import { DemoDatepickerComponent } from './demo-datepicker/index';
-import { DemoCheckboxComponent } from './demo-checkbox/index';
-import { DemoTextFieldComponent } from './demo-text-field/index';
-import { DemoRadioComponent } from './demo-radio/index';
-import { DemoPaginationComponent } from './demo-pagination/index'
-import { DemoPanelComponent } from './demo-panel/index';
-import { DemoTypeaheadComponent } from "./demo-typeahead/index";
-import { DemoPanelTagComponent } from './demo-panel-tag/index';
-import { DemoPopoverComponent } from './demo-popover/index';
-import { DemoComboboxComponent } from './demo-combobox/index';
-import { DemoModalComponent } from './demo-modal/index';
-import { DemoTooltipComponent } from './demo-tooltip/index';
-import { DemoPreloaderComponent } from './demo-preloader/index';
-import { DemoModalContent } from './demo-modal/content';
-import { DemoAlertMessageComponent } from './demo-alert-message/index';
+
+import {
+  DemoButtonComponent,
+  DemoIconComponent,
+  DemoDatepickerComponent,
+  DemoCheckboxComponent,
+  DemoTextFieldComponent,
+  DemoRadioComponent,
+  DemoPaginationComponent,
+  DemoPanelComponent,
+  DemoTypeaheadComponent,
+  DemoPanelTagComponent,
+  DemoPopoverComponent,
+  DemoComboboxComponent,
+  DemoModalComponent,
+  DemoTooltipComponent,
+  DemoPreloaderComponent,
+  DemoModalContent,
+  DemoAlertMessageComponent,
+  DemoAccordion,
+  DemoFooter,
+  DemoHeader,
+  DemoGridComponent,
+  DemoMenuComponent
+} from "./demos";
 
 
 @NgModule({
@@ -44,10 +52,15 @@ import { DemoAlertMessageComponent } from './demo-alert-message/index';
     DemoPopoverComponent,
     DemoComboboxComponent,
     DemoModalComponent,
-    DemoTooltipComponent,
     DemoModalContent,
+    DemoTooltipComponent,
     DemoPreloaderComponent,
-    DemoAlertMessageComponent
+    DemoAlertMessageComponent,
+    DemoAccordion,
+    DemoFooter,
+    DemoHeader,
+    DemoGridComponent,
+    DemoMenuComponent
   ],
   imports: [
     BrowserModule,

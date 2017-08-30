@@ -1,0 +1,447 @@
+@import 'sc-user-avatar';
+//@import 'sc-button';
+
+$gray-0: #000;
+$gray-f: #fff;
+$gray-fa: #fafafa;
+$gray-4: #444;
+$gray-f4: #f4f4f4;
+$color-basic-20-80: #a3cccc;
+$gray-d: #ddd;
+$color-basic-75-40: #196666;
+$color-basic-50-25: #204040;
+$gray-c: #cccccc;
+$gray-3: #333333;
+$gray-7: #777777;
+$gray-8: #888888;
+$grid: 32px;
+$white: $gray-f;
+$black: $gray-4;
+$white-darken: #f0f0f0;
+$base-color: #2e9999;
+$base-color-lighten-1-dark1: $color-basic-20-80;
+
+$base-gutter: 8px;
+// Magnus
+$user-basic--passive: #1e7a7a;
+$user-basic--hover: #0e7f7f;
+$user-basic--opened: #165B5B;
+$user-card--bg: $gray-fa;
+$user-info--bg: $gray-f4;
+$user-dropdown--bg: $gray-d;
+.user {
+	background-color: $user-basic--passive;
+	color: $base-color;
+	height: $base-gutter * 6;
+	list-style: none;
+	margin: 0;
+	padding: $base-gutter;
+	width: auto;
+	&:hover {
+		background-color: $user-basic--hover;
+	}
+
+	&__avatar {
+		background: $user-avatar no-repeat !important;
+		background-size: cover !important;
+		height: $grid;
+		margin: 0 $base-gutter;
+		width: $grid;
+	}
+	&__container {
+		display: block;
+		float: left;
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 7px;
+		margin: 0 $base-gutter;
+		min-width: $base-gutter * 16;
+		max-width: $base-gutter * 32;
+		overflow: hidden;
+		padding: 0;
+	}
+	&__name {
+		color: $white;
+		display: block;
+		font-size: 15px;
+		line-height: 16px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	&__speciality {
+		color: $gray-f;
+		display: block;
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 18px;
+		opacity: .6;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	&__more {
+		color: $gray-f;
+		display: block;
+		float: right;
+		font-size: 16px;
+		line-height: $base-gutter * 2;
+		padding: $base-gutter;
+		position: relative;
+		text-align: center;
+		width: $grid;
+		.show & {
+			transform: rotate(180deg);
+		}
+	}
+	&__card-footer {
+		margin: $base-gutter * 2;
+		text-align: center;
+	}
+	&.show {
+		background-color: $user-basic--opened;
+		.dropdown-menu {
+			background-color: $user-dropdown--bg;
+			border: $user-basic--opened $base-gutter solid;
+			border-top: none;
+			border-radius: 0;
+			box-shadow: none;
+			margin: 0;
+			padding: 0;
+			right: 0;
+			top: $base-gutter * 6;
+			left: auto !important;
+			top: 100% !important;
+			width: $base-gutter * 46;
+			z-index: 15;
+			&:before {
+				content: "";
+				border-left: $base-gutter solid transparent;
+				border-right: $base-gutter solid transparent;
+				border-bottom: $base-gutter solid $user-card--bg;
+				height: 0;
+				position: absolute;
+				right: $base-gutter;
+				top: -$base-gutter;
+				width: 0;
+			}
+		}
+	}
+	.dropdown-toggle {
+		cursor: pointer;
+		&:after {
+			display: none;
+		}
+	}
+	// user-card
+	&-card {
+		background-color: $user-card--bg;
+		border-bottom: $gray-c 1px solid;
+		color: #444444;
+		padding: $base-gutter * 2;
+		@extend .clearfix !optional;
+		.icon {
+			display: inline-block;
+			font-size: $base-gutter * 2;
+			padding: 0 $base-gutter;
+			width: $grid;
+		}
+		&__avatar {
+			background: $user-avatar no-repeat !important;
+			background-size: cover;
+			height: $grid * 3;
+			margin: 0;
+			margin-right: $base-gutter * 2;
+			width: $grid * 3;
+		}
+		&__container {
+			display: block;
+			overflow: hidden;
+			padding: 0;
+		}
+		&__name {
+			color: $gray-3;
+			font-size: 18px;
+			font-weight: normal;
+			line-height: 26px;
+			margin-bottom: $base-gutter * 2 - 5;
+			margin-top: 0;
+		}
+		&__list {
+			font-size: 10px;
+			line-height: 12px;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-transform: uppercase;
+		}
+		&__item {
+			border-top: $gray-d 1px solid;
+			color: $base-color;
+			display: block;
+			font-size: 15px;
+			font-weight: normal;
+			line-height: $base-gutter * 3;
+			padding: $base-gutter 0;
+			text-transform: none;
+			&-send-problem {
+				padding-bottom: 0;
+				&-btn {
+					width: 100% !important;
+				}
+			}
+		}
+		&__link {
+			color: $base-color;
+			line-height: 16px;
+			text-decoration: underline;
+			.icon {
+				float: left;
+				margin-right: $base-gutter;
+				margin-top: $base-gutter / 2;
+				padding: 0;
+				width: $base-gutter * 2;
+			}
+			&:hover {
+				color: $base-color;
+				text-decoration: none;
+			}
+		}
+	}
+	&-info {
+		background-color: $user-info--bg;
+		border-bottom: $gray-c 1px solid;
+		&:last-child {
+			border: none;
+		}
+		&__list {
+			color: $black;
+			font-size: 14px;
+			line-height: 20px;
+			list-style: none;
+			margin: 0;
+			overflow: hidden;
+			padding: $base-gutter * 2;
+		}
+		&__item {
+			margin-top: $base-gutter * 2;
+			overflow: hidden;
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+		&__label {
+			color: $gray-3;
+			display: block;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 24px;
+			margin-bottom: 0;
+		}
+		&__value {
+			color: $gray-3;
+			font-size: 15px;
+			font-weight: normal;
+			line-height: 24px;
+			margin-bottom: 0;
+		}
+	}
+	&_viridis {
+		background-color: transparent;
+		padding: $base-gutter $base-gutter 0 0;
+		width: $grid * 8;
+		&.open {
+			background-color: $color-basic-75-40;
+			.dropdown-menu {
+				background-color: $gray-d;
+				border-color: $color-basic-75-40;
+				&:before {
+					border-bottom-color: $color-basic-50-25;
+				}
+			}
+		}
+		[dropdown-toggle] {
+			cursor: default;
+		}
+		.user {
+			&__avatar {
+				margin: 0 $base-gutter 0 0;
+			}
+			&__container {
+				margin: 0;
+				min-width: 0;
+				max-width: $base-gutter * 21;
+				padding: $base-gutter / 2 0;
+			}
+			&__name {
+				font-size: 13px;
+				font-weight: normal;
+				line-height: 12px;
+			}
+			&__speciality {
+				color: $base-color-lighten-1-dark1;
+				font-size: 11px;
+				line-height: 16px;
+				opacity: 1;
+			}
+			&__more {
+				color: $base-color;
+				font-size: 18px;
+			}
+			&-card {
+				background-color: $white;
+				&__avatar {
+					margin: 0 $base-gutter $base-gutter 0;
+				}
+				&__container {
+					padding: 0 $base-gutter;
+				}
+				&__name {
+					color: $gray-4;
+					font-size: 15px;
+					line-height: 22px;
+					margin-bottom: $base-gutter * 2 - 5;
+					margin-top: -5px;
+				}
+				&__item {
+					color: $gray-c;
+					font-size: 10px;
+					text-transform: uppercase;
+				}
+				.icon {
+					display: inline-block;
+					font-size: 16px;
+					padding: 0 $base-gutter;
+					width: $base-gutter * 4;
+				}
+			}
+			&-info {
+				background-color: $white-darken;
+				&__list {
+					font-size: 13px;
+					line-height: $base-gutter * 2;
+				}
+				&__item {
+					margin-top: $base-gutter;
+				}
+			}
+		}
+	}
+	&_magnus {
+		background-color: $user-basic--passive;
+		padding: $base-gutter;
+		width: auto;
+		&.open {
+			background-color: $user-basic--opened;
+			.dropdown-menu {
+				background-color: $user-dropdown--bg;
+				border-color: $user-basic--opened;
+				&:before {
+					border-bottom-color: $user-card--bg;
+				}
+			}
+		}
+		[dropdown-toggle] {
+			cursor: pointer;
+		}
+		.user {
+			&__avatar {
+				margin: 0 $base-gutter;
+			}
+			&__container {
+				margin: 0 $base-gutter;
+				min-width: $base-gutter * 16;
+				max-width: $base-gutter * 32;
+				padding: 0;
+				font-weight: normal;
+			}
+			&__name {
+				font-size: 14px;
+				line-height: 16px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			&__speciality {
+				color: $gray-f;
+				display: block;
+				font-size: 12px;
+				line-height: 16px;
+				opacity: .6;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			&__more {
+				color: $gray-f;
+				font-size: 16px;
+			}
+			&-card {
+				background-color: $user-card--bg;
+				border-color: $gray-c;
+				&__avatar {
+					margin: 0;
+					margin-right: $base-gutter * 2;
+					background: $user-avatar no-repeat !important;
+					background-size: cover;
+				}
+				&__container {
+					padding: 0;
+				}
+				&__name {
+					color: $gray-3;
+					font-size: 16px;
+					line-height: 24px;
+					margin-top: 0;
+				}
+				&__item {
+					color: $gray-7;
+					font-size: 14px;
+					font-weight: normal;
+					text-transform: none;
+				}
+				.icon {
+					margin-right: $base-gutter;
+					padding: 0;
+					width: $base-gutter * 2;
+				}
+			}
+			&-info {
+				background-color: $user-info--bg;
+				border-color: $gray-c;
+				&__list {
+					font-size: 14px;
+					line-height: 20px;
+				}
+				&__item {
+					margin-top: $base-gutter * 2;
+				}
+			}
+		}
+	}
+}
+
+.ava {
+	background-size: 100%;
+	border-radius: 50%;
+	float: left;
+	overflow: hidden;
+	&.small {
+		height: $base-gutter * 4;
+		margin-right: $base-gutter;
+		width: $base-gutter * 4;
+	}
+	&.med {
+		height: $base-gutter * 8;
+		margin-right: $base-gutter * 2;
+		width: $base-gutter * 8;
+	}
+	&.big {
+		height: $base-gutter * 12;
+		margin-right: $base-gutter * 2;
+		width: $base-gutter * 12;
+	}
+	img {
+		width: 100%;
+	}
+}

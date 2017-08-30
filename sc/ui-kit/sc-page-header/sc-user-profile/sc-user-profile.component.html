@@ -1,0 +1,141 @@
+<div *ngIf="user">
+    <div ngbDropdown class="float-right user">
+        <!--progress-notification></progress-notification-->
+        <div ngbDropdownToggle>
+            <div class="ava user__avatar">
+                <img alt="" *ngIf="user.avatar" [src]="'data:image/png;base64,' + user.avatar" />
+            </div>
+            <div class="user__container ellipsis">
+                <span class="user__name">
+                    <!--{{ user.getInitials() }}-->
+                </span>
+                <span class="user__speciality" title="{{user.contractName}}">
+                    {{ user.contractName }}
+                </span>
+            </div>
+            <i class="icon icon-caret-down user__more"></i>
+        </div>
+        <div ngbDropdownMenu class="dropdown-menu">
+            <div class="user-card">
+                <div class="ava user-card__avatar">
+                    <img alt="" *ngIf="user.avatar" [src]="'data:image/png;base64,' + user.avatar" />
+                </div>
+
+                <div class="user-card__container">
+                    <div class="user-card__name">
+                        {{ user.fullName }}
+                    </div>
+                    <ul class="user-card__list">
+                        <li class="user-card__item" *ngIf="settingsPath">
+                            <a href="settingsPath" title="" class="user-card__link">
+                                <i class="icon icon-user"></i> Персональные настройки
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-info__list">
+                    <div class="user-info__item">
+                        <p class="user-info__label">Медицинское учреждение</p>
+                        <p class="user-info__value">
+                            {{user.shortName}}
+                        </p>
+                    </div>
+                    <div class="user-info__item">
+                        <p class="user-info__label">Должность</p>
+                        <p class="user-info__value">
+                            {{user.contractName}}
+                        </p>
+                    </div>
+                    <div class="user-info__item">
+                        <p class="user-info__label">Роль</p>
+                        <p class="user-info__value">
+                            {{user.contractName}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-info__list">
+                    <div class="user-info__item" *ngIf="user.avialibleResourceName">
+                        <p class="user-info__label">Ресурс</p>
+                        <p class="user-info__value">
+                            {{ user.avialibleResourceName}}
+                        </p>
+                    </div>
+                    <div class="user-info__item" *ngIf="user.lpuName">
+                        <p class="user-info__label">Кабинет</p>
+                        <p class="user-info__value">
+                            {{ user.lpuName }}
+                        </p>
+                    </div>
+
+                    <!--<div class="user-info__item">-->
+                        <!--<button (click)="onClickChangeResource()" class="sc-button sc-button_wide sc-button_big">-->
+                            <!--<span>Изменить ресурс</span>-->
+                        <!--</button>-->
+
+                    <!--</div>-->
+
+                    <div class="user-info__item">
+                        <button (click)="onClickChangeProfile()" class="sc-button sc-button_wide sc-button_big">
+                            <span>Изменить профиль</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-info__list">
+                    <div class="user-info__item">
+                        <p class="user-info__label">Дополнительный медработник</p>
+                        <p class="user-info__value">
+                            {{getOtherMedicalEmployeeName()}}
+                        </p>
+                        <button (click)="onClickChangeOtherMedicalEmployee()" class="sc-button">
+                            <span>Изменить</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="user__card-footer">
+                <button class="sc-button_danger sc-button sc-button_icon_left sc-button_wide sc-button_big" (click)="logout()">
+                    <i class="sc-icon icon icon-power-off"></i>
+                    <span>Выйти</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--<script type="text/ng-template" id="tpl-modal-close-document">-->
+        <!--<div class="modal-window modal-window_size-min">-->
+            <!--<div class="modal-window__header">-->
+                <!--<h3 class="modal-window__header-title">Приём пациентов {{viewModel.resourceTitle}}</h3>-->
+                <!--<div class="modal-window__close" ng-click="viewModel.cancel()">-->
+                    <!--<i class="icon icon-close"></i>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-window__content info-label">-->
+                <!--<img src="static/images/theme/warning.png" alt="" class="modal-window__mark">-->
+                <!--<h3 class="modal-window__title">-->
+                    <!--Закрытие документов-->
+                <!--</h3>-->
+                <!--<div class="message">Подтвердите закрытие документов</div>-->
+                <!--<div class="message" *ngIf="viewModel.nonvalid.length">-->
+                    <!--<h4>Внимание! Не все открытые протоколы имеют заполненные обязательные поля.</h4>-->
+                    <!--Открытые протоколы следующих пациентов не могут быть сохранены:-->
+                    <!--<div ng-repeat="protocol in viewModel.nonvalid">-->
+                        <!--{{protocol.label}}-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-window__footer">-->
+                <!--<button class="save-draft btn btn_transparent" ng-click="viewModel.cancel()">Отменить</button>-->
+                <!--<button class="force-close btn" ng-disabled="!detected" ng-click="viewModel.ok()">Закрыть в любом случае-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</script>-->
+</div>

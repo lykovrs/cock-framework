@@ -1,47 +1,45 @@
 <label
-  class="checkbox"
-  [ngClass]="{
-    'checkbox_disabled': disabled,
-    'checkbox_warning': mod == Mod.warning,
-    'checkbox_attention': mod == Mod.attention
+        class="sc-checkbox"
+        [ngClass]="{
+    'sc-checkbox_disabled': disabled,
+    'sc-checkbox_warning': mod == Mod.warning,
+    'sc-checkbox_attention': mod == Mod.attention,
+    'sc-checkbox_on-dark': mod == Mod.onDark,
+    'sc-checkbox_on-dark-warning': mod == Mod.onDarkWarning,
+    'sc-checkbox_on-dark-attention': mod == Mod.onDarkAttention
   }">
-  <input
-    type="checkbox"
-    [checked]="model"
-    [disabled]="disabled"
-    (change)="changeModel()"
-    [name]="name"/>
-  <span
-    class="check"
-    [ngClass]="{
-      'check_checked': model,
-      'check_attention': mod == Mod.attention,
-      'check_warning': mod ==  Mod.warning
+    <input
+            type="checkbox"
+            [checked]="model"
+            [disabled]="disabled"
+            (change)="changeModel()"
+            [name]="name"/>
+    <span
+            class="sc-checkbox__check"
+            [ngClass]="{
+      'sc-checkbox__check_checked': model,
+      'sc-checkbox__check_attention': mod == Mod.attention,
+      'sc-checkbox__check_warning': mod ==  Mod.warning
     }">
       <sc-svg-icon before
-                src="sc/svg/icon_check.svg"
-                class="sc-svg-icon"
-                [ngClass]="{
-                  'sc-svg-icon_indeterminate': indeterminate,
-                  'sc-svg-icon_check' : model
+                   src="sc/svg/icon_check.svg"
+                   class="sc-svg-icon sc-svg-icon_small"
+                   [ngClass]="{
+                   'sc-svg-icon_check' : model
                 }">
       </sc-svg-icon>
-      <div
-        *ngIf="indeterminate && model != false && model != true"
-        class="indeterminate"
-        [ngClass]="{
-            'indeterminate_warning': mod == Mod.warning,
-            'indeterminate_attention': mod == Mod.attention
-        }">
-      </div>
+      <span
+              *ngIf="indeterminate && model != false && model != true"
+              class="sc-checkbox__icon_type_indeterminate">
+      </span>
     </span>
-  <div
-    *ngIf="label"
-    class="checkbox__label"
-    [ngClass]="{
-      'checkbox__label_warning': mod == Mod.warning,
-      'checkbox__label_attention': mod == Mod.attention
+    <span
+            *ngIf="label"
+            class="sc-checkbox__label"
+            [ngClass]="{
+      'sc-checkbox__label_warning': mod == Mod.warning,
+      'sc-checkbox__label_attention': mod == Mod.attention
     }">
     {{label}}
-  </div>
+  </span>
 </label>

@@ -1,23 +1,21 @@
-<div
-  class="panel"
-  [ngClass]="{
-    'panel_teal': colorType == ColorType.teal,
-    'panel_light': colorType == ColorType.light,
-    'panel_grey': colorType == ColorType.grey,
+<div class="panel"
+    [ngClass]="{
+        'panel_teal': colorType == ColorType.teal,
+        'panel_light': colorType == ColorType.light,
+        'panel_grey': colorType == ColorType.grey,
 
-    'panel_normal': sizeType == SizeType.normal,
-    'panel_lg': sizeType == SizeType.lg
-  }">
-  <div class="panel__title">
-    <div class="panel__title_icon">
-      <sc-svg-icon
-        *ngIf="iconUrl"
-        after
-        src="{{iconUrl}}"></sc-svg-icon>
+        'panel_normal': sizeType == SizeType.normal,
+        'panel_lg': sizeType == SizeType.lg
+    }">
+    <div class="panel__title">
+        <div class="panel__title_icon" *ngIf="iconUrl" (click)="clickIcon()">
+            <sc-svg-icon [src]="iconUrl"></sc-svg-icon>
+        </div>
+        <div class="panel__title_text">
+            {{title}}
+        </div>
     </div>
-    <div class="panel__title_text">
-      {{title}}
+    <div class="panel__content">
+        <ng-content></ng-content>
     </div>
-  </div>
-  <div class="panel__content"><ng-content></ng-content></div>
 </div>

@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, HostBinding, AfterViewInit } from '@angular/core';
-
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewEncapsulation, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: '[sc-button]',
@@ -13,29 +12,27 @@ import { Component, ElementRef, OnInit, Input, ViewChild, ViewEncapsulation, Hos
 export class ScButtonComponent implements OnInit, AfterViewInit {
 
   @Input() mod: String = null; // Модификаторы компонента
-  @Input() size: string = null; // Размер кнопки 
-
+  @Input() size: string = null; // Размер кнопки
 
   private classList: string[] = []; // Классы кнопки
   // Получаем наблюдаемых детей
   private classes: string;
 
+  private isLeft: boolean = true;
+  private isRight: boolean = true;
   @ViewChild('leftView') leftView: ElementRef;
   @ViewChild('rightView') rightView: ElementRef;
-
-  private isLeft: boolean = true;
-  private isIconOnly: boolean = true;
-  private isRight: boolean = true;
-
-  constructor() {
-
-  };
-
-  ngAfterViewInit() {
-    // Определяем, есть ли дети в трансклюде
-    this.isLeft = this.leftView.nativeElement.children.length;
-    this.isRight = this.rightView.nativeElement.children.length;
+  /*
+  @ViewChild('leftView') set leftView(value: ElementRef) {
+    this.isLeft = value && !!value.nativeElement.children.length;
   }
+
+  @ViewChild('rightView') set rightView(value: ElementRef) {
+    this.isRight = value && !!value.nativeElement.children.length;
+  }
+  */
+
+  constructor() {}
 
   ngOnInit() {
     // Если нет модификатора или указателья размера кнопки оставляем только класс компонента
@@ -50,5 +47,12 @@ export class ScButtonComponent implements OnInit, AfterViewInit {
 
     this.classes = this.classList.join(' ');
   };
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.isLeft = !!this.leftView.nativeElement.children.length;
+      this.isRight = !!this.rightView.nativeElement.children.length;
+    });
+  }
 };
 

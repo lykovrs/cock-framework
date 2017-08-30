@@ -1,0 +1,22 @@
+<div class="sc-grid">
+  <header class="sc-grid__header">
+    <ng-content select="[page-header]"></ng-content>
+  </header>
+
+  <section class="sc-grid__body">
+    <aside class="sc-grid__col sc-grid__col_aside">
+      <ng-content select="[sidebar]"></ng-content>
+      <ng-content select="[river]"></ng-content>
+      <ng-content select="[wall]"></ng-content>
+    </aside>
+
+    <div class="sc-grid__col sc-grid__col_">
+      <ng-content select="[body]"></ng-content>
+    </div>
+
+  </section>
+
+  <footer class="sc-grid__footer">
+    <ng-content select="[page-footer]"></ng-content>
+  </footer>
+</div>

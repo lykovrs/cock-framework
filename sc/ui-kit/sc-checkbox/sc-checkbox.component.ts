@@ -6,19 +6,24 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnInit
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
 
 enum Mod {
   def=<any>'def',
   attention=<any>'attention',
-  warning=<any>'warning'
+  warning=<any>'warning',
+  onDark=<any>'onDark',
+  onDarkWarning=<any>'onDarkWarning',
+  onDarkAttention=<any>'onDarkAttention',
 }
 
 @Component({
   selector: 'sc-checkbox',
   templateUrl: 'sc-checkbox.component.html',
-  styleUrls: ['sc-checkbox.component.scss']
+  styleUrls: ['sc-checkbox.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class ScCheckboxComponent implements OnInit {

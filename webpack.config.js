@@ -57,7 +57,8 @@ module.exports = {
         "test": /\.js$/,
         "loader": "source-map-loader",
         "exclude": [
-          /\/node_modules\//
+          path.join(process.cwd(), 'node_modules')
+          // /\/node_modules\//
         ]
       },
       {
@@ -98,7 +99,7 @@ module.exports = {
           "postcss-loader",
           "sass-loader"
         ]
-      },    
+      },
       {
         "include": [
           path.join(process.cwd(), "sc/styles.scss")
@@ -127,7 +128,7 @@ module.exports = {
   "fallback": "style-loader",
   "publicPath": ""
 })
-      },      
+      },
       {
         "test": /\.ts$/,
         "loader": "@ngtools/webpack",

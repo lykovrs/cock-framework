@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>icon delete</title>
-    <desc>Created with Sketch.</desc>
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <path d="M16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 C20.418278,8 24,11.581722 24,16 C24,20.418278 20.418278,24 16,24 Z M17.4142136,16 L20.2426407,13.1715729 L18.8284271,11.7573593 L16,14.5857864 L13.1715729,11.7573593 L11.7573593,13.1715729 L14.5857864,16 L11.7573593,18.8284271 L13.1715729,20.2426407 L16,17.4142136 L18.8284271,20.2426407 L20.2426407,18.8284271 L17.4142136,16 Z" id="path-1"></path>
+        <path d="M16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 C20.418278,8 24,11.581722 24,16 C24,20.418278 20.418278,24 16,24 Z M17.4142136,16 L20.2426407,13.1715729 L18.8284271,11.7573593 L16,14.5857864 L13.1715729,11.7573593 L11.7573593,13.1715729 L14.5857864,16 L11.7573593,18.8284271 L13.1715729,20.2426407 L16,17.4142136 L18.8284271,20.2426407 L20.2426407,18.8284271 L17.4142136,16 Z" id="path-1" fill="currentColor"></path>
     </defs>
-    <g id="eui-2.13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="eui-2.13" stroke="none" stroke-width="1">
         <g id="eui-2.13-icons" transform="translate(-272.000000, -296.000000)">
             <g id="eui-item/eui-icons" transform="translate(0.000000, 160.000000)">
                 <g id="icon/icon-delete" transform="translate(264.000000, 128.000000)">

@@ -21,14 +21,15 @@
     "@angular/platform-browser": "^4.3.5",
     "@angular/platform-browser-dynamic": "^4.3.5",
     "@angular/router": "^4.3.5",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.20",
+    "@ng-bootstrap/ng-bootstrap": "latest",
+    "angular2-moment": "^1.7.0",
     "angular2-text-mask": "^8.0.3",
     "autoprefixer": "^7.1.2",
     "core-js": "^2.4.1",
     "flexiblegs-scss": "^5.5.3",
     "flexiblegs-scss-plus": "^5.5.3",
     "moment": "^2.17.1",
-    "ng2-bootstrap": "^1.3.3",
+    "ngx-bootstrap": "latest",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.8.16"
@@ -36,7 +37,7 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "Firefox >= 20"
+    "Firefox >= 45"
   ],
   "devDependencies": {
     "@angular/cli": "1.3.1",

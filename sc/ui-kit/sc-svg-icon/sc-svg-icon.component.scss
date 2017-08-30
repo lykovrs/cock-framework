@@ -1,0 +1,11 @@
+sc-svg-icon {
+	display: inline-block;
+	height: 16px;
+	position: relative;
+	width: 16px;
+
+	&.sc-svg-icon_small {
+		height: 10px;
+		width: 10px;
+	}
+}

@@ -1,0 +1,6 @@
+<sc-panel [title]="title" [sizeType]="sizeType" [colorType]="colorType" (iconClicked)="toggleOpened()" [iconUrl]="getIconUrl()">
+    <ng-template [ngTemplateOutlet]="panelContent?.templateRef"></ng-template>
+</sc-panel>
+<div class="sc-accordion-content" *ngIf="isOpened">
+    <ng-template [ngTemplateOutlet]="accordionContent?.templateRef"></ng-template>
+</div>

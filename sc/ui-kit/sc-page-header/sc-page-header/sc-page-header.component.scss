@@ -1,0 +1,19 @@
+@import "../../environments/variables";
+@import "../../environments/mixins";
+@import "../../sc-menu/sc-menu/sc-menu.component";
+
+.sc-header {
+  background: $color-basic-50-20;
+  height: $grid-half * 3;
+  position: relative;
+  z-index: 1500;
+  @include clearfix();
+
+  &__logo {
+    float: left;
+    line-height: 0;
+    padding: 0 $grid;
+    height: $grid-half * 3;
+    overflow: hidden;
+  }
+}

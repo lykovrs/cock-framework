@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Renderer } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer, ViewEncapsulation } from '@angular/core';
 
 import { ScSvgIconRegistryService } from './sc-svg-icon-registry.service';
 
@@ -6,27 +6,28 @@ import { ScSvgIconRegistryService } from './sc-svg-icon-registry.service';
 @Component({
 	selector: 'sc-svg-icon',
 	styles: [ ':host { display:inline-block; }' ],
-	template: '<ng-content></ng-content>'
+    styleUrls: ['./sc-svg-icon.component.scss'],
+	template: '<ng-content></ng-content>',
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class ScSvgIconComponent implements OnInit {
-	@Input() src:string;
-
-	constructor(private element:ElementRef, private renderer:Renderer,
-		private iconReg:ScSvgIconRegistryService) {
-	}
-
-	ngOnInit() {
-		this.loadSvg();
-	}
-
-	private loadSvg() {
-		this.iconReg.loadSvg(this.src).subscribe(svg => {
+	@Input() set src(iconUrl: string) {
+		
+		this.iconReg.loadSvg(iconUrl).subscribe(svg => {
 			this.setSvg(svg);
 		});
+	};
+
+	constructor(
+		private element: ElementRef,
+		private renderer: Renderer,
+		private iconReg: ScSvgIconRegistryService) {
 	}
 
-	private setSvg(svg:SVGElement) {
+	ngOnInit() {}
+
+	private setSvg(svg: SVGElement) {
 		const icon = <SVGElement>svg.cloneNode(true);
 		let elem = this.element.nativeElement;
 		elem.innerHTML = '';

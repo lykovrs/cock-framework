@@ -1,0 +1,163 @@
+$base-gutter: 8px;
+
+/* grayscale palette (start) */
+$gray-f: #fff;
+
+$sc-menu-item--color-text: #c3e5e5;
+$sc-menu-item--default-bg: #204040;
+$sc-menu-item--hover-bg: #2d5959;
+$sc-menu-item--active-bg: #132626;
+
+// Magnus
+$sc-menu-item--default: #269999 !default;
+$sc-menu-item--dark: #1e7a7a;
+$sc-menu-item--darken: #165b5b;
+$sc-menu-item--darkest: #0f3d3d;
+
+$sc-menu-item--hover: #0f3d3d;
+$sc-menu-item--disabled: #165b5b;
+$sc-menu-item--active: #0f3d3d;
+
+
+.sc-menu-item {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: $base-gutter * 6;
+    .sc-menu__item:hover > & {
+        display: block;
+        min-width: 100%;
+    }
+    &__body {
+        align-items: center;
+        border: none;
+        color: $gray-f;
+        font-size: 14px;
+        font-weight: normal;
+        height: $base-gutter * 5;
+        line-height: $base-gutter * 5;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        &:hover {
+            & > .sc-menu-item {
+                display: block;
+                left: calc(100% - 1px);
+                top: 0;
+            }
+        }
+        &_state_disabled {
+            &:hover > .sc-menu-item {
+                display: none;
+            }
+        }
+    }
+    &__link {
+        background-color: $sc-menu-item--default-bg;
+        border: none;
+        color: $gray-f;
+        display: block;
+        font-size: 14px;
+        font-weight: normal;
+        height: $base-gutter * 5;
+        line-height: $base-gutter * 5;
+        padding: 0 $base-gutter * 2;
+        padding-right: $base-gutter * 5;
+        position: relative;
+        text-decoration: none;
+        text-transform: none;
+        white-space: nowrap;
+        width: 100%;
+        & > *:last-child {
+            margin-right: -$base-gutter * 3;
+        }
+        &,
+        &:focus {
+            background-color: $sc-menu-item--darken;
+            border-color: $sc-menu-item--darken;
+            &:before {
+                content: none;
+            }
+        }
+        &:hover {
+            background-color: $sc-menu-item--hover;
+            border-color: $sc-menu-item--hover;
+        }
+        &:hover,
+        .sc-menu-item__body:hover > & {
+            background-color: $sc-menu-item--active;
+            color: $gray-f;
+            text-decoration: none;
+
+            &:before {
+                content: none;
+            }
+        }
+        .sc-menu-item__body:hover > &:active {
+            background-color: $sc-menu-item--active;
+            color: $gray-f;
+        }
+
+        .sc-menu-item__body_state_disabled > &,
+        .sc-menu-item__body_state_disabled > &:hover {
+            background-color: $sc-menu-item--disabled !important;
+            color: rgba(white,0.5) !important;
+            pointer-events: none;
+        }
+        &_state_current {
+            color: $gray-f;
+        }
+        &-icon,
+        .icon {
+            font-size: 16px;
+            height: $base-gutter * 5;
+            line-height: $base-gutter * 5;
+            margin: 0;
+            margin-right: 0 !important;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: $base-gutter * 5;
+            & + .sc-menu-teaser {
+                margin-right: $base-gutter * 2;
+            }
+        }
+    }
+}
+// Viridis
+.sc-menu_viridis {
+    .sc-menu-item {
+        &__body {
+            background-color: $sc-menu-item--default-bg;
+            height: $base-gutter * 6;
+            line-height: $base-gutter * 6;
+        }
+        &__link {
+            background-color: $sc-menu-item--default-bg;
+            color: $sc-menu-item--color-text;
+            height: $base-gutter * 6;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: $base-gutter * 6;
+            &:hover {
+                color: $sc-menu-item--hover-bg;
+            }
+            .sc-menu-item__body_state_disabled > &,
+            .sc-menu-item__body_state_disabled > &:hover {
+                background-color:  $sc-menu-item--default-bg !important;
+            }
+        }
+        &-icon,
+        .icon {
+            height: $base-gutter * 6;
+            line-height: $base-gutter * 6;
+            width: $base-gutter * 4;
+            & + .sc-menu-teaser {
+                margin-right: $base-gutter * 2;
+            }
+        }
+    }
+}

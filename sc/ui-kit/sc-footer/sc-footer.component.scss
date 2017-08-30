@@ -1,0 +1,107 @@
+@import "../environments/flexiblegs-scss";
+@import "../environments/mixins";
+
+// TODO: Сгрупировать, убрать float
+
+$base-gutter: 8px;
+
+
+//---Viridis-colors
+$sc-page-footer_viridis-bg--default: #444;
+$sc-page-footer_viridis-color--default: #fff;
+$sc-page-footer_viridis-color--contrast: #1a3333;
+//---Magnus-colors
+$sc-page-footer_magnus-bg--default: #1E7A7A;
+$sc-page-footer_magnus-color--default: #fff;
+
+
+.sc-page-footer {
+  background-color: $sc-page-footer_magnus-bg--default;
+  bottom: 0;
+  clear: both;
+  display: block;
+  height: $base-gutter * 4.5;
+  padding: 0 $base-gutter;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+
+  &__list {
+    @include wrap;
+    @include wrap( 'flexbox');
+    @include wrap( 'middle');
+    float: left;
+    height: 100%;
+    max-width: calc(100% - #{$base-gutter * 21});
+  }
+
+  &__info {
+    color: $sc-page-footer_magnus-color--default;
+    cursor: pointer;
+    line-height: 28px;
+    margin-right: 4px;
+    text-align: center;
+    width: $base-gutter * 20;
+    height: 28px;
+
+    &-text {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    &-count {
+      color: $sc-page-footer_magnus-color--default;
+    }
+    .icon {
+      color: $sc-page-footer_viridis-color--contrast;
+      float: left;
+      font-size: 22px;
+      line-height: 20px;
+      left: 4px;
+      top: 2px;
+      position: relative;
+      width: auto;
+    }
+
+    &.selected {
+      background-color: $sc-page-footer_magnus-color--default;
+      color: $sc-page-footer_magnus-bg--default;
+    }
+    &:hover {
+      background-color: #165B5B;
+      color: $sc-page-footer_magnus-color--default;
+    }
+  }
+
+  &__date {
+    @include col;
+    color: $sc-page-footer_magnus-color--default;
+    float: right;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+    padding: $base-gutter;
+    text-align: right;
+    width: $base-gutter * 21;
+    &-time {
+      float: right;
+      margin-left: $base-gutter / 2;
+    }
+  }
+
+  //---viridis-mods
+  &_viridis {
+    background: $sc-page-footer_viridis-bg--default;
+    height: auto;
+    padding: 0;
+    .sc-page-footer {
+      &__date {
+        color: $sc-page-footer_magnus-color--default;
+        font-size: 11px;
+        line-height: 14px;
+        text-align: center;
+        width: $base-gutter * 14;
+      }
+    }
+  }
+}

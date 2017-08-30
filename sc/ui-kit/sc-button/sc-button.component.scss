@@ -6,8 +6,8 @@
 @mixin hover-animation {
 	transition: background 0.3s ease 0s, border 0.3s ease 0s; fill: 0.3s ease 0s;
 }
-
-$button-height: 40px; // Высота кнопки
+$base-gutter: 8px;
+$button-height: 32px; // Высота кнопки
 $button-min-width: 40px; // Минимальная ширина кнопки
 $button-grid: 8px;
 $border-width: 2px;
@@ -24,6 +24,123 @@ $default-border-color-hover: #2DB3B3 !default;
 $default-text-color-active: #fff !default;
 $default-background-active: #196666 !default;
 $default-border-color-active: #196666 !default;
+
+
+@mixin hover-animation {
+	transition: background 0.3s ease 0s, border 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+
+/* grayscale palette (start) */
+
+$gray-f: #ffffff; // palette
+$gray-fa: #fafafa; // palette
+$gray-f2: #f2f2f2; // palette
+$gray-f4: #f4f4f4; // palette
+$gray-3: #333333; // palette
+$gray-4: #444444; // palette
+$gray-5: #555555; // unused -> $gray-6
+$gray-6: #666666; // palette
+$gray-8: #888888; // palette
+$gray-a: #aaaaaa; // palette
+$gray-b: #bbbbbb; // palette
+$gray-c: #cccccc; // palette
+$gray-d: #dddddd; // palette
+$gray-e: #eeeeee; // palette
+$gray-0: #000000; // palette
+
+/* grayscale palette (end) */
+
+
+/* base color palette (start) */
+
+$color-basic-50-20: #1a3333; // hsb($base-hue, 50, 20)
+$color-basic-75-40: #196666; // hsb($base-hue, 75, 40)
+$color-basic-50-50: #408080; // hsb($base-hue, 50, 50)
+$color-basic-75-50: #208080; // hsb($base-hue, 75, 50)
+$color-basic-75-60: #269999; // hsb($base-hue, 75, 60)
+$color-basic-75-70: #2db3b3; // hsb($base-hue, 75, 70)
+
+/* base color palette (end) */
+
+
+/* danger color palette (start) */
+
+$color-danger-60-100: #FF6666; // hsb(0, 60, 100)
+$color-danger-60-90: #e65c5c; // hsb(0, 60, 90)
+$color-danger-60-75: #BF4D4D; // hsb(0, 60, 75)
+
+/* danger color palette (end) */
+
+//=================================================//
+//=====------------Magnus-colors-------------======//
+//=================================================//
+$btn-basic--default: #269999 !default;
+$btn-basic--hover-darken: #1E7A7A;
+$btn-basic--active-darken: #165B5B;
+$btn-basic--hover-lighten: #D3EAEA;
+$btn-basic--active-lighten: #A8D6D6;
+
+$btn-activity--default: #3399CC !default;
+$btn-activity--hover-darken: #287AA3;
+$btn-activity--active-darken: #1E5B7A;
+$btn-activity--hover-lighten: #D6EAF4;
+$btn-activity--active-lighten: #ADD6EA;
+
+$btn-warning--default: #FF9830 !default;
+$btn-warning--hover-darken: #CC7926;
+$btn-warning--active-darken: #995B1C;
+$btn-warning--hover-lighten: #FFEAD5;
+$btn-warning--active-lighten: #FFD5AC;
+
+$btn-danger--default: #E65C5C !default;
+$btn-danger--hover-darken: #B84949;
+$btn-danger--active-darken: #8A3737;
+$btn-danger--hover-lighten: #FADEDE;
+$btn-danger--active-lighten: #F5BDBD;
+
+$btn-gray--default: #777777 !default;
+$btn-gray--hover-darken: #474747;
+$btn-gray--active-darken: #333333;
+$btn-gray--hover-lighten: #DDDDDD;
+$btn-gray--active-lighten: #CCCCCC;
+
+$btn-white--default: #fff !default;
+$btn-white--hover-darken: mix($gray-0, transparent, 20%);
+$btn-white--hover-lighten: mix($btn-basic--default, $gray-f, 20%);
+$btn-white--active-darken: mix($gray-0, transparent, 40%);
+$btn-white--active-lighten: mix($btn-basic--default, $gray-f, 40%);
+
+
+// миксин цветов состояний кнопки
+// (default, hover, active, disable)
+@mixin sc-button ( $text-color, $background, $border-color, $text-color-hover, $background-hover, $border-color-hover, $text-color-active, $background-active, $border-color-active, $text-color-disable, $background-disable, $border-color-disable) {
+	&,
+	&:focus {
+		background-color: $background;
+		box-shadow: inset 0px 0px 0px 1px rgba($border-color, 1);
+		color: $text-color;
+	}
+	&:hover {
+		background-color: $background-hover;
+		box-shadow: inset 0px 0px 0px 1px rgba($border-color-hover, 1);
+		color: $text-color-hover;
+	}
+	&.sc-button_state_active,
+	&:active {
+		background-color: $background-active;
+		box-shadow: inset 0px 0px 0px 1px rgba($border-color-active, 1);
+		color: $text-color-active;
+	}
+	&.button_state_disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: $background-disable;
+		box-shadow: inset 0px 0px 0px 1px rgba($border-color-disable, .5);
+		color: $text-color-disable;
+		opacity: .4;
+	}
+}
 
 
 @mixin button( $text-color, $background, $border-color, $text-color-hover, $background-hover, $border-color-hover, $text-color-active, $background-active, $border-color-active) {
@@ -58,7 +175,7 @@ $default-border-color-active: #196666 !default;
 }
 /* Базовый стиль (start) */
 .sc-button {
-	@include button($default-text-color, $default-background, $default-border-color, $default-text-color-hover, $default-background-hover, $default-border-color-hover, $default-text-color-active, $default-background-active, $default-border-color-active);
+	@include sc-button( $gray-fa, $color-basic-75-60, $color-basic-75-60, $gray-fa, $color-basic-75-70, $color-basic-75-70, $gray-fa, $color-basic-75-50, $color-basic-75-50, rgba($gray-fa, .5), rgba($color-basic-75-60, .5), rgba($color-basic-75-60, .0));
 	@include wrap;
 	@include wrap( 'middle');
 	@include wrap( 'center');
@@ -75,12 +192,12 @@ $default-border-color-active: #196666 !default;
 
 	& > * {
 			// @include col;
-			min-width: $button-grid * 5;
+			//min-width: $button-grid * 5;
 	}
 
 	.sc-button__text {
 		// @include col;
-			padding: 0 $button-grid * 2;
+			padding: 0 $button-grid;
 			min-width: $button-min-width;
 
 			&.sc-button__text_left {
@@ -114,7 +231,7 @@ $default-border-color-active: #196666 !default;
 	}
 
 	& .sc-button__text {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 24px;
 		font-weight: 600;
 	}
@@ -122,162 +239,19 @@ $default-border-color-active: #196666 !default;
 	& .sc-button__text_icons_left, & .sc-button__text_icons_right {
 		font-size: 0;
 	}
+
+	&__icon {
+		@include wrap;
+		@include wrap( 'flexbox');
+		@include wrap( 'center');
+		@include wrap( 'middle');
+		display: inline-flex;
+		height: 32px;
+		width: 32px;
+	}
 }
 /* Базовый стиль (end) */
 /* Модификаторы (start) */
-
-// Outline
-$contour-text-color: #269999 !default;
-$contour-background: #fff !default;
-$contour-border-color: #269999 !default;
-// При наведении
-$contour-text-color-hover: #2DB3B3 !default;
-$contour-background-hover: #fff;
-$contour-border-color-hover: #2DB3B3 !default;
-// Активное состояние
-$contour-text-color-active: #196666 !default;
-$contour-background-active: #fff !default;
-$contour-border-color-active: #196666 !default;
-
-.sc-button_outline {
-	@include button($contour-text-color, $contour-background, $contour-border-color, $contour-text-color-hover, $contour-background-hover, $contour-border-color-hover, $contour-text-color-active, $contour-background-active, $contour-border-color-active);
-}
-
-// primary
-$primary-text-color: #fff !default;
-$primary-background: #3399cc !default;
-$primary-border-color: #3399cc !default;
-// При наведении
-$primary-text-color-hover: #fff !default;
-$primary-background-hover: #287aa3 !default;
-$primary-border-color-hover: #287aa3 !default;
-// Активное состояние
-$primary-text-color-active: #fff !default;
-$primary-background-active: #1E5B7A !default;
-$primary-border-color-active: #1E5B7A !default;
-
-.sc-button_primary {
-	@include button($primary-text-color, $primary-background, $primary-border-color, $primary-text-color-hover, $primary-background-hover, $primary-border-color-hover, $primary-text-color-active, $primary-background-active, $primary-border-color-active);
-}
-
-// Primary-outline
-$primary-outline-text-color: #3399cc !default;
-$primary-outline-background: #fff !default;
-$primary-outline-border-color: #3399cc !default;
-// При наведении
-$primary-outline-text-color-hover: #287aa3 !default;
-$primary-outline-background-hover: #fff;
-$primary-outline-border-color-hover: #287aa3 !default;
-// Активное состояние
-$primary-outline-text-color-active: #196666 !default;
-$primary-outline-background-active: #fff !default;
-$primary-outline-border-color-active: #196666 !default;
-
-.sc-button_primary-outline {
-	@include button($primary-outline-text-color, $primary-outline-background, $primary-outline-border-color, $primary-outline-text-color-hover, $primary-outline-background-hover, $primary-outline-border-color-hover, $primary-outline-text-color-active, $primary-outline-background-active, $primary-outline-border-color-active);
-}
-
-// wraning
-$warning-text-color: #fff !default;
-$warning-background: #FF9830 !default;
-$warning-border-color: #FF9830 !default;
-// При наведении
-$warning-text-color-hover: #fff !default;
-$warning-background-hover: #CC7926 !default;
-$warning-border-color-hover: #CC7926 !default;
-// Активное состояние
-$warning-text-color-active: #fff !default;
-$warning-background-active: #995B1C !default;
-$warning-border-color-active: #995B1C !default;
-
-.sc-button_warning {
-	@include button($warning-text-color, $warning-background, $warning-border-color, $warning-text-color-hover, $warning-background-hover, $warning-border-color-hover, $warning-text-color-active, $warning-background-active, $warning-border-color-active);
-}
-
-// warning-outline
-$warning-outline-text-color: #FF9830 !default;
-$warning-outline-background: #fff !default;
-$warning-outline-border-color: #FF9830 !default;
-// При наведении
-$warning-outline-text-color-hover: #CC7926 !default;
-$warning-outline-background-hover: #fff !default;
-$warning-outline-border-color-hover: #CC7926 !default;
-// Активное состояние
-$warning-outline-text-color-active: #995B1C !default;
-$warning-outline-background-active: #fff !default;
-$warning-outline-border-color-active: #995B1C !default;
-
-.sc-button_warning-outline {
-	@include button($warning-outline-text-color, $warning-outline-background, $warning-outline-border-color, $warning-outline-text-color-hover, $warning-outline-background-hover, $warning-outline-border-color-hover, $warning-outline-text-color-active, $warning-outline-background-active, $warning-outline-border-color-active);
-}
-
-// danger
-$danger-text-color: #fff !default;
-$danger-background: #E65C5C !default;
-$danger-border-color: #E65C5C !default;
-// При наведении
-$danger-text-color-hover: #fff !default;
-$danger-background-hover: #FF6666 !default;
-$danger-border-color-hover: #FF6666 !default;
-// Активное состояние
-$danger-text-color-active: #fff !default;
-$danger-background-active: #BF4D4D !default;
-$danger-border-color-active: #BF4D4D !default;
-
-.sc-button_danger {
-	@include button($danger-text-color, $danger-background, $danger-border-color, $danger-text-color-hover, $danger-background-hover, $danger-border-color-hover, $danger-text-color-active, $danger-background-active, $danger-border-color-active);
-}
-
-// danger-outline
-$danger-outline-text-color: #E65C5C !default;
-$danger-outline-background: #fff !default;
-$danger-outline-border-color: #E65C5C !default;
-// При наведении
-$danger-outline-text-color-hover: #FF6666 !default;
-$danger-outline-background-hover: #fff !default;
-$danger-outline-border-color-hover: #FF6666 !default;
-// Активное состояние
-$danger-outline-text-color-active: #BF4D4D !default;
-$danger-outline-background-active: #fff !default;
-$danger-outline-border-color-active: #BF4D4D !default;
-
-.sc-button_danger-outline {
-	@include button($danger-outline-text-color, $danger-outline-background, $danger-outline-border-color, $danger-outline-text-color-hover, $danger-outline-background-hover, $danger-outline-border-color-hover, $danger-outline-text-color-active, $danger-outline-background-active, $danger-outline-border-color-active);
-}
-
-// gray
-$gray-text-color: #fff !default;
-$gray-background: #777 !default;
-$gray-border-color: #777 !default;
-// При наведении
-$gray-text-color-hover: #fff !default;
-$gray-background-hover: #5F5F5F !default;
-$gray-border-color-hover: #5F5F5F !default;
-// Активное состояние
-$gray-text-color-active: #fff !default;
-$gray-background-active: #474747 !default;
-$gray-border-color-active: #474747 !default;
-
-.sc-button_gray {
-	@include button($gray-text-color, $gray-background, $gray-border-color, $gray-text-color-hover, $gray-background-hover, $gray-border-color-hover, $gray-text-color-active, $gray-background-active, $gray-border-color-active);
-}
-
-// gray-outline
-$gray-outline-text-color: #777 !default;
-$gray-outline-background: #fff !default;
-$gray-outline-border-color: #777 !default;
-// При наведении
-$gray-outline-text-color-hover: #5F5F5F !default;
-$gray-outline-background-hover: #fff !default;
-$gray-outline-border-color-hover: #5F5F5F !default;
-// Активное состояние
-$gray-outline-text-color-active: #474747 !default;
-$gray-outline-background-active: #fff !default;
-$gray-outline-border-color-active: #474747 !default;
-
-.sc-button_gray-outline {
-	@include button($gray-outline-text-color, $gray-outline-background, $gray-outline-border-color, $gray-outline-text-color-hover, $gray-outline-background-hover, $gray-outline-border-color-hover, $gray-outline-text-color-active, $gray-outline-background-active, $gray-outline-border-color-active);
-}
 
 
 
@@ -299,21 +273,91 @@ $white-outline-border-color-active: #fff !default;
 }
 
 
-.sc-button_small {
-	height: $button-grid * 4;	
+.sc-button_big {
+	height: $button-grid * 5;
 
 	.sc-button__text {
-		font-size: 14px;
-		padding: 0 $button-grid;
+		font-size: 16px;
+		padding: 0 $button-grid * 2;
+	}
+
+	.sc-button__icon {
+		height: $button-grid * 5;
+		width: $button-grid * 5;
 	}
 }
 
-.sc-button_big {
+.sc-button_large {
 	height: $button-grid * 6;
 
 	.sc-button__text {
 		font-size: 20px;
 		padding: 0 $button-grid * 3;
 	}
+	.sc-button__icon {
+		height: $button-grid * 6;
+		width: $button-grid * 6;
+	}
 }
 /* Модификаторы (end) */
+
+.sc-button_basic {
+	@include sc-button( $gray-f, $btn-basic--default, $btn-basic--default, $gray-f, $btn-basic--hover-darken, $btn-basic--hover-darken, $gray-f, $btn-basic--active-darken, $btn-basic--active-darken, $gray-f, $btn-basic--default, $btn-basic--default);
+}
+
+.sc-button_activity {
+	@include sc-button( $gray-f, $btn-activity--default, $btn-activity--default, $gray-f, $btn-activity--hover-darken, $btn-activity--hover-darken, $gray-f, $btn-activity--active-darken, $btn-activity--active-darken, $gray-f, $btn-activity--default, $btn-activity--default);
+}
+
+.sc-button_warning {
+	@include sc-button( $gray-f, $btn-warning--default, $btn-warning--default, $gray-f, $btn-warning--hover-darken, $btn-warning--hover-darken, $gray-f, $btn-warning--active-darken, $btn-warning--active-darken, $gray-f, $btn-warning--default, $btn-warning--default);
+}
+
+.sc-button_danger {
+	@include sc-button( $gray-f, $btn-danger--default, $btn-danger--default, $gray-f, $btn-danger--hover-darken, $btn-danger--hover-darken, $gray-f, $btn-danger--active-darken, $btn-danger--active-darken, $gray-f, $btn-danger--default, $btn-danger--default);
+}
+
+.sc-button_gray {
+	@include sc-button( $gray-f, $btn-gray--default, $btn-gray--default, $gray-f, $btn-gray--hover-darken, $btn-gray--hover-darken, $gray-f, $btn-gray--active-darken, $btn-gray--active-darken, $gray-f, $btn-gray--default, $btn-gray--default);
+}
+
+.sc-button_white {
+	@include sc-button( $btn-basic--default, $btn-white--default, $btn-white--default, $gray-f, $btn-white--hover-darken, $btn-white--default, $gray-f, $btn-white--active-darken, $btn-white--default, $btn-basic--default, $btn-white--default, $btn-white--default);
+}
+
+// contour
+.sc-button_contour_basic {
+	@include sc-button( $btn-basic--default, $gray-f, $btn-basic--default, $btn-basic--hover-darken, $btn-basic--hover-lighten, $btn-basic--hover-darken, $btn-basic--active-darken, $btn-basic--active-lighten, $btn-basic--active-darken, rgba($btn-basic--default, .5), transparent, rgba($btn-basic--default, .5));
+}
+
+.sc-button_contour_activity {
+	@include sc-button( $btn-activity--default, $gray-f, $btn-activity--default, $btn-activity--hover-darken, $btn-activity--hover-lighten, $btn-activity--hover-darken, $btn-activity--active-darken, $btn-activity--active-lighten, $btn-activity--active-darken, rgba($btn-activity--default, .5), transparent, rgba($btn-activity--default, .5));
+}
+
+.sc-button_contour_warning {
+	@include sc-button( $btn-warning--default, $gray-f, $btn-warning--default, $btn-warning--hover-darken, $btn-warning--hover-lighten, $btn-warning--hover-darken, $btn-warning--active-darken, $btn-warning--active-lighten, $btn-warning--active-darken, rgba($btn-warning--default, .5), transparent, rgba($btn-warning--default, .5));
+}
+
+.sc-button_contour_danger {
+	@include sc-button( $btn-danger--default, $gray-f, $btn-danger--default, $btn-danger--hover-darken, $btn-danger--hover-lighten, $btn-danger--hover-darken, $btn-danger--active-darken, $btn-danger--active-lighten, $btn-danger--active-darken, rgba($btn-danger--default, .5), transparent, rgba($btn-danger--default, .5));
+}
+
+.sc-button_contour_gray {
+	@include sc-button( $btn-gray--default, $gray-f, $btn-gray--default, $btn-gray--hover-darken, $btn-gray--hover-lighten, $btn-gray--hover-darken, $btn-gray--active-darken, $btn-gray--active-lighten, $btn-gray--active-darken, rgba($btn-gray--default, .5), transparent, rgba($btn-gray--default, .5));
+}
+
+.sc-button_contour_white {
+	@include sc-button( $btn-white--default, transparent, $btn-white--default, $btn-white--default, $btn-white--hover-darken, $btn-white--default, $btn-white--default, $btn-white--active-darken, $btn-white--default, rgba($btn-white--default, .5), transparent, rgba($btn-white--default, .5));
+}
+
+.sc-button_contour_pager {
+	@include sc-button( $btn-gray--default, $gray-f2, $btn-gray--default, $btn-gray--hover-darken, $btn-gray--hover-lighten, $btn-gray--hover-darken, $btn-gray--active-darken, $btn-gray--active-lighten, $btn-gray--active-darken, rgba($btn-gray--default, .5), transparent, rgba($btn-gray--default, .5));
+}
+
+// кнопка подстраивается под ширину родительского контейнера
+.sc-button_width_max {
+	&,
+	&:focus {
+		width: 100%;
+	}
+}

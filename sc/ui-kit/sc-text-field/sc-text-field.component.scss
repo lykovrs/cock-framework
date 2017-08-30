@@ -1,268 +1,292 @@
 @import "../environments/mixins.scss";
 @import "../environments/flexiblegs-scss";
 
+$base-gutter: 8px;
+
+
+/* basic palette */
+
+$gray-f: #ffffff;
+$gray-c: #cccccc;
+$gray-7: #777777;
+
+// Default
+$default-text-color: #333;
+$default-icon-color: #777;
+$default-border-color: #777;
+$default-placeholder-color: #777;
+
+$default-text-color-hover: #333;
+$default-icon-color-hover: #777;
+$default-border-color-hover: #474747;
+$default-placeholder-color-hover: #777;
+
+$default-text-color-focus: #333;
+$default-icon-color-focus: #777;
+$default-border-color-focus: #39c;
+$default-placeholder-color-focus: transparent;
+
+// Warning
+$warning-text-color: #333;
+$warning-icon-color: #777;
+$warning-border-color: #E65C5C;
+$warning-placeholder-color: #777;
+
+$warning-text-color-hover: #333;
+$warning-icon-color-hover: #777;
+$warning-border-color-hover: #474747;
+$warning-placeholder-color-hover: #777;
+
+$warning-text-color-focus: #333;
+$warning-icon-color-focus: #777;
+$warning-border-color-focus: #39c;
+$warning-placeholder-color-focus: transparent;
+
+// Attention
+$attention-text-color: #333;
+$attention-icon-color: #777;
+$attention-border-color: #FF9830;
+$attention-placeholder-color: #777;
+
+$attention-text-color-hover: #333;
+$attention-icon-color-hover: #777;
+$attention-border-color-hover: #474747;
+$attention-placeholder-color-hover: #777;
+
+$attention-text-color-focus: #333;
+$attention-icon-color-focus: #777;
+$attention-border-color-focus: #39c;
+$attention-placeholder-color-focus: transparent;
+
+// Disabled
+$bg-color-disabled: #ddd;
+$text-color-disabled: #ccc;
+$icon-color-disabled: #ccc;
+$border-color-disabled: #ccc;
+$placeholder-color-disabled: #ccc;
+
+/* elements */
+
+$field--default: #777 !default;
+$field--hover: mix(black, $field--default, 40%);
+$field--focus: #39c !default;
+
+$icon-close--default: #777 !default;
+$icon-close--hover: #B84949;
+$icon-close--focus: #8A3737;
+
+$placeholder-color-focus: $default-placeholder-color;
+
+// Defaults
+*:focus { outline: none; }
+
 // Миксин цветов состояний текстового поля
 // (default, hover, focus, disable)
-@mixin text-field(
-    $text-color,
-    $icon-color,
-    $border-color,
-    $placeholder-color,
-
-    $text-color-hover,
-    $icon-color-hover,
-    $border-color-hover,
-    $placeholder-color-hover,
-
-    $text-color-focus,
-    $icon-color-focus,
-    $border-color-focus,
-    $placeholder-color-focus
+@mixin sc-text-field(
+    $text-color, $icon-color, $border-color, $placeholder-color,
+    $text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-hover,
+    $text-color-focus, $icon-color-focus, $border-color-focus, $placeholder-color-focus
 ) {
 
-  &, &.focus {
-      box-shadow: inset 0 0 0 2px rgba($border-color, 1);
-      border-color: $border-color;
-      color: $text-color;
-      fill:  $text-color;
+    &, &.focus, &.open  {
+        box-shadow: inset 0 0 0 1px rgba($border-color, 1);
+        border-color: $border-color;
 
-      .sc-text-field__input {
-          color: $text-color;
-          ::-webkit-input-placeholder {color:$placeholder-color;}
-          ::-moz-placeholder          {color:$placeholder-color;}/* Firefox 19+ */
-          :-ms-input-placeholder      {color:$placeholder-color;}
-      }
-  }
+        .input,
+        input {
+            color: $text-color;
+            &::-webkit-input-placeholder {
+                color: $placeholder-color;
+            }
+            &::-moz-placeholder {
+                color: $placeholder-color;
+            }
+        }
 
-  &:hover {
-      box-shadow: inset 0 0 0 2px rgba($border-color-hover, 1);
-      fill:  $text-color-hover;
-      .sc-text-field__input {
-          color: $text-color-hover;
-          ::-webkit-input-placeholder {color:$placeholder-color-hover;}
-          ::-moz-placeholder          {color:$placeholder-color-hover;}/* Firefox 19+ */
-          :-ms-input-placeholder      {color:$placeholder-color-hover;}
-      }
-  }
+        .icon,
+        .sc-text-field__icon {
+            color: $icon-color;
+        }
 
-  &.focus {
-      box-shadow: inset 0 0 0 2px rgba($border-color-focus, 1);
-      fill: $text-color-focus;
+        .sc-text-field__clear {
+            cursor: pointer !important;
+            color: $icon-close--default;
 
-      .sc-text-field__input {
-          color: $text-color-focus;
-          ::-webkit-input-placeholder {color:$placeholder-color-focus;}
-          ::-moz-placeholder          {color:$placeholder-color-focus;}/* Firefox 19+ */
-          :-ms-input-placeholder      {color:$placeholder-color-focus;}             
-      }
-  }
+            &:hover {
+                color: $icon-close--hover;
+            }
+            &:active {
+                color: $icon-close--focus;
+            }
+        }
+    }
 
-  & > .sc-text-field__input:only-child {
-      padding: 16px;
-  }
+    &:hover {
+        box-shadow: inset 0 0 0 1px rgba($border-color-hover, 1);
 
-  & > .sc-text-field__input:first-child {
-      padding-left: 16px;
-  }
+        .input {
+            color: $text-color-hover;
+            &::-webkit-input-placeholder {
+                color: $placeholder-color-hover !important;
+            }
+            &::-moz-placeholder {
+                color: $placeholder-color-hover !important;
+            }
+        }
+        .icon,
+        .sc-text-field__icon {
+            color: $icon-color-hover;
+        }
+    }
 
-  & > .sc-text-field__input:last-child {
-      padding-right: 16px;
-  }
+    &.focus, &.open {
+        box-shadow: inset 0 0 0 1px rgba($border-color-focus, 1);
+
+        .input {
+            color: $text-color-focus;
+            &::-webkit-input-placeholder {
+                color: $placeholder-color-focus;
+            }
+            &::-moz-placeholder {
+                color: $placeholder-color-focus;
+            }
+        }
+
+        .icon,
+        .sc-text-field__icon {
+            color: $icon-color-focus;
+        }
+
+        .icon-search,
+        .sc-text-field__icon-search {
+            border-left-color: rgba($border-color-focus, 1);
+        }
+    }
+
+    & > input:only-child {
+        padding: $base-gutter;
+    }
+
+    & > input:first-child {
+        padding-left: $base-gutter;
+    }
+
+    & > input:last-child {
+        padding-right: $base-gutter;
+    }
 }
 
 /* Базовый стиль (start) */
-  $default-text-field-text-color: #777;
-  $default-text-field-icon-color: #777;
-  $default-text-field-border-color: #777;
-  $default-text-field-placeholder-color: #777;
-
-  $default-text-field-text-color-hover: #777;
-  $default-text-field-icon-color-hover: #777;
-  $default-text-field-border-color-hover: #777;
-  $default-text-field-placeholder-color-hover: #777;
-
-  $default-text-field-text-color-focus: #333;
-  $default-text-field-icon-color-focus: #333;
-  $default-text-field-border-color-focus: #39c;
-  $default-text-field-placeholder-color-focus: #333;
-
-
 .sc-text-field {
-     margin: 0;
-     border: 0;
-     padding: 0;
+    .sc-text-field__inner {
+        @include wrap;
+        @include wrap("table");
+        @include wrap("middle");
+        @include wrap("left");
+        @include sc-text-field(
+                        $default-text-color, $default-icon-color, $default-border-color, $default-placeholder-color, //$text-color, $icon-color, $border-color, $placeholder-color
+                        $default-text-color-hover, $default-icon-color-hover, $default-border-color-hover, $default-placeholder-color-hover, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
+                        $default-text-color-focus, $default-icon-color-focus, $default-border-color-focus, $placeholder-color-focus // $text-color-focus, $icon-color-focus, $border-color-focus,
+        );
+        background-color: $gray-f;
+        box-sizing: border-box;
+        font-size: 15px;
+        margin: 0;
+        padding: 0 1px;
+        width: 100%;
 
-   .sc-text-field__inner {
-       @include wrap;
-       @include wrap("table");
-       @include wrap("middle");
-       @include wrap("left");
-       @include text-field(
-                          $default-text-field-text-color,
-                          $default-text-field-icon-color,
-                          $default-text-field-border-color,
-                          $default-text-field-placeholder-color,
+        & > * {
+            @include col;
+        }
 
-                          $default-text-field-text-color-hover,
-                          $default-text-field-icon-color-hover,
-                          $default-text-field-border-color-hover,
-                          $default-text-field-placeholder-color-hover,
+        input, .sc-text-field__input {
+            @include dots;
+            box-sizing: border-box;
+            background: none;
+            border: none;
+            box-shadow: none;
+            font-size: 15px;
+            font-weight: normal;
+            height: $base-gutter * 5;
+            padding: 0;
+            width: 100%;
+            &:only-child { padding: 0 $base-gutter * 2; }
+            &:first-child { padding-left: $base-gutter * 2 !important; }
+            &:last-child { padding-right: $base-gutter * 2 !important; }
 
-                          $default-text-field-text-color-focus,
-                          $default-text-field-icon-color-focus,
-                          $default-text-field-border-color-focus,
-                          $default-text-field-placeholder-color-focus
-                       );
-       box-sizing: border-box;
-       font-size: 13px;
-       margin: 0;
-       border: 0;
-       padding: 0;
-       width: 100%;
-       background-color: #fff;
+            &::-webkit-input-placeholder {
+                color: $field--default;
+                font-weight: normal;
+            }
+            &::-moz-placeholder {
+                color: $field--default;
+                font-weight: normal;
+            }
+            &:focus{
+                &::-webkit-input-placeholder { color: $placeholder-color-focus; }
+                &::-moz-placeholder { color: $placeholder-color-focus; }
+            }
+        }
 
+        & > .sc-text-field__icon,
+        & > .sc-text-field__clear {
+            color: $field--default;
+            font-size: 0;
+            text-align: center;
+            width: $base-gutter * 5;
+        }
 
-       & > * {
-           @include col;
-       }
-   }
-
-    .sc-text-field__icon {
-      text-align: center;
-      font-size: 0;
-      width: 40px;
     }
-
-   .sc-text-field__input {
-       @include dots;
-       box-sizing: border-box;
-       background: transparent;
-       border: 0;
-       box-shadow: none;
-       font-size: 14px;
-       font-weight: 600;
-       height: 40px;
-       padding: 0;
-       width: 100%;
-       outline: none;
-   }
-
-   & > .icon {
-       width: 40px;
-       text-align: center;
-   }
 
     &.disabled ,
     &[disabled]  {
         .sc-text-field__inner,
         .sc-text-field__inner:hover {
-            fill: #aaa;
-            box-shadow: inset 0 0 0 2px rgba(#aaa, 1);
-            background-color: #e5e5e5;
-
-            .sc-text-field__input {
-              color: #aaa;
+            box-shadow: inset 0 0 0 1px rgba($border-color-disabled, 1);
+            background-color: $bg-color-disabled;
+            .sc-text-field__input,
+            input {
+                color: $text-color-disabled;
+                &::-webkit-input-placeholder {
+                    color: $placeholder-color-disabled !important;
+                }
+                &::-moz-placeholder {
+                    color: $placeholder-color-disabled !important;
+                }
+            }
+            .icon,
+            .sc-text-field__icon {
+                color: $icon-color-disabled;
+            }
+            .sc-text-field__clear {
+                display: none;
             }
         }
-    }
-
-    .sc-text-field__clear {
-      width: 40px;
-      font-size: 0;
-      line-height: 0;
-      text-align: center;
-
-      button {
-        background: none;
-        border: 0;
-        padding: 0;
-        margin: 0;
-        width: 16px;
-        height: 16px;
-        outline: none;
-        cursor: pointer;
-        fill: #777;
-
-        &:hover, &:focus {
-          fill: #E65C5C;
-        }
-      }
     }
 }
 
 /* Базовый стиль (end) */
 
+
 /* Модификаторы (start) */
-
-  // warning
-  $warning-text-field-text-color: #E65C5C;
-  $warning-text-field-icon-color: #E65C5C;
-  $warning-text-field-border-color: #E65C5C;
-  $warning-text-field-placeholder-color: #777;
-
-  $warning-text-field-text-color-hover: #E65C5C;
-  $warning-text-field-icon-color-hover: #E65C5C;
-  $warning-text-field-border-color-hover: #E65C5C;
-  $warning-text-field-placeholder-color-hover: #E65C5C;
-
-  $warning-text-field-text-color-focus: #E65C5C;
-  $warning-text-field-icon-color-focus: #E65C5C;
-  $warning-text-field-border-color-focus: #E65C5C;
-  $warning-text-field-placeholder-color-focus: #E65C5C;
 
 .sc-text-field_type_warning {
     .sc-text-field__inner {
-        @include text-field(
-                      $warning-text-field-text-color,
-                      $warning-text-field-icon-color,
-                      $warning-text-field-border-color,
-                      $warning-text-field-placeholder-color,
-
-                      $warning-text-field-text-color-hover,
-                      $warning-text-field-icon-color-hover,
-                      $warning-text-field-border-color-hover,
-                      $warning-text-field-placeholder-color-hover,
-
-                      $warning-text-field-text-color-focus,
-                      $warning-text-field-icon-color-focus,
-                      $warning-text-field-border-color-focus,
-                      $warning-text-field-placeholder-color-focus
-    )}
+        //$text-color, $icon-color, $border-color, $placeholder-color
+        @include sc-text-field(
+                        $warning-text-color, $warning-icon-color, $warning-border-color, $warning-placeholder-color, //$text-color, $icon-color, $border-color, $placeholder-color
+                        $warning-text-color-hover, $warning-icon-color-hover, $warning-border-color-hover, $warning-placeholder-color-hover, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
+                        $warning-text-color-focus, $warning-icon-color-focus, $warning-border-color-focus, $warning-placeholder-color-focus // $text-color-focus, $icon-color-focus, $border-color-focus,
+        );
+    }
 }
-
-  // attention
-  $attantion-text-field-text-color: #FF9830;
-  $attantion-text-field-icon-color: #FF9830;
-  $attantion-text-field-border-color: #FF9830;
-  $attantion-text-field-placeholder-color: #FF9830;
-
-  $attantion-text-field-text-color-hover: #FF9830;
-  $attantion-text-field-icon-color-hover: #FF9830;
-  $attantion-text-field-border-color-hover: #FF9830;
-  $attantion-text-field-placeholder-color-hover: #FF9830;
-
-  $attantion-text-field-text-color-focus: #FF9830;
-  $attantion-text-field-icon-color-focus: #FF9830;
-  $attantion-text-field-border-color-focus: #FF9830;
-  $attantion-text-field-placeholder-color-focus: #FF9830;
 
 .sc-text-field_type_attention {
     .sc-text-field__inner {
-        @include text-field(
-                      $attantion-text-field-text-color,
-                      $attantion-text-field-icon-color,
-                      $attantion-text-field-border-color,
-                      $attantion-text-field-placeholder-color,
-
-                      $attantion-text-field-text-color-hover,
-                      $attantion-text-field-icon-color-hover,
-                      $attantion-text-field-border-color-hover,
-                      $attantion-text-field-placeholder-color-hover,
-
-                      $attantion-text-field-text-color-focus,
-                      $attantion-text-field-icon-color-focus,
-                      $attantion-text-field-border-color-focus,
-                      $attantion-text-field-placeholder-color-focus
-    )}
+        @include sc-text-field(
+                        $attention-text-color, $attention-icon-color, $attention-border-color, $attention-placeholder-color, //$text-color, $icon-color, $border-color, $placeholder-color
+                        $attention-text-color-hover, $attention-icon-color-hover, $attention-border-color-hover, $attention-placeholder-color-hover, //$text-color-hover, $icon-color-hover, $border-color-hover, $placeholder-color-focus,
+                        $attention-text-color-focus, $attention-icon-color-focus, $attention-border-color-focus, $attention-placeholder-color-focus // $text-color-focus, $icon-color-focus, $border-color-focus,
+        );
+    }
 }
-/* Модификаторы (end) */

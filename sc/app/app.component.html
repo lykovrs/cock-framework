@@ -1,4 +1,22 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<sc-grid>
+  <div page-header>
+      <sc-page-header></sc-page-header>
+    <!-- Header: {{title}} -->
+  </div>
+
+  <aside sidebar>
+    <div class="navigation">
+      <component-list></component-list>
+    </div>
+  </aside>
+
+  <div body>
+    <div class="preview">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div page-footer>
+      <sc-page-footer></sc-page-footer>
+  </div>
+</sc-grid>

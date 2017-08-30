@@ -1,0 +1,51 @@
+@import "../../../node_modules/flexiblegs-scss/flexiblegs-scss";
+$header-height: 48px;
+$footer-height: 36px;
+$help-card-120: 120px;
+$help-card-80: 80px;
+$gutter: 8; // базовый внутренний отступ
+$outside: $gutter * 2; // базовый внешний отступ
+$grid-columns: 4; // фактическое колличество колонок n-1
+.sc-grid {
+  &__header {
+    height: $header-height
+  }
+  &__body {
+    @include wrap();
+    @include wrap('top');
+    @include wrap('table');
+    @include wrap("gutter", $gutter);
+    @include wrap("outside", $outside);
+    height: calc(100vh - #{$header-height + $footer-height});
+    overflow: hidden;
+    background: #DDDDDD;
+
+   
+  }
+  &__footer {
+    height: $footer-height
+  }
+
+  &__col {
+    @include col;
+    overflow: auto;
+    @for $i from 1 to $grid-columns {
+      @for $j from 1 to $grid-columns {
+        @if($i <=$j) {
+          &_#{$i}_#{$j} {
+            @include col($i, $j);
+          }
+        }
+      }
+    }
+    &_aside {
+      width: 336px;
+    }
+    &_river {
+      width: 424px;
+    }
+    &_wall {
+      width: 248px;
+    }
+  }
+}

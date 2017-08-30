@@ -1,0 +1,731 @@
+<h2>
+  demo-button works!
+</h2>
+
+<pre>
+  Используется через добавления атрибута "sc-button" к элементу:
+  &lt;button sc-button&gt;
+    Кнопка
+  &lt;/button&gt;
+
+  По умолчанию добавляется класс `.sc-button`.
+  Может иметь атрибут модификатор "mod"="value", которые добавит соответствующий класс `.sc-button_[mod.value]`.
+  Может иметь атрибут "size"="value", которые добавит соответствующий класс `.sc-button_[size.value]`.
+
+  Может содержать опциональные svg иконки с атрибутом указания места иконки [after, before] относительно текста:
+  &lt;button sc-button&gt;
+    Кнопка
+    &lt;sc-svg-icon after src="sc/svg/delete.svg"&gt;&lt;/sc-svg-icon&gt;
+    &lt;sc-svg-icon before src="sc/svg/delete.svg"&gt;&lt;/sc-svg-icon&gt;
+  &lt;/button&gt;
+
+</pre>
+
+<h2>
+  demo-button works!
+</h2>
+
+<!-- Default -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    default
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button (click)="clickMe($event)">
+      <sc-svg-icon before class="sc-svg-icon"
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- Outline -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    contour_basic
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_basic" style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- Primary -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    activity
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="activity sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- Pimary-outline -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    contour_activity
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_activity" style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- Warning -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    warning
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="warning" style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- contour_warning -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    contour_warning
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_warning" style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- danger -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    danger
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="danger" style="width: 100%">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- contour_danger -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    danger
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_danger sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- Gray -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    gray
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="gray sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+<!-- contour_gray -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    contour_gray
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_gray sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+
+<!-- contour_white -->
+<div class="wrap wrap-table wrap-gutter-16" style="background-color: #269999; padding: 8px; color: white">
+  <div class="wrap__col wrap-col-1-8">
+    contour_white
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="contour_white sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+<!-- contour_white -->
+<div class="wrap wrap-table wrap-gutter-16" style="background-color: #269999; padding: 8px; color: white">
+  <div class="wrap__col wrap-col-1-8">
+    white
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white" [disabled]="true" (click)="clickMe($event)">
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white" (click)="clickMe($event)">
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+      <sc-svg-icon after
+                   src="sc/svg/doctor-bag-solid.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button mod="white sc-button_width_max">
+      <sc-svg-icon after
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка
+      <sc-svg-icon before
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>
+
+
+
+<!-- Any sizes -->
+<div class="wrap wrap-table wrap-gutter-16">
+  <div class="wrap__col wrap-col-1-8">
+    Any sizes
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button size="small" mod="contour_basic" (click)="clickMe($event)">
+      Кнопка small
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button size="big" mod="contour_basic" [disabled]="true" (click)="clickMe($event)">
+      Кнопка big
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button size="large" mod="contour_basic" (click)="clickMe($event)">
+      <sc-svg-icon before
+                   src="sc/svg/delete.svg"></sc-svg-icon>
+      Кнопка small
+    </button>
+  </div>
+  <div class="wrap__col wrap-col-1-8">
+    <button sc-button size="big" mod="contour_basic" (click)="clickMe($event)">
+      Кнопка big
+      <sc-svg-icon after
+                   src="sc/svg/top.svg"></sc-svg-icon>
+    </button>
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+
+  <div class="wrap__col wrap-col-1-8">
+
+  </div>
+</div>

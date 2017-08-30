@@ -1,0 +1,21 @@
+<ul class="sc-menu" (click)="isActiveMenuItem()">
+	<li *ngFor="let item of items"
+		[ngClass]="{'sc-menu__item_state_disabled': item.disabled}"
+
+		class="sc-menu__item">
+		<a (click)="item.action()"
+		   *ngIf="item.isAvailable"
+		   [ngClass]="{'sc-menu__link_state_current': item.isActive}"
+		   class="sc-menu__link"
+		   [href]="item.url">
+			{{item.name}}
+			<!--<span class="kpi-sc-menu__teaser" *ngIf="item.teaser.num > 0">-->
+				<!--&lt;!&ndash;<sc-menu-teaser num="item.teaser.num"&ndash;&gt;-->
+								 <!--&lt;!&ndash;text="item.teaser.text"&ndash;&gt;-->
+								 <!--&lt;!&ndash;events="item.teaser.events"></sc-menu-teaser>&ndash;&gt;-->
+			<!--</span>-->
+
+		</a>
+		<sc-menu-item [item]="item"></sc-menu-item>
+	</li>
+</ul>

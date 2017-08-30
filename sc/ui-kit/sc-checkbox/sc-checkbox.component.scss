@@ -1,5 +1,353 @@
 @import "~bootstrap/scss/mixins/reset-text";
+//@import '../sc-icon/sc-icon';
+@import "../environments/flexiblegs-scss";
 
+// Default colors
+
+// default
+$magnus-default: (
+		text: #333,
+		background: #fff,
+		icon: #777,
+		checkedIcon: #269999
+);
+
+$magnus-default-disabled: (
+		text: #BBB,
+		background: #fff,
+		icon: #C8C8C8,
+		checkedIcon: #ACD6D6
+);
+
+// default on dark
+
+$magnus-on-dark-default: (
+		text: #FFF,
+		background: transparent,
+		icon: #FFF,
+		checkedIcon: #FFF
+);
+
+$magnus-on-dark-default-disabled: (
+		text: #8BBDDF,
+		background: transparent,
+		icon: #8BBDDF,
+		checkedIcon: #8BBDDF
+);
+
+@mixin sc-checkbox( $default-colors, $disabled-colors) {
+	.sc-checkbox__check {
+		color: map-get($default-colors, checked);
+		box-shadow: inset 0px 0px 0px 1px rgba(map-get($default-colors, icon), 1);
+		background-color: map-get($default-colors, background);
+
+		.sc-checkbox__icon_type_indeterminate {
+			background-color: map-get($default-colors, icon);
+		}
+
+		//Checked
+		&_checked {
+			color: map-get($default-colors, checkedIcon);
+			box-shadow: inset 0px 0px 0px 1px rgba(map-get($default-colors, checkedIcon), 1);
+			background-color: map-get($default-colors, background);
+
+			&.indeterminate .sc-checkbox__icon_type_indeterminate {
+				background: map-get($default-colors, checkedIcon);
+			}
+		}
+	}
+
+	.sc-checkbox__label {
+		color: map-get($default-colors, text);
+	}
+
+	&.indeterminate .sc-checkbox__icon_type_indeterminate {
+		background: map-get($default-colors, icon);
+	}
+
+	&.sc-checkbox_disabled {
+		.sc-checkbox__check {
+			color: map-get($disabled-colors, icon);
+			box-shadow: inset 0px 0px 0px 1px rgba(map-get($disabled-colors, icon), 1);
+			background-color: map-get($disabled-colors, background);
+
+			&_checked {
+				color: map-get($disabled-colors, checkedIcon);
+				background: map-get($disabled-colors, background);
+				box-shadow: inset 0px 0px 0px 1px rgba(map-get($disabled-colors, checkedIcon), 1);
+				background-color: map-get($disabled-colors, background);
+				.sc-checkbox__icon {
+					color: map-get($disabled-colors, checkedIcon);
+				}
+			}
+		}
+
+		.sc-checkbox__label {
+			color: map-get($disabled-colors, text);
+		}
+
+		&.indeterminate .sc-checkbox__icon_type_indeterminate {
+			background: map-get($disabled-colors, icon);
+		}
+	}
+
+}
+
+.sc-checkbox {
+	@include wrap;
+	@include wrap('top');
+	@include wrap('middle');
+	@include sc-checkbox($magnus-default, $magnus-default-disabled);
+
+	align-items: flex-start;
+	display: inline-flex;
+	vertical-align: middle;
+	width: auto;
+	margin: 0;
+	line-height: 16px;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	.sc-checkbox__check {
+		@include wrap;
+		@include wrap('flexbox');
+		@include wrap('center');
+		@include wrap('middle');
+
+		width: 16px;
+		height: 16px;
+		text-align: center;
+		line-height: 16px;
+	}
+	.sc-checkbox__icon_type_indeterminate {
+		width: 8px;
+		height: 8px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.sc-checkbox__label {
+		font-size: 15px;
+		font-weight: normal;
+		padding-left: 8px;
+		line-height: 16px;
+		width: calc(100% - 16px);
+	}
+	&:hover {
+
+		.sc-checkbox__label {
+			cursor: pointer;
+		}
+	}
+
+	&.disabled {
+		opacity: .4;
+		.sc-checkbox__label {
+			pointer-events: none;
+		}
+	}
+	.sc-svg-icon {
+		display: none;
+		&_check {
+			display: inherit;
+		}
+	}
+}
+
+.sc-checkbox_on-dark {
+	@include sc-checkbox($magnus-on-dark-default, $magnus-on-dark-default-disabled);
+}
+
+
+// Magnus warning
+$magnus-warning: (
+		text: #E65C5C,
+		background: #fff,
+		icon: #E65C5C,
+		checkedIcon: #E65C5C
+);
+
+$magnus-warning-disabled: (
+		text: #F1BDBD,
+		background: #fff,
+		icon: #F1BDBD,
+		checkedIcon: #F1BDBD
+);
+
+// on dark warning
+
+$magnus-on-dark-warning: (
+		text: #FFF,
+		background: #FFF,
+		icon: #E65C5C,
+		checkedIcon: #E65C5C
+);
+
+$magnus-on-dark-warning-disabled: (
+		text: #8BBDDF,
+		background: #8BBDDF,
+		icon: #7B7D9E,
+		checkedIcon: #7B7D9E
+);
+
+.sc-checkbox_warning {
+	@include sc-checkbox($magnus-warning, $magnus-warning-disabled);
+}
+.sc-checkbox_on-dark-warning {
+	@include sc-checkbox($magnus-on-dark-warning, $magnus-on-dark-warning-disabled);
+}
+
+// Magnus attention
+$magnus-attention: (
+		text: #FF9830,
+		background: #fff,
+		icon: #FF9830,
+		checkedIcon: #FF9830
+);
+
+$magnus-attention-disabled: (
+		text: #FBD7AC,
+		background: #fff,
+		icon: #FBD7AC,
+		checkedIcon: #FBD7AC
+);
+// on dark attention
+
+$magnus-on-dark-attention: (
+		text: #FFF,
+		background: #FFF,
+		icon: #FF9830,
+		checkedIcon: #FF9830
+);
+
+$magnus-on-dark-attention-disabled: (
+		text: #8BBDDF,
+		background: #8BBDDF,
+		icon: #84979D,
+		checkedIcon: #84979D
+);
+
+.sc-checkbox_attention {
+	@include sc-checkbox($magnus-attention, $magnus-attention-disabled);
+}
+
+.sc-checkbox_on-dark-attention {
+	@include sc-checkbox($magnus-on-dark-attention, $magnus-on-dark-attention-disabled);
+}
+
+
+// Magnus highkey
+$magnus-highkey: (
+		text: #fff,
+		background: rgba(0, 0, 0, 0),
+		border: #fff,
+		icon: #fff,
+		checkedBackground: rgba(0, 0, 0, 0),
+		checkedIcon: #fff
+);
+$magnus-highkey-hover: (
+		text: #fff,
+		background: rgba(0, 0, 0, 0.2),
+		border: #fff,
+		icon: #fff,
+		checkedBackground: rgba(0, 0, 0, 0.2),
+		checkedIcon: #fff
+);
+$magnus-highkey-active: (
+		text: #fff,
+		background: rgba(0, 0, 0, 0.4),
+		border: #fff,
+		icon: #fff,
+		checkedBackground: rgba(0, 0, 0, 0.4),
+		checkedIcon: #fff
+);
+
+$magnus-highkey-disabled: (
+		text: #fff,
+		background: none,
+		border: #fff,
+		icon: #fff,
+		checkedBackground: none,
+		checkedIcon: #fff
+);
+
+.sc-checkbox_highkey {
+	//@include sc-checkbox($magnus-highkey, $magnus-highkey-disabled);
+
+	.sc-checkbox__label {
+		font-weight: normal;
+	}
+
+	&.disabled {
+		opacity: .4;
+	}
+}
+
+// Filled (with background)
+$base-gutter: 8px;
+
+$magnus-filled: (
+		text: #fff,
+		background: #fff,
+		border: #fff,
+		icon: #269999,
+		checkedBackground: #fff,
+		checkedIcon: #fff
+);
+$magnus-filled-hover: (
+		text: #fff,
+		background: #fff,
+		border: #aaa,
+		icon: #fff,
+		checkedBackground: #fff,
+		checkedIcon: #fff
+);
+$magnus-filled-active: (
+		text: #fff,
+		background: #fff,
+		border: #aaa,
+		icon: #fff,
+		checkedBackground: #fff,
+		checkedIcon: #aaa
+);
+
+$magnus-filled-disabled: (
+		text: #fff,
+		background: none,
+		border: #fff,
+		icon: #fff,
+		checkedBackground: #fff,
+		checkedIcon: #fff
+);
+
+.sc-checkbox_filled {
+	//@include sc-checkbox($magnus-filled, $magnus-filled-disabled);
+
+	background-color: #aaa;
+	padding: $base-gutter / 2 $base-gutter;
+
+	&:hover {
+		background-color: #555;
+	}
+	&.checked {
+		background-color: #269999;
+	}
+	&.disabled {
+		background-color: #aaa;
+		opacity: .4;
+		user-select: none;
+	}
+
+	.sc-checkbox__label {
+		font-size: 14px;
+	}
+}
+
+///////////////////////
 // default
 $default-text-color: #333333 !default;
 $default-background: #ffffff !default;
@@ -21,95 +369,88 @@ $attention-border-color: #FF9830 !default;
 $attention-indeterminate-background: #FF9830 !default;
 
 .checkbox {
-  font-size: 0; 
-  line-height: 0;
-  color: #666;
-  float: left;
-  margin: 0 16px 0 0;
-  min-height: inherit;
-  position: relative;
+	font-size: 0;
+	line-height: 0;
+	color: #666;
+	float: left;
+	margin: 0 16px 0 0;
+	min-height: inherit;
+	position: relative;
 
-  input[type=checkbox] {
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-  }
+	input[type=checkbox] {
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+	}
 
-  &__label {
-    color: $default-text-color;
-    float: left;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 16px;
-    overflow: hidden;
-    text-align: left;
-    transition: color .3s;
-    -moz-user-select: none;
-    user-select: none;
-    &_attention {
-      color: $attention-text-color;
-    }
-    &_warning {
-      color: $warning-text-color;
-    }
-  }
+	&__label {
+		color: $default-text-color;
+		float: left;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 16px;
+		overflow: hidden;
+		text-align: left;
+		transition: color .3s;
+		-moz-user-select: none;
+		user-select: none;
+		&_attention {
+			color: $attention-text-color;
+		}
+		&_warning {
+			color: $warning-text-color;
+		}
+	}
 
-  &_disabled {
-    opacity: 0.5;
-  }
+	&_disabled {
+		opacity: 0.5;
+	}
 }
 
-.check {
-  background-color: $default-background;
-  border: 2px solid $default-border-color;
-  float: left;
-  height: 16px;
-  margin: 0 8px 0 0;
-  position: relative;
-  text-align: center;
-  transition: border .3s;
-  width: 16px;
-  &_checked {
-    border: 2px solid $default-active-border-color;
-    fill: $default-active-text-color;
-  }
-  &_attention {
-    border: 2px solid $attention-border-color;
-    fill: $attention-text-color;
-  }
-  &_warning {
-    border: 2px solid $warning-border-color;
-    fill: $warning-text-color;
-  }
-  &_indeterminate {
-    border: 2px solid $default-active-border-color;
-  }
+.check-old {
+	background-color: $default-background;
+	border: 2px solid $default-border-color;
+	float: left;
+	height: 16px;
+	margin: 0 8px 0 0;
+	position: relative;
+	text-align: center;
+	transition: border .3s;
+	width: 16px;
+	&_checked {
+		border: 2px solid $default-active-border-color;
+		fill: $default-active-text-color;
+	}
+	&_attention {
+		border: 2px solid $attention-border-color;
+		fill: $attention-text-color;
+	}
+	&_warning {
+		border: 2px solid $warning-border-color;
+		fill: $warning-text-color;
+	}
+	&_indeterminate {
+		border: 2px solid $default-active-border-color;
+	}
 }
 
-.sc-svg-icon {
-  display: none;
-  &_check {
-    display: block;
-  }
-}
-
-.indeterminate {
-  display: block;
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  top: 2px;
-  background-color: $default-indeterminate-background;
-  &:before {
-    content: "";
-  }
-  &_attention {
-    background-color: $attention-indeterminate-background;
-  }
-  &_warning {
-    background-color: $warning-indeterminate-background;
-  }
+.indeterminate-old {
+	display: block;
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	right: 2px;
+	top: 2px;
+	background-color: $default-indeterminate-background;
+	&:before {
+		content: "";
+	}
+	&_attention {
+		background-color: $attention-indeterminate-background;
+	}
+	&_warning {
+		background-color: $warning-indeterminate-background;
+	}
 }
