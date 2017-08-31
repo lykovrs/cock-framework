@@ -176,37 +176,41 @@ $btn-white--active-lighten: mix($btn-basic--default, $gray-f, 40%);
 /* Базовый стиль (start) */
 .sc-button {
 	@include sc-button( $gray-fa, $color-basic-75-60, $color-basic-75-60, $gray-fa, $color-basic-75-70, $color-basic-75-70, $gray-fa, $color-basic-75-50, $color-basic-75-50, rgba($gray-fa, .5), rgba($color-basic-75-60, .5), rgba($color-basic-75-60, .0));
-	@include wrap;
-	@include wrap( 'middle');
-	@include wrap( 'center');
+	// @include wrap;
+	// @include wrap( 'middle');
+	// @include wrap( 'center');
 	display: inline-block;
 	vertical-align: middle;
 	border: 0;
 	box-sizing: border-box;
 	height: $button-height;
-	min-width: $button-min-width;
+	margin: 0 8px;
+	//min-width: $button-min-width;
 	padding: 0;
 	position: relative;
 	width: auto;
 
-
-	& > * {
-			// @include col;
-			//min-width: $button-grid * 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__text {
+		padding: 0 8px;
+		position: relative;
+		& + .sc-button__icon { margin-left: -$base-gutter; }
+		.sc-button__icon { margin: 0 -8px; }
 	}
-
-	.sc-button__text {
-		// @include col;
-			padding: 0 $button-grid;
-			min-width: $button-min-width;
-
-			&.sc-button__text_left {
-				padding-left: 0;
-			}
-
-			&.sc-button__text_right {
-				padding-right: 0;
-			}
+	&__icon {
+		@include wrap;
+		@include wrap( 'flexbox');
+		@include wrap( 'center');
+		@include wrap( 'middle');
+		display: inline-flex;
+		height: 32px;
+		min-width: 32px;
+		padding: $base-gutter;
+		position: relative;
+		width: 32px;
+		& + .sc-button__text { margin-left: -$base-gutter; }
 	}
 
 	&,
@@ -236,19 +240,9 @@ $btn-white--active-lighten: mix($btn-basic--default, $gray-f, 40%);
 		font-weight: 600;
 	}
 
-	& .sc-button__text_icons_left, & .sc-button__text_icons_right {
-		font-size: 0;
-	}
-
-	&__icon {
-		@include wrap;
-		@include wrap( 'flexbox');
-		@include wrap( 'center');
-		@include wrap( 'middle');
-		display: inline-flex;
-		height: 32px;
-		width: 32px;
-	}
+	// & .sc-button__text_icons_left, & .sc-button__text_icons_right {
+	// 	font-size: 0;
+	// }
 }
 /* Базовый стиль (end) */
 /* Модификаторы (start) */
@@ -279,11 +273,14 @@ $white-outline-border-color-active: #fff !default;
 	.sc-button__text {
 		font-size: 16px;
 		padding: 0 $button-grid * 2;
+		& + .sc-button__icon { margin-left: -16px; }
+		.sc-button__icon { margin: 0 -16px; }
 	}
-
 	.sc-button__icon {
 		height: $button-grid * 5;
+		padding: $base-gutter * 1.5;
 		width: $button-grid * 5;
+		& + .sc-button__text { margin-left: -16px; }
 	}
 }
 
@@ -293,10 +290,14 @@ $white-outline-border-color-active: #fff !default;
 	.sc-button__text {
 		font-size: 20px;
 		padding: 0 $button-grid * 3;
+		& + .sc-button__icon { margin-left: -24px; }
+		.sc-button__icon { margin: 0 -24px; }
 	}
 	.sc-button__icon {
 		height: $button-grid * 6;
+		padding: $base-gutter * 2;
 		width: $button-grid * 6;
+		& + .sc-button__text { margin-left: -24px; }
 	}
 }
 /* Модификаторы (end) */

@@ -4,20 +4,25 @@ import {
   Output,
   EventEmitter,
   OnInit,
-  AfterViewInit
+  AfterViewInit,
+    ViewEncapsulation
 } from '@angular/core';
 import {ScRadioService} from './sc-radio.service';
 
 enum Mod {
-  def,
-  attention,
-  warning
+    def=<any>'def',
+    attention=<any>'attention',
+    warning=<any>'warning',
+    onDark=<any>'onDark',
+    onDarkWarning=<any>'onDarkWarning',
+    onDarkAttention=<any>'onDarkAttention',
 }
 
 @Component({
   selector: 'sc-radio',
   templateUrl: 'sc-radio.component.html',
-  styleUrls: ['sc-radio.component.scss']
+  styleUrls: ['sc-radio.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class ScRadioComponent implements AfterViewInit, OnInit  {

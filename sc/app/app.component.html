@@ -1,16 +1,16 @@
 <sc-grid>
   <div page-header>
-      <sc-page-header></sc-page-header>
+      <sc-page-header [menu]="menu"></sc-page-header>
     <!-- Header: {{title}} -->
   </div>
 
-  <aside sidebar>
+  <!-- <aside sidebar>
     <div class="navigation">
       <component-list></component-list>
     </div>
-  </aside>
+  </aside> -->
 
-  <div body>
+  <div>
     <div class="preview">
       <router-outlet></router-outlet>
     </div>

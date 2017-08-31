@@ -24,31 +24,89 @@
 <h2>
   demo-button works!
 </h2>
-
 <!-- Default -->
+<div class="wrap wrap-table wrap-gutter-16">
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        <sc-svg-icon src="sc/svg/top.svg"></sc-svg-icon>
+      </button>
+    </div>
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        <sc-svg-icon before
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon after
+                    src="sc/svg/top.svg"></sc-svg-icon>
+      </button>
+    </div>
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        <sc-svg-icon before
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon before
+                    src="sc/svg/top.svg"></sc-svg-icon>
+        Кнопка
+      </button>
+    </div>
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        Кнопка
+        <sc-svg-icon after
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon after
+                    src="sc/svg/top.svg"></sc-svg-icon>
+      </button>
+    </div>
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        <sc-svg-icon before
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon before
+                    src="sc/svg/top.svg"></sc-svg-icon>
+        Кнопка
+        <sc-svg-icon after
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon after
+                    src="sc/svg/top.svg"></sc-svg-icon>
+      </button>
+    </div>
+    <div class="wrap__col wrap-col-1-8">
+      <button mod="basic" sc-button (click)="clickMe($event)">
+        <sc-svg-icon before
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        Кнопка
+        <sc-svg-icon after
+                    src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon after
+                     src="sc/svg/top.svg"></sc-svg-icon>
+        <sc-svg-icon after
+                    src="sc/svg/top.svg"></sc-svg-icon>
+      </button>
+    </div>
+</div>
 <div class="wrap wrap-table wrap-gutter-16">
   <div class="wrap__col wrap-col-1-8">
     default
   </div>
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button (click)="clickMe($event)">
+    <button mod="basic" sc-button (click)="clickMe($event)">
       Кнопка
     </button>
   </div>
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button [disabled]="true" (click)="clickMe($event)">
+    <button mod="basic" sc-button [disabled]="true" (click)="clickMe($event)">
       Кнопка
     </button>
   </div>
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button (click)="clickMe($event)">
+    <button mod="basic" sc-button (click)="clickMe($event)">
       <sc-svg-icon before class="sc-svg-icon"
                    src="sc/svg/delete.svg"></sc-svg-icon>
       Кнопка
     </button>
   </div>
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button (click)="clickMe($event)">
+    <button mod="basic" sc-button (click)="clickMe($event)">
       Кнопка
       <sc-svg-icon after
                    src="sc/svg/top.svg"></sc-svg-icon>
@@ -56,7 +114,7 @@
   </div>
 
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button (click)="clickMe($event)">
+    <button mod="basic" sc-button (click)="clickMe($event)">
       Кнопка
       <sc-svg-icon before
                    src="sc/svg/top.svg"></sc-svg-icon>
@@ -66,7 +124,7 @@
   </div>
 
   <div class="wrap__col wrap-col-1-8">
-    <button sc-button style="width: 100%">
+    <button mod="basic" sc-button style="width: 100%">
       <sc-svg-icon after
                    src="sc/svg/delete.svg"></sc-svg-icon>
       Кнопка

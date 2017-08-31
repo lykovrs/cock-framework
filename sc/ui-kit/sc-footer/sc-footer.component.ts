@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 export interface IShowHelp {
   callback: (e: Event) => void;
@@ -9,7 +9,8 @@ export interface IShowHelp {
 @Component({
     selector: 'sc-page-footer',
     templateUrl: 'sc-footer.component.html',
-    styleUrls: ['./sc-footer.component.scss']
+    styleUrls: ['./sc-footer.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 
 /**

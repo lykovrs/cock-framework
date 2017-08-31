@@ -3,49 +3,73 @@ $header-height: 48px;
 $footer-height: 36px;
 $help-card-120: 120px;
 $help-card-80: 80px;
-$gutter: 8; // базовый внутренний отступ
-$outside: $gutter * 2; // базовый внешний отступ
+$gutter: 16; // базовый внутренний отступ
+$outside: 16; // базовый внешний отступ
 $grid-columns: 4; // фактическое колличество колонок n-1
 .sc-grid {
   &__header {
     height: $header-height
   }
   &__body {
+    padding: 16px;
+  
+    height: calc(100vh - #{$header-height + $footer-height});
+    overflow: hidden;
+    background: #DDDDDD;
+  }
+
+  &__help-card {
+    height: 120px;
+    margin-bottom: 16px;
+      //  @include col;
+      //  @include col(1,1);
+  }
+
+  &__job-card {
     @include wrap();
     @include wrap('top');
     @include wrap('table');
     @include wrap("gutter", $gutter);
-    @include wrap("outside", $outside);
-    height: calc(100vh - #{$header-height + $footer-height});
-    overflow: hidden;
-    background: #DDDDDD;
+    // @include wrap("outside", 0);
+    height: 100%;
 
-   
+    & > * {
+      @include col;
+    }
+
+    & > [test] {
+      @include col(2,3);
+    } 
+
+    &_with_help-card {
+      height: calc(100% - 136px);
+    }
   }
+
   &__footer {
     height: $footer-height
   }
 
-  &__col {
-    @include col;
-    overflow: auto;
-    @for $i from 1 to $grid-columns {
-      @for $j from 1 to $grid-columns {
-        @if($i <=$j) {
-          &_#{$i}_#{$j} {
-            @include col($i, $j);
-          }
-        }
-      }
-    }
-    &_aside {
-      width: 336px;
-    }
-    &_river {
-      width: 424px;
-    }
-    &_wall {
-      width: 248px;
-    }
-  }
+  // &__col {
+  //   @include col;
+  //   overflow: auto;
+  //   @for $i from 1 to $grid-columns {
+  //     @for $j from 1 to $grid-columns {
+  //       @if($i <=$j) {
+  //         &_#{$i}_#{$j} {
+  //           @include col($i, $j);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   &_aside {
+  //     width: 336px;
+  //   }
+  //   &_river {
+  //     width: 424px;
+  //   }
+  //   &_wall {
+  //     width: 248px;
+  //   }
+  // }
 }

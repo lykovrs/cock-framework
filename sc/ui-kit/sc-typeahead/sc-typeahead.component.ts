@@ -1,7 +1,4 @@
 /**
- * Created by dkovalev on 20.02.2017.
- */
-/**
  * Modules
  */
 import {Component, Input, ViewEncapsulation, ElementRef, Renderer, forwardRef} from '@angular/core';

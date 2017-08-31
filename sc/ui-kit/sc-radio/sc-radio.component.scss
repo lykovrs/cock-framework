@@ -1,3 +1,231 @@
+@import "../environments/flexiblegs-scss";
+/* Базовый стиль (start) */
+// Default colors
+
+// default
+$magnus-default: (
+		text: #333,
+		background: #fff,
+		icon: #777,
+		checkedIcon: #269999
+);
+
+$magnus-default-disabled: (
+		text: #BBB,
+		background: #fff,
+		icon: #C8C8C8,
+		checkedIcon: #ACD6D6
+);
+
+// default on dark
+
+$magnus-on-dark-default: (
+		text: #FFF,
+		background: transparent,
+		icon: #FFF,
+		checkedIcon: #FFF
+);
+
+$magnus-on-dark-default-disabled: (
+		text: #8BBDDF,
+		background: transparent,
+		icon: #8BBDDF,
+		checkedIcon: #8BBDDF
+);
+
+@mixin sc-radio( $default-colors, $disabled-colors) {
+	.sc-radio__dot {
+		box-shadow: inset 0px 0px 0px 1px rgba(map-get($default-colors, icon), 1);
+		background-color: map-get($default-colors, background);
+
+		&_checked {
+			box-shadow: inset 0px 0px 0px 1px rgba(map-get($default-colors, checkedIcon), 1);
+
+			&:before {
+				background: map-get($default-colors, checkedIcon);
+			}
+		}
+	}
+
+	.sc-radio__label {
+		color: map-get($default-colors, text);
+	}
+
+	&.sc-radio_disabled {
+		pointer-events: none;
+
+		.sc-radio__dot {
+			background-color: map-get($disabled-colors, background);
+			box-shadow: inset 0px 0px 0px 1px rgba(map-get($disabled-colors, icon), 1);
+			&_checked {
+				box-shadow: inset 0px 0px 0px 1px rgba(map-get($disabled-colors, checkedIcon), 1);
+
+				&:before {
+					background: map-get($disabled-colors, checkedIcon);
+				}
+			}
+		}
+
+		.sc-radio__label {
+			color: map-get($disabled-colors, text);
+		}
+	}
+}
+
+.sc-radio {
+	@include wrap;
+	@include wrap('top');
+	@include wrap('middle');
+	@include sc-radio($magnus-default, $magnus-default-disabled);
+
+	display: inline-flex;
+	vertical-align: middle;
+	width: auto;
+	margin: 0;
+	line-height: 16px;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	.sc-radio__dot {
+		width: 16px;
+		height: 16px;
+		border-radius: 8px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 16px;
+		position: relative;
+
+		&:before {
+			border-radius: 50%;
+			content: '';
+			height: 8px;
+			left: 50%;
+			margin-left: -4px;
+			margin-top: -4px;
+			position: absolute;
+			top: 50%;
+			width: 8px;
+		}
+	}
+	.sc-radio__label {
+		font-size: 15px;
+		font-weight: normal;
+		padding-left: 8px;
+		line-height: 16px;
+		width: calc(100% - 16px);
+	}
+
+	&:hover {
+		.sc-radio__label {
+			cursor: pointer;
+		}
+	}
+
+	&.sc-radio_disabled {
+		.sc-radio__label {
+			pointer-events: none;
+		}
+	}
+}
+
+.sc-radio_on-dark {
+	@include sc-radio($magnus-on-dark-default, $magnus-on-dark-default-disabled);
+}
+
+// Magnus attention
+$magnus-attention: (
+		text: #FF9830,
+		background: #fff,
+		icon: #FF9830,
+		checkedIcon: #FF9830
+);
+
+$magnus-attention-disabled: (
+		text: #FBD7AC,
+		background: #fff,
+		icon: #FBD7AC,
+		checkedIcon: #FBD7AC
+);
+// on dark attention
+
+$magnus-on-dark-attention: (
+		text: #FFF,
+		background: #FFF,
+		icon: #FF9830,
+		checkedIcon: #FF9830
+);
+
+$magnus-on-dark-attention-disabled: (
+		text: #8BBDDF,
+		background: #8BBDDF,
+		icon: #84979D,
+		checkedIcon: #84979D
+);
+
+.sc-radio_attention {
+	@include sc-radio($magnus-attention, $magnus-attention-disabled);
+
+	.sc-radio__label {
+		font-weight: normal;
+	}
+}
+
+.sc-radio_on-dark-attention {
+	@include sc-radio($magnus-on-dark-attention, $magnus-on-dark-attention-disabled);
+}
+
+// Magnus warning
+$magnus-warning: (
+		text: #E65C5C,
+		background: #fff,
+		icon: #E65C5C,
+		checkedIcon: #E65C5C
+);
+
+$magnus-warning-disabled: (
+		text: #F1BDBD,
+		background: #fff,
+		icon: #F1BDBD,
+		checkedIcon: #F1BDBD
+);
+
+// on dark warning
+
+$magnus-on-dark-warning: (
+		text: #FFF,
+		background: #FFF,
+		icon: #E65C5C,
+		checkedIcon: #E65C5C
+);
+
+$magnus-on-dark-warning-disabled: (
+		text: #8BBDDF,
+		background: #8BBDDF,
+		icon: #7B7D9E,
+		checkedIcon: #7B7D9E
+);
+
+.sc-radio_warning {
+	@include sc-radio($magnus-warning, $magnus-warning-disabled);
+
+	.sc-radio__label {
+		font-weight: normal;
+	}
+
+	&.disabled {
+		opacity: .4;
+	}
+}
+
+.sc-radio_on-dark-warning {
+	@include sc-radio($magnus-on-dark-warning, $magnus-on-dark-warning-disabled);
+}
+
 // default
 $default-text-color: #333333 !default;
 $default-background: #ffffff !default;
@@ -20,86 +248,79 @@ $attention-border-color: #FF9830 !default;
 $attention-active-background: #FF9830 !default;
 
 .radio {
-  color: #666;
-  float: left;
-  margin: 0 16px 0 0;
-  min-height: inherit;
-  position: relative;
+	color: #666;
+	float: left;
+	margin: 0 16px 0 0;
+	min-height: inherit;
+	position: relative;
 
-  input[type=radio] {
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-  }
+	input[type=radio] {
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+	}
 
-  &__label {
-    color: $default-text-color;
-    float: left;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 16px;
-    overflow: hidden;
-    text-align: left;
-    transition: color .3s;
-    -moz-user-select: none;
-    user-select: none;
-    &_attention {
-      color: $attention-text-color;
-    }
-    &_warning {
-      color: $warning-text-color;
-    }
-  }
+	&__label {
+		color: $default-text-color;
+		float: left;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 16px;
+		overflow: hidden;
+		text-align: left;
+		transition: color .3s;
+		-moz-user-select: none;
+		user-select: none;
+		&_attention {
+			color: $attention-text-color;
+		}
+		&_warning {
+			color: $warning-text-color;
+		}
+	}
 
-  &_disabled {
-    opacity: 0.5;
-  }
+	&_disabled {
+		opacity: 0.5;
+	}
 }
 
 .check {
-  background-color: $default-background;
-  border-radius: 50%;
-  border: 2px solid $default-border-color;
-  float: left;
-  height: 16px;
-  margin-right: 8px;
-  position: relative;
-  transition: border .3s;
-  width: 16px;
-  &_checked {
-    border: 2px solid $default-active-border-color;
-    &:before {
-      background: $default-active-border-color;
-      border-radius: 50%;
-      content: '';
-      display: inline-block;
-      height: 8px;
-      left: 50%;
-      margin-left: -4px;
-      margin-top: -4px;
-      position: absolute;
-      top: 50%;
-      width: 8px;
-    }
-  }
-  &_attention {
-    border: 2px solid $attention-border-color;
-    &:before {
-      background: $attention-active-background;
-    }
-  }
-  &_warning {
-    border: 2px solid $warning-border-color;
-    &:before {
-      background: $warning-active-background;
-    }
-  }
-}
-
-.sc-svg-icon {
-  display: none;
-  &_check {
-    display: block;
-  }
+	background-color: $default-background;
+	border-radius: 50%;
+	border: 2px solid $default-border-color;
+	float: left;
+	height: 16px;
+	margin-right: 8px;
+	position: relative;
+	transition: border .3s;
+	width: 16px;
+	&_checked {
+		border: 2px solid $default-active-border-color;
+		&:before {
+			background: $default-active-border-color;
+			border-radius: 50%;
+			content: '';
+			display: inline-block;
+			height: 8px;
+			left: 50%;
+			margin-left: -4px;
+			margin-top: -4px;
+			position: absolute;
+			top: 50%;
+			width: 8px;
+		}
+	}
+	&_attention {
+		border: 2px solid $attention-border-color;
+		&:before {
+			background: $attention-active-background;
+		}
+	}
+	&_warning {
+		border: 2px solid $warning-border-color;
+		&:before {
+			background: $warning-active-background;
+		}
+	}
 }

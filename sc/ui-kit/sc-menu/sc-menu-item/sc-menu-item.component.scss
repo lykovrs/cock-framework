@@ -25,7 +25,9 @@ $sc-menu-item--active: #0f3d3d;
     padding: 0;
     position: absolute;
     top: $base-gutter * 6;
-    .sc-menu__item:hover > & {
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
+    .sc-menu__item:hover  & {
         display: block;
         min-width: 100%;
     }

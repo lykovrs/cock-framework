@@ -20,7 +20,7 @@ export class ScSvgIconComponent implements OnInit {
 	};
 
 	constructor(
-		private element: ElementRef,
+		public element: ElementRef,
 		private renderer: Renderer,
 		private iconReg: ScSvgIconRegistryService) {
 	}

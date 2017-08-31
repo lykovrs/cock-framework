@@ -31,7 +31,8 @@ import {
   DemoFooter,
   DemoHeader,
   DemoGridComponent,
-  DemoMenuComponent
+  DemoMenuComponent,
+  DemoSpinnerComponent
 } from "./demos";
 
 
@@ -60,7 +61,8 @@ import {
     DemoFooter,
     DemoHeader,
     DemoGridComponent,
-    DemoMenuComponent
+    DemoMenuComponent,
+    DemoSpinnerComponent
   ],
   imports: [
     BrowserModule,

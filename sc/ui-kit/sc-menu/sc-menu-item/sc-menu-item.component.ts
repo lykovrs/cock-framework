@@ -1,9 +1,10 @@
-import {Component, Input, ElementRef} from "@angular/core";
+import {Component, Input, ElementRef, ViewEncapsulation} from "@angular/core";
 import {IScMenu} from "./sc-menu-item.interface";
 
 @Component({
 	selector: 'sc-menu-item',
 	templateUrl: './sc-menu-item.component.html',
+	encapsulation: ViewEncapsulation.None,
 	styleUrls: ['./sc-menu-item.component.scss']
 })
 /**

@@ -11,8 +11,6 @@ import {
 export class DemoRadioComponent implements OnInit {
 
   testLabel: string = 'Значение';
-  warning: string = 'warning';
-  attention: string = 'attention';
   testV1: string = 'testV1';
   testV2: string = 'testV2';
   testV3: string = 'testV3';
@@ -21,6 +19,11 @@ export class DemoRadioComponent implements OnInit {
   name2: string = 'name2';
   name3: string = 'name3';
   model: string = 'testV1';
+    warning: string = 'warning';
+    attention: string = 'attention';
+    onDark: string = 'onDark';
+    onDarkWarning: string = 'onDarkWarning';
+    onDarkAttention: string = 'onDarkAttention';
 
   ngOnInit() {
   }

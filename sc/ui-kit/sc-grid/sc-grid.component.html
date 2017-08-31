@@ -4,15 +4,19 @@
   </header>
 
   <section class="sc-grid__body">
-    <aside class="sc-grid__col sc-grid__col_aside">
+    <div #helpCard *ngIf="isHelpCard" class="sc-grid__help-card">
+        <ng-content select="[help-card]"></ng-content>
+    </div>
+    <!-- <aside class="sc-grid__col sc-grid__col_aside">
       <ng-content select="[sidebar]"></ng-content>
       <ng-content select="[river]"></ng-content>
       <ng-content select="[wall]"></ng-content>
-    </aside>
+    </aside> -->
 
-    <div class="sc-grid__col sc-grid__col_">
-      <ng-content select="[body]"></ng-content>
-    </div>
+    <!-- <div class="sc-grid__col sc-grid__col_"> -->
+      <div class="sc-grid__job-card" [ngClass] ="{'sc-grid__job-card_with_help-card': isHelpCard}"><ng-content></ng-content></div>
+      
+    <!-- </div> -->
 
   </section>
 

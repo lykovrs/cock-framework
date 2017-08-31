@@ -1,10 +1,6 @@
-<div #leftView class="sc-button__icon sc-button__icon-left" *ngIf="isLeft">
-    <ng-content select="[before]"></ng-content>
-</div>
-<div #centerView class="sc-button__text"
-    [ngClass]="{'sc-button__text_left': isLeft, 'sc-button__text_right': isRight}">
+
+<ng-content select="[before]"></ng-content>
+<span class="sc-button__text">
     <ng-content></ng-content>
-</div>
-<div #rightView class="sc-button__icon sc-button__icon-right" *ngIf="isRight">
-    <ng-content select="[after]"></ng-content>
-</div>
+</span>
+<ng-content select="[after]"></ng-content>

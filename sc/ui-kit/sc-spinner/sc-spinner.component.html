@@ -1,0 +1,28 @@
+<div [ngClass]="{'disabled': options.disabled}" class="sc-spinner">
+  <button type="button"
+          class="btn btn-secondary"
+          placement="top"
+          ngbTooltip="{{options.minTooltip}}"
+          [disabled]="options.disabled || disableds.decrement"
+          (click)="decrement()">
+    {{options.isArrowsType ? "<" : "-"}}
+  </button>
+  <div>
+    <input name="quantity"
+           type="number"
+           min="{{options.values && options.values.min}}"
+           max="{{options.values && options.values.max}}"
+           step="{{options.values && options.values.step}}"
+           value="{{value}}"
+           [disabled]="options.disabled || (disableds.decrement && disableds.increment)"
+           readonly />
+  </div>
+  <button type="button"
+          class="btn btn-secondary"
+          placement="top"
+          ngbTooltip="{{options.maxTooltip}}"
+          [disabled]="options.disabled || disableds.increment"
+          (click)="increment()">
+    {{options.isArrowsType ? ">" : "+"}}
+  </button>
+</div>

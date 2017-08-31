@@ -1,3 +1,5 @@
+<div class="wrap">
+
 <sc-radio
   [disabled]="false"
   [label]="testLabel"
@@ -6,44 +8,107 @@
   [model]="model"
   (scChange)="onChangeTest()"
 ></sc-radio>
-<sc-radio
-  [disabled]="false"
-  [label]="testLabel"
-  [value]="testV2"
-  [mod]="1"
-  [name]="name1"
-  [model]="model"
-></sc-radio>
-<sc-radio
-  [disabled]="false"
-  [label]="testLabel"
-  [value]="testV3"
-  [mod]="2"
-  [name]="name1"
-  [model]="model"
-></sc-radio>
-
 
 <sc-radio
-  [disabled]="false"
+  [disabled]="true"
   [label]="testLabel"
   [value]="testV1"
-  [name]="name2"
+  [name]="name1"
   [model]="model"
 ></sc-radio>
+
+
 <sc-radio
   [disabled]="false"
   [label]="testLabel"
   [value]="testV2"
-  [mod]="2"
+  [mod]="warning"
+  [name]="name1"
+  [model]="model"
+></sc-radio>
+
+<sc-radio
+  [disabled]="true"
+  [label]="testLabel"
+  [value]="testV2"
+  [mod]="warning"
   [name]="name2"
   [model]="model"
 ></sc-radio>
+
+
 <sc-radio
   [disabled]="false"
   [label]="testLabel"
   [value]="testV3"
-  [mod]="1"
+  [mod]="attention"
   [name]="name2"
   [model]="model"
 ></sc-radio>
+<sc-radio
+  [disabled]="true"
+  [label]="testLabel"
+  [value]="testV3"
+  [mod]="attention"
+  [name]="name2"
+  [model]="model"
+></sc-radio>
+</div>
+
+<div class="wrap" style="background-color: #3399CC; padding: 8px; margin-top: 16px;">
+    <sc-radio
+            [disabled]="false"
+            [label]="testLabel"
+            [value]="testV1"
+            [mod]="onDark"
+            [name]="name1"
+            [model]="model"
+            (scChange)="onChangeTest()"
+    ></sc-radio>
+
+    <sc-radio
+            [disabled]="true"
+            [label]="testLabel"
+            [value]="testV1"
+            [mod]="onDark"
+            [name]="name1"
+            [model]="model"
+    ></sc-radio>
+
+
+    <sc-radio
+            [disabled]="false"
+            [label]="testLabel"
+            [value]="testV2"
+            [mod]="onDarkWarning"
+            [name]="name1"
+            [model]="model"
+    ></sc-radio>
+
+    <sc-radio
+            [disabled]="true"
+            [label]="testLabel"
+            [value]="testV2"
+            [mod]="onDarkWarning"
+            [name]="name2"
+            [model]="model"
+    ></sc-radio>
+
+
+    <sc-radio
+            [disabled]="false"
+            [label]="testLabel"
+            [value]="testV3"
+            [mod]="onDarkAttention"
+            [name]="name2"
+            [model]="model"
+    ></sc-radio>
+    <sc-radio
+            [disabled]="true"
+            [label]="testLabel"
+            [value]="testV3"
+            [mod]="onDarkAttention"
+            [name]="name2"
+            [model]="model"
+    ></sc-radio>
+</div>

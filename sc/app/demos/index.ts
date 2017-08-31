@@ -21,3 +21,4 @@ export * from './demo-footer/index';
 export * from './demo-header/index';
 export * from './demo-grid/index';
 export * from './demo-menu/index';
+export * from './demo-spinner';
