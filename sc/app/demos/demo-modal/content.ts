@@ -10,13 +10,12 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./index.scss'],
   template: `
     <div class="sc-modal-test">
-      <sc-typeahead [data]="dataTest" [mod]="testMod"></sc-typeahead>
+      <sc-panel title="Some panel title">
+        Some content
+      </sc-panel>
       <div>----------------------------------------------------</div>
-      <sc-typeahead [data]="dataTest"></sc-typeahead>
-      <div>----------------------------------------------------</div>
-      <sc-typeahead [data]="dataTest" [mod]="testMod2"></sc-typeahead>
-      <div>----------------------------------------------------</div>
-</div>
+      <button sc-button>Button text</button>
+    </div>
   `,
   encapsulation: ViewEncapsulation.None,
 })

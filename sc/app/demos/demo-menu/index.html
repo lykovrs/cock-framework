@@ -4,8 +4,11 @@
 
   <span class="clearfix">&nbsp;</span>
   <br><br><br><br><br><br>
-
-  <h1>Viridis</h1>
-  <sc-menu [items]="demoMenuItems" class="sc-menu_viridis">222</sc-menu>
-  <br><br><br><br><br><br>
+  
+  <h4>Индикаторы уведомлений</h4>
+  <div class="demo-teasers">
+    <div *ngFor="let item of teasers">
+      <sc-teaser [teaser]="item"></sc-teaser>
+    </div>
+  </div>
 </section>

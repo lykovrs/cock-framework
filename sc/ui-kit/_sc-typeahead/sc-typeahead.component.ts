@@ -28,7 +28,7 @@ const noop = () => {};
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => ScTypeaheadComponent),
+  useExisting: forwardRef(() => _ScTypeaheadComponent),
   multi: true
 };
 
@@ -50,7 +50,7 @@ enum KeyCodes {
   encapsulation: ViewEncapsulation.None,
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR, NgbTypeaheadConfig]
 })
-export class ScTypeaheadComponent implements ControlValueAccessor {
+export class _ScTypeaheadComponent implements ControlValueAccessor {
 
   //Enum Mod
   Mod = Mod;
@@ -107,9 +107,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Создаем templateKeys
    * @param items
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  initTemplateKeys(items: Array<any>): ScTypeaheadComponent {
+  initTemplateKeys(items: Array<any>): _ScTypeaheadComponent {
     this.templateKeys = items && items.length && this.valuesFormatter !== null
       ? Object.keys(this.valuesFormatter(Object.assign({}, items[0])))
       : [];
@@ -137,7 +137,7 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
    * @param mod
    * @returns {ScRadioComponent}
    */
-  private setMod(mod: Mod): ScTypeaheadComponent {
+  private setMod(mod: Mod): _ScTypeaheadComponent {
     this.mod = mod;
     return this;
   }
@@ -209,9 +209,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Очищаем поле ввода
    * @param scInput
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private onClearInput(scInput: HTMLInputElement): ScTypeaheadComponent {
+  private onClearInput(scInput: HTMLInputElement): _ScTypeaheadComponent {
     this.model = null;
     this.setFindResults([]);
     setTimeout(() => {scInput.value = '';});
@@ -263,9 +263,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем placeholder
    * @param placeholder
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setPlaceholder(placeholder: string): ScTypeaheadComponent {
+  private setPlaceholder(placeholder: string): _ScTypeaheadComponent {
     this.placeholder = placeholder;
     return this;
   }
@@ -281,9 +281,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем disabled для input
    * @param disabled
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setDisabled(disabled: boolean): ScTypeaheadComponent {
+  private setDisabled(disabled: boolean): _ScTypeaheadComponent {
     this.disabled = disabled;
     return this;
   }
@@ -299,9 +299,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем минимальную длину введенных символов, после которых начинаем фильтрацию
    * @param searchMinLength
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setSearchMinLength(searchMinLength: number): ScTypeaheadComponent {
+  private setSearchMinLength(searchMinLength: number): _ScTypeaheadComponent {
     this.searchMinLength = searchMinLength;
     return this;
   }
@@ -325,9 +325,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем задержку перед фильтрацией
    * @param searchLoading
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setSearchWaitLoading(searchLoading: number): ScTypeaheadComponent {
+  private setSearchWaitLoading(searchLoading: number): _ScTypeaheadComponent {
     this.searchWaitLoading = searchLoading;
     return this;
   }
@@ -335,9 +335,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем searching
    * @param searching
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setSearching(searching: boolean): ScTypeaheadComponent{
+  private setSearching(searching: boolean): _ScTypeaheadComponent{
     this.searching = searching;
     return this;
   }
@@ -361,9 +361,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем isFocused
    * @param isFocused
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setIsFocused(isFocused: boolean): ScTypeaheadComponent {
+  private setIsFocused(isFocused: boolean): _ScTypeaheadComponent {
     this.isFocused = isFocused;
     return this;
   }
@@ -393,9 +393,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задать showHint
    * @param showHint
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setShowHint(showHint: boolean): ScTypeaheadComponent {
+  private setShowHint(showHint: boolean): _ScTypeaheadComponent {
     this.showHint = showHint;
     this.config.showHint = showHint;
     return this;
@@ -411,9 +411,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
 
   /**
    * Задать focusFirst
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setFocusFirst(focusFirst: boolean): ScTypeaheadComponent{
+  private setFocusFirst(focusFirst: boolean): _ScTypeaheadComponent{
     this.focusFirst = focusFirst;
     this.config.focusFirst = focusFirst;
     return this;
@@ -430,9 +430,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем editable
    * @param editable
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setEditable(editable: boolean): ScTypeaheadComponent {
+  private setEditable(editable: boolean): _ScTypeaheadComponent {
     this.editable = editable;
     this.config.editable = editable;
     return this;
@@ -457,9 +457,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем maxDropDownLength
    * @param maxDropDownLength
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setmaxDropDownLength(maxDropDownLength: number): ScTypeaheadComponent {
+  private setmaxDropDownLength(maxDropDownLength: number): _ScTypeaheadComponent {
     this.maxDropDownLength = maxDropDownLength;
     return this;
   }
@@ -475,9 +475,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем nativeElementDropDownMenu
    * @param nativeElementDropDownMenu
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setNativeElementDropDownMenu(nativeElementDropDownMenu: any): ScTypeaheadComponent {
+  private setNativeElementDropDownMenu(nativeElementDropDownMenu: any): _ScTypeaheadComponent {
     this.nativeElementDropDownMenu = nativeElementDropDownMenu;
     return this;
   }
@@ -486,14 +486,14 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
    * Задаем стили dom элементу nativeElementDropDownMenu
    * @param prop
    * @param value
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setStyleNativeElementDropDownMenu(prop, value): ScTypeaheadComponent {
+  private setStyleNativeElementDropDownMenu(prop, value): _ScTypeaheadComponent {
     this.renderer.setElementStyle(this.nativeElementDropDownMenu, prop, value);
     return this;
   }
 
-  private setMaxHeightDropDownMenu(heightDropDownItem: number, maxDropDownLength: number): ScTypeaheadComponent {
+  private setMaxHeightDropDownMenu(heightDropDownItem: number, maxDropDownLength: number): _ScTypeaheadComponent {
     this.maxHeightNativeElementDropDownMenu = heightDropDownItem * maxDropDownLength;
     return this;
   }
@@ -509,9 +509,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем nativeElementDropDownItem
    * @param nativeElementDropDownItem
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setNativeElementDropDownItem(nativeElementDropDownItem: any): ScTypeaheadComponent {
+  private setNativeElementDropDownItem(nativeElementDropDownItem: any): _ScTypeaheadComponent {
     this.nativeElementDropDownItem = nativeElementDropDownItem;
     return this;
   }
@@ -519,9 +519,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем heightNativeElementDropDownItem
    * @param height
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setHeightNativeElementDropDownItem(height: number): ScTypeaheadComponent {
+  private setHeightNativeElementDropDownItem(height: number): _ScTypeaheadComponent {
     this.heightNativeElementDropDownItem = height;
     return this;
   }
@@ -670,9 +670,9 @@ export class ScTypeaheadComponent implements ControlValueAccessor {
   /**
    * Задаем findResults
    * @param results
-   * @returns {ScTypeaheadComponent}
+   * @returns {_ScTypeaheadComponent}
    */
-  private setFindResults(results: Array<any>): ScTypeaheadComponent {
+  private setFindResults(results: Array<any>): _ScTypeaheadComponent {
     this.findResults = results;
     return this;
   }

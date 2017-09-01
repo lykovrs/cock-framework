@@ -7,13 +7,7 @@
 		   [ngClass]="{'sc-menu-item__link_state_current': child.isActive, 'pr_grid_1' : child.menuItems}"
 		   [href]="child.url">
 			<span class="sc-menu-item__link_text">{{child.name}}</span>
-
-			<!--<sc-menu-teaser ng-if="child.teaser.num > 0"-->
-							 <!--class="sc-menu-teaser_type_inline"-->
-							 <!--num="child.teaser.num"-->
-							 <!--text="child.teaser.text"></sc-menu-teaser>-->
-
-			<!--<icon *ngIf="child.menuItems" class="sc-menu-item__link-icon icon icon-core-chevron-right"></icon>-->
+      <sc-teaser *ngIf="child.teaser" [teaser]="child.teaser"></sc-teaser>
 		</a>
 		<sc-menu-item [item]="child"></sc-menu-item>
 	</li>

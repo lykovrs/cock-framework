@@ -1,0 +1,37 @@
+[
+  {
+    "test1": "Alabama",
+    "test2": "Alaska",
+    "test3": "Missouri"
+  },
+  {
+    "test1": "Arkansas",
+    "test2": "American Samoa",
+    "test3": "Arizona"
+  },
+  {
+    "test1": "Wisconsin",
+    "test2": "Alabama",
+    "test3": "West Virginia"
+  },
+  {
+    "test1": "Nevada",
+    "test2": "Nebraska",
+    "test3": "Alaska"
+  },
+  {
+    "test1": "Massachusetts",
+    "test2": "Oklahoma",
+    "test3": "Rhode Island"
+  },
+  {
+    "test1": "Wyoming",
+    "test2": "Tennessee",
+    "test3": "South Carolina"
+  },
+  {
+    "test1": "Connecticut",
+    "test2": "Utah",
+    "test3": "Virgin"
+  }
+]

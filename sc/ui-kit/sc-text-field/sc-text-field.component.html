@@ -5,7 +5,14 @@
             <ng-content select="[before]"></ng-content>
         </span>
 
-        <input #myInput class="sc-text-field__input" [(ngModel)]="value" placeholder="{{placeholder}}" (blur)="onBlur($event)" (focus)="onFocus($event)" type="text"/>
+        <ng-container *ngIf="!hasCustomInput">
+            <input  #myInput class="sc-text-field__input" [(ngModel)]="value" placeholder="{{placeholder}}" (blur)="onBlur($event)" (focus)="onFocus($event)" type="text" />
+        </ng-container>
+        
+        <ng-container *ngIf="hasCustomInput">            
+            <ng-content></ng-content>
+        </ng-container>
+
         <span class="sc-text-field__clear" (click)="clearClick()" *ngIf="value" [hidden]="disabled">
             <sc-svg-icon src="sc/svg/delete_circle.svg"></sc-svg-icon>
         </span>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbTypeaheadConfig, NgbActiveModal, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { MomentModule } from 'angular2-moment';
 import { DatePipe } from "@angular/common";
 
@@ -10,10 +10,11 @@ import { ScButtonModule } from 'ui-kit/sc-button/sc-button.module';
 import { ScTextFieldModule } from './sc-text-field/sc-text-field.module';
 import { ScPageHeaderModule } from './sc-page-header/sc-page-header.module';
 import { ScMenuModule } from './sc-menu/sc-menu.module';
+import { ScTeaserModule } from './sc-teaser';
 import { ScPanelModule } from 'ui-kit/sc-panel/sc-panel.module';
 import { ScAccordionModule } from 'ui-kit/sc-accordion/sc-accordion.module';
 import { ScDatepickerModule } from 'ui-kit/sc-datepicker/sc-datepicker.module';
-import { ScTypeaheadModule } from 'ui-kit/sc-typeahead/sc-typeahead.module';
+import { ScComboboxModule } from './sc-combobox/sc-combobox.module';
 
 // Модуль с компонентами фреймворка
 import { ScCheckboxComponent } from './sc-checkbox/sc-checkbox.component';
@@ -67,8 +68,9 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScDatepickerModule,
     ScPageHeaderModule.forRoot(),
     ScMenuModule.forRoot(),
+    ScTeaserModule.forRoot(),
     ScSvgIconModule.forRoot(),
-    ScTypeaheadModule,
+    ScComboboxModule,
     MomentModule,
     BrowserModule,
     FormsModule,
@@ -83,10 +85,11 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
     ScTextFieldModule,
     ScPageHeaderModule,
     ScMenuModule,
+    ScTeaserModule,
     ScDatepickerModule,
     ScGridComponent,
     ScCheckboxComponent,
-    ScTypeaheadModule,
+    ScComboboxModule,
     TextMaskModule,
     NgbModule,
     NgbDropdown,
@@ -106,7 +109,6 @@ import { TextMaskModule } from 'angular2-text-mask'; //  Маска полей �
   ],
   providers: [
     ScRadioService,
-    NgbTypeaheadConfig,
     ScModalService,
     NgbActiveModal,
     NgbDropdown,

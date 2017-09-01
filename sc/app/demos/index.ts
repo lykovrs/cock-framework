@@ -20,5 +20,5 @@ export * from './demo-accordion';
 export * from './demo-footer/index';
 export * from './demo-header/index';
 export * from './demo-grid/index';
-export * from './demo-menu/index';
+export * from './demo-menu';
 export * from './demo-spinner';

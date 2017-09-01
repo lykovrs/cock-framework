@@ -1,0 +1,4 @@
+<sc-text-field [(ngModel)]="value">
+    <sc-svg-icon before src="sc/svg/search.svg"></sc-svg-icon>
+    <input type="text" class="sc-text-field__input" [(ngModel)]="value" [scTypeahead]="search" />
+</sc-text-field>

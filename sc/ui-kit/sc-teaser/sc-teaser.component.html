@@ -1,0 +1,7 @@
+<button type="button"
+        class="btn btn-secondary"
+        placement="{{teaser.position || 'bottom'}}"
+        [ngClass]="['btn btn-secondary', this.teaserTypes[this.teaser.type] !== undefined && this.teaser.type || '']"
+        ngbTooltip="{{teaser.text}}">
+  {{teaser.num}}
+</button>

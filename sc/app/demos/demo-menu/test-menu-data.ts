@@ -6,89 +6,63 @@ export const testMenuData: Array<IScMenu> = [
     isAvailable: true,
     url: "#",
     teaser: {
-      text: 'Lorem ipsum dolor sit amet'
+      type: 'mine-shaft',
+      text: "text"
     },
-    menuItems: [{
-      name: "Пункт меню второго уровня",
-      isAvailable: true,
-      url: "#",
-      disabled: true,
-      menuItems: [{
-        name: "Пункт меню третьего уровня",
-        isAvailable: true,
-        url: "#",
-        action: function () {
-          alert("click " + this.name);
-        }
-      }, {
-        name: "Пункт меню третьего уровня",
-        isAvailable: true,
-        url: "#"
-      }, {
-        name: "Пункт меню третьего уровня",
-        isAvailable: true,
-        url: "#"
-      }]
-    }, {
-      name: "Пункт меню второго уровня",
-      isAvailable: true,
-      url: "#",
-      teaser: {
-        text: 'ipusm'
-      },
-      menuItems: [{
-        name: "Пункт меню третьего уровня",
+    menuItems: [
+      {
+        name: "Пункт меню второго уровня1",
         isAvailable: true,
         url: "#",
         teaser: {
-          num: 8,
-          text: 'Consectetur adipisicing elit.'
+          num: 17,
+          type: 'shakespeare'
         },
+      },
+      {
+        name: "Пункт меню второго уровня2",
+        isAvailable: true,
+        url: "#"
+      },
+      {
+      name: "Пункт меню второго уровня3",
+      isAvailable: true,
+      url: "#",
+        teaser: {
+          type: 'mine-shaft',
+          text: "text"
+        },
+      menuItems: [{
+        name: "Пункт меню третьего уровня1",
+        url: "#",
         action: function () {
           alert("click " + this.name);
         }
       }, {
-        name: "Пункт меню третьего",
-        isAvailable: true,
+        name: "Пункт меню третьего уровня2",
+        url: "#",
         teaser: {
           num: 3,
-          text: 'Consectetur adipisicing elit.'
+          type: 'mine-shaft',
+          text: "text"
         },
-        url: "#"
       }, {
-        name: "Пункт меню третьего уровня",
-        isAvailable: true,
-        url: "#"
-      }]
-    }]
-  },
-  {
-    name: "Parent2 width action",
-    isAvailable: true,
-    url: "#",
-    action: function () {
-      alert('click!');
-    },
-    menuItems: [{
-      name: "Child1",
-      isAvailable: true,
-      url: "#",
-      menuItems: [{
-        name: "Grandchild1 width action",
-        isAvailable: true,
+        name: "Пункт меню третьего уровня3",
         url: "#",
-        action: function () {
-          alert("click " + this.name);
-        }
+        teaser: {
+          num: 30,
+          type: 'mine-shaft',
+          text: "text"
+        },
       }, {
-        name: "Grandchild2",
-        isAvailable: true,
-        url: "#"
-      }, {
-        name: "Grandchild3",
-        isAvailable: true,
+        name: "Пункт меню третьего уровня4",
         url: "#"
       }]
+    },
+    {
+      name: "Пункт меню второго уровня4",
+      isAvailable: true,
+      url: "#"
     }]
   },
   {

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, Input, Output, Inject, forwardRef, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ContentChild, Query, TemplateRef, Input, Output, Inject, forwardRef, ElementRef, AfterViewInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {ScTypeaheadDirective} from 'ui-kit/sc-combobox/sc-typeahead/sc-typeahead.directive';
 
 const noop = () => {
 };
@@ -20,6 +21,25 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     providers     : [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 export class ScTextFieldComponent implements OnInit, ControlValueAccessor, AfterViewInit {
+    private _myInput: ElementRef;
+    // Получаем поле из вью
+    @ViewChild('myInput') set myInput (value: ElementRef) {
+        if ( !this._myInput ) {
+            this._myInput = value;
+        }
+    };
+    get myInput (): ElementRef {
+        return this._myInput;
+    }
+    private hasCustomInput: boolean = false;
+
+    @ContentChild(ScTypeaheadDirective) set customInput (value: ScTypeaheadDirective) {
+        this.hasCustomInput = !!value;
+        if ( this.hasCustomInput ) {
+            this._myInput = value.getElementRef();
+        }
+    }
+
     private isLeft: boolean = true;
     private isRight: boolean = true;
     // Получаем наблюдаемых детей
@@ -64,9 +84,6 @@ export class ScTextFieldComponent implements OnInit, ControlValueAccessor, After
 
     // Флаг для фокуса
     private focusElement: boolean = false;
-
-    // Получаем поле из вью
-    @ViewChild('myInput') myInput;
 
     //get accessor
     get value(): any {
